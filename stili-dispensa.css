@@ -1,0 +1,81 @@
+/* ==================================================
+   Stili della dispensa — Informazione Multimediale, Audio
+   Palette colori identica a quella del deck delle slide.
+   Uso: avvolgere testo o formule in ::: {.corallo} ecc.
+   ================================================== */
+
+/* Colori principali */
+.blu {
+  color: #1769C2;
+}
+
+.blu-scuro {
+  color: #17365D;
+}
+
+.azzurro {
+  color: #3D9BE9;
+}
+
+.celeste {
+  color: #58AFCF;
+}
+
+/* Evidenziazioni calde */
+.rosso {
+  color: #D9362B;
+}
+
+.corallo {
+  color: #E76452;
+}
+
+.arancio {
+  color: #E58A2B;
+}
+
+.ocra {
+  color: #C99118;
+}
+
+/* Verdi */
+.verde {
+  color: #2E8B57;
+}
+
+.verde-salvia {
+  color: #5F8F72;
+}
+
+.verde-acqua {
+  color: #278C87;
+}
+
+/* Altri colori utili */
+.viola {
+  color: #7451A6;
+}
+
+.prugna {
+  color: #8B4A6F;
+}
+
+.grigio {
+  color: #68727D;
+}
+
+.grigio-scuro {
+  color: #404852;
+}
+
+
+/* ==================================================
+   math
+   ================================================== */
+.math {
+  color: hsl(0, 88%, 39%);
+}
+
+.math.display {
+  color: hsl(0, 88%, 39%);
+}
