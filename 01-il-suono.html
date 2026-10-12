@@ -201,7 +201,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dispensa del corso</span></a>
+ <span class="menu-text">Modulo del corso <em>Informazione Multimediale</em> (A.A. 2026/2027)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -232,18 +232,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./05-ai-moderna-per-il-suono.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">AI moderna per il suono: rappresentazioni e generazione</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-dal-parlato-al-testo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dal parlato al testo</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-dal-segnale-alla-consegna.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Dal segnale sporco alla consegna: separare, migliorare, comprimere</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -374,6 +362,8 @@ window.Quarto = {
 <p>Un esempio classico di onde sonore longitudinali è il suono che si propaga nell’aria. Quando si parla, si emette un suono facendo vibrare le corde vocali, che a loro volta creano compressioni e rarefazioni nelle molecole d’aria. Le particelle d’aria oscillano avanti e indietro parallelamente alla direzione in cui l’onda sonora si propaga, caratterizzando così il suono come un’onda longitudinale. Nell’immagine qui sotto si rappresentano le onde sonore longitudinali attraverso un grafico dello spostamento delle particelle.</p>
 <p><img src="images/onda-longitudinale-schema-dispensa.png" class="img-fluid"></p>
 <p>Le particelle del mezzo si addensano nelle zone di compressione e si diradano in quelle di rarefazione, mentre la pressione oscilla lungo la direzione di propagazione.</p>
+<p>Un equivoco frequente è credere che sia l’aria a viaggiare dalla sorgente all’orecchio: in realtà la membrana dell’altoparlante mette in moto le particelle che ha davanti, queste spingono quelle vicine, e la perturbazione avanza di strato in strato. Ogni particella si limita così a oscillare attorno alla sua posizione di equilibrio, mentre quello che davvero si allontana dalla sorgente è l’<strong>energia</strong> della vibrazione, che l’onda porta con sé.</p>
+<p><img src="images/suono-energia.png" class="img-fluid"></p>
 <p>Un esempio comune di onde trasversali è la propagazione delle onde sulla superficie dell’acqua. In queste onde, le particelle d’acqua si muovono perpendicolarmente alla direzione di propagazione dell’onda stessa. Quando si getta un sasso in uno stagno, si osservano onde che si propagano verso l’esterno formando cerchi concentrici, mentre le particelle d’acqua oscillano su e giù. Altri esempi includono:</p>
 <ul>
 <li>onde elettromagnetiche (come la luce e le onde radio), dove i campi elettrici e magnetici oscillano perpendicolarmente alla direzione di propagazione;</li>
@@ -1029,9 +1019,11 @@ Avviso
 </div>
 </div>
 <p>La scala dei decibel è una scala relativa, nella quale cioè un suono viene misurato in rapporto a un suono di riferimento: <span class="math inline">\(p\)</span> è la pressione del suono da misurare, <span class="math inline">\(p_0\)</span> è la pressione del suono di riferimento, che corrisponde alla soglia minima di udibilità appena definita. Del rapporto tra <span class="math inline">\(p\)</span> e <span class="math inline">\(p_0\)</span> si prende il logaritmo e si moltiplica per 20. Il logaritmo del rapporto si definisce come <code>bel</code> (da Alexander Graham Bell); la moltiplicazione per 20 va letta come una moltiplicazione per 10 e poi per 2. La moltiplicazione per 10 esprime la stessa quantità in decibel (così come i metri si esprimono in decimetri moltiplicando per 10). L’ulteriore moltiplicazione per 2 diventa chiara con il secondo metodo di misura dell’ampiezza, che considera l’intensità sonora legata all’energia trasportata dall’onda.</p>
+<p>La <span class="math inline">\(p\)</span> che compare nella formula è la <strong>pressione efficace</strong> del suono: si prendono le variazioni di pressione istante per istante, se ne calcola il quadrato e poi la media, e infine si estrae la radice quadrata (in inglese <code>root mean square</code>, da cui la sigla <code>rms</code>). Una media semplice non basterebbe: la pressione di un’onda oscilla tra compressioni e rarefazioni, sopra e sotto la pressione atmosferica, e valori positivi e negativi si annullerebbero a vicenda; i quadrati invece si sommano. Per un’onda sinusoidale la pressione efficace è la pressione massima divisa per <span class="math inline">\(\sqrt{2}\)</span>. Il riferimento <span class="math inline">\(p_0\)</span> è fissato dalle norme internazionali a 20 micropascal (<span class="math inline">\(2\times10^{-5}\)</span> Pa) in aria.</p>
 <p>L’intensità sonora è una misura dell’energia trasportata dall’onda: come per l’intensità luminosa, è l’energia che passa attraverso una superficie unitaria (<span class="math inline">\(1\,m^2\)</span>) per unità di tempo (1 s). Poiché l’energia al secondo si misura in watt, l’intensità si misura in <span class="math inline">\(W/m^2\)</span>. Nel caso dell’intensità sonora, la scala dei decibel, che assume il nome di <code>Livello di Intensità Sonora</code> (<code>Sound Intensity Level</code>, SIL), è data dalla relazione:</p>
 <p><span id="eq-sil"><span class="math display">\[\text{SIL} = 10 \log_{10}\left(\frac{I}{I_0}\right) \tag{1.6}\]</span></span></p>
 <p>dove <span class="math inline">\(I\)</span> è l’intensità del suono in questione e <span class="math inline">\(I_0\)</span> è il valore di intensità del suono di riferimento. Si tratta di nuovo della soglia minima di intensità per un suono a 1000 Hz di frequenza, e vale <span class="math inline">\(10^{-12}\,Watt/m^2\)</span>. Poiché SPL e SIL sono valori calcolati in relazione alla soglia di udibilità, nella maggior parte dei suoni standard i due valori sono identici: non entriamo nei dettagli, ma è opportuno sapere che i due valori differiscono dal punto di vista dell’interpretazione fisica. La pressione è il risultato di onde che arrivano da molteplici direzioni, mentre l’intensità viene definita per una direzione di flusso dell’energia e una superficie attraversata. Il motivo per avere entrambe le misure è che a volte conviene lavorare con l’intensità e altre volte con la pressione.</p>
+<p>Perché due fattori diversi, 20 per la pressione e 10 per l’intensità, danno lo stesso risultato? Perché l’intensità cresce con il quadrato della pressione, e davanti a un logaritmo il quadrato diventa un fattore 2: <span class="math inline">\(\log_{10}(p^2/p_0^2) = 2\log_{10}(p/p_0)\)</span>, e quindi <span class="math inline">\(2 \times 10 = 20\)</span>. La scala della pressione contiene così già in sé il quadrato che la lega all’energia: per questo SPL e SIL attribuiscono praticamente lo stesso livello allo stesso suono.</p>
 <p>Abbiamo visto che il decibel non è una quantità di suono, ma un rapporto tra due suoni; per avere una scala assoluta, il rapporto si determina in relazione a un suono sulla soglia dell’udibilità. Prendiamo ora tre suoni qualsiasi <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span>. Se l’intensità del suono <span class="math inline">\(x\)</span> è 10 volte maggiore dell’intensità del suono <span class="math inline">\(y\)</span>, allora la differenza tra i livelli di intensità dei due suoni è di 10 decibel (dB). Inoltre, se l’intensità del suono <span class="math inline">\(y\)</span> è 10 volte maggiore dell’intensità del suono <span class="math inline">\(z\)</span>, allora la differenza tra i livelli di intensità dei due suoni è di nuovo di 10 dB. Infine, notiamo che l’intensità del suono <span class="math inline">\(x\)</span> è 100 volte maggiore dell’intensità del suono <span class="math inline">\(z\)</span>, ma la differenza tra i livelli di intensità di <span class="math inline">\(x\)</span> e <span class="math inline">\(z\)</span> è solo di 20 dB: la scala logaritmica comprime i rapporti grandi.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Approfondimento facoltativo — La potenza si spande su superfici sempre più grandi">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -1515,7 +1507,13 @@ In alcuni strumenti il rumore fa parte del carattere del suono: il soffio di un 
 </section>
 <section id="onde-stazionarie" class="level3">
 <h3 class="anchored" data-anchor-id="onde-stazionarie">Onde stazionarie</h3>
-<p>Un’onda che viaggia su una corda fissata agli estremi si riflette alle pareti e torna indietro, capovolta. L’onda di andata e quella di ritorno hanno la stessa frequenza e la stessa velocità, ma versi opposti: dove si incontrano si sommano, e dall’<strong>interferenza</strong> fra le due nasce una figura che non si sposta, pur continuando a oscillare nel tempo. È l’<strong>onda stazionaria</strong>.</p>
+<p>C’è un caso di sovrapposizione ancora più interessante: le due onde non arrivano da sorgenti diverse, ma sono <strong>la stessa onda</strong> che torna indietro. Su una corda fissata agli estremi, l’onda che viaggia verso l’estremo si chiama <strong>onda incidente</strong>; quando lo raggiunge non può oltrepassarlo e viene <strong>riflessa</strong>: torna indietro capovolta, come <strong>onda riflessa</strong>. L’onda di ritorno ha la stessa frequenza e la stessa velocità di quella di andata, ma viaggia in verso opposto.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/onda-riflessa.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>L’onda incidente e l’onda riflessa viaggiano allora lungo la stessa corda in versi opposti: dove si incontrano si sommano, e dall’<strong>interferenza</strong> fra le due nasce una figura che non si sposta, pur continuando a oscillare nel tempo. È l’<strong>onda stazionaria</strong>.</p>
 <p>Su una corda fissata ai due estremi, lunga <span class="math inline">\(L\)</span>, l’onda stazionaria può esistere solo se sulla corda sta un numero intero di <strong>semilunghezze d’onda</strong>: gli estremi sono fissi per costruzione, e solo a questa condizione la figura si incastra fra le due pareti. Non tutte le frequenze sono quindi possibili: sono ammesse soltanto quelle che rispettano il vincolo.</p>
 <p>Come mostra la figura seguente, La corda fissata ai due estremi può vibrare solo con un numero intero di semilunghezze d’onda: lungo la corda si alternano i punti che non si muovono mai, i <strong>nodi</strong>, e quelli che oscillano con lo spostamento massimo, gli <strong>antinodi</strong>. La distanza fra due nodi consecutivi è mezza lunghezza d’onda, ed è per questo che dalla posizione dei nodi si legge direttamente la forma del modo: nella figura della sezione, il modo più semplice ha due nodi agli estremi e un solo antinodo al centro.</p>
 <p><img src="images/piu-nodi.png" class="img-fluid"></p>
@@ -1524,11 +1522,7 @@ In alcuni strumenti il rumore fa parte del carattere del suono: il soffio di un 
 <p><img src="images/nodi-onde.png" class="img-fluid"></p>
 <p>È la frequenza più bassa possibile, e si chiama <strong>fondamentale</strong> o prima armonica. I modi successivi sono le <strong>armoniche</strong>: il modo numero <span class="math inline">\(n\)</span> ha <span class="math inline">\(n+1\)</span> nodi e lunghezza d’onda pari alla <span class="math inline">\(n\)</span>-esima parte della fondamentale, con una frequenza che è <span class="math inline">\(n\)</span> volte la fondamentale.</p>
 <p><span class="math display">\[\lambda_n = \frac{\lambda_1}{n} = \frac{2L}{n} \qquad\Longrightarrow\qquad f_n = n\,f_1 = n\,\frac{v}{2L}\]</span></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/fig-13-modi-corda.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
-</figure>
-</div>
+<p><img src="images/fig-13-modi-corda.png" class="img-fluid"></p>
 <p>Lo stesso meccanismo spiega gli strumenti a corda, ed è anche il motivo per cui hanno la forma che hanno.</p>
 <p><img src="images/chitarra-pianoforte.png" class="img-fluid"></p>
 <p>Nella <strong>chitarra</strong> tutte le corde hanno la stessa lunghezza: perché ciascuna abbia una frequenza fondamentale diversa si fa variare lo <strong>spessore</strong>, cioè la densità lineare della corda. L’accordatura fine si fa poi tendendo la corda, perché cambiare la tensione cambia la velocità delle onde e quindi l’altezza della nota. Nel <strong>pianoforte</strong> le corde hanno lunghezza e <strong>spessore</strong> diversi, ed è questa differenza a fissare l’altezza di ciascuna nota: è anche il motivo della forma allungata di un pianoforte a coda, che deve ospitare corde molto più lunghe per i registri bassi.</p>
@@ -2247,8 +2241,8 @@ Mostra la risposta
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Dispensa del corso">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Dispensa del corso</span>
+      <a href="./index.html" class="pagination-link" aria-label="Modulo del corso *Informazione Multimediale* (A.A. 2026/2027)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Modulo del corso <em>Informazione Multimediale</em> (A.A. 2026/2027)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
