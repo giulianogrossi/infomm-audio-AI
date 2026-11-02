@@ -8,6 +8,7 @@ Pubblicazione **a capitoli**, in corso. In questa build:
 - Copertina e indice delle lezioni
 - Lezione 1 — Il suono
 - Lezione 2 — Spettro del segnale
+- Lezione 3 — DSP: filtri ed effetti
 - Appendice B — Manuale delle funzioni
 
 Generato automaticamente da `pubblicazione/pubblica-dispensa.py`;
