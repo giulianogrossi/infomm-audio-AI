@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-11-07T14:15:29.329200Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-11-07T14:15:29.329200Z",
+      "mimetype": null,
+      "name": "01-il-suono-interattivo.ipynb",
+      "path": "01-il-suono-interattivo.ipynb",
+      "size": 11032,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-11-07T14:16:35.614285Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-11-07T14:16:35.614481Z",
+  "mimetype": null,
+  "name": "",
+  "path": "",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
