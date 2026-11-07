@@ -209,8 +209,8 @@ function here() {
 export async function getPageConfig(url = null) {
   let script = CONFIG_SCRIPT;
 
-  if (url != null) {
-    const text = await (await window.fetch(`${url}index.html`)).text();
+  if (url != null && url !== HERE) {
+    const text = await (await window.fetch(`${url}index.html`, {cache: "no-store"})).text();
     const doc = parser.parseFromString(text, 'text/html');
     script = doc.getElementById(JUPYTER_CONFIG_ID);
   }
@@ -225,7 +225,7 @@ export async function getLiteConfig(url, fileName) {
   let config = {};
   const liteUrl = `${url || HERE}${fileName}`;
   try {
-    text = await (await window.fetch(liteUrl)).text();
+    text = await (await window.fetch(liteUrl, {cache: "no-store"})).text();
     const json = JSON.parse(text);
     const liteConfig = fileName.endsWith('.ipynb')
       ? json['metadata']['jupyter-lite']
