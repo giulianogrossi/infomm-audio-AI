@@ -1,6 +1,6 @@
 {
   "jupyter-config-data": {
-    "appName": "Laboratorio Audio \u2014 audiolab",
+    "appName": "JupyterLite",
     "appUrl": "./lab",
     "appVersion": "0.8.7",
     "baseUrl": "./",
