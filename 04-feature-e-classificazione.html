@@ -448,6 +448,20 @@ window.Quarto = {
 </section>
 <section id="sec-fc-preparazione" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-fc-preparazione"><span class="header-section-number">4.2</span> Preparazione: strumenti e convenzioni</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Demo interattive con audiolab">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Demo interattive con audiolab
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I riquadri delle demo si aprono e si richiudono con un clic sul titolo. Al primo avvio usare <strong>Run → Run All Cells</strong> nel riquadro: viene caricata la stessa libreria <code>audiolab</code> dei laboratori. Poi è possibile modificare il codice e rieseguire la cella della demo con <strong>Shift + Invio</strong>. Ogni demo browser è indipendente.</p>
+<p>Le demo di descrittori e rappresentazioni si eseguono nel browser. Il protocollo completo UrbanSound8K, le baseline e la CNN si eseguono nel <a href="_jupyterlite/files/04-feature-e-classificazione-jupyter.ipynb" download="04-feature-e-classificazione-demo.ipynb">notebook Jupyter completo</a>, con dataset e PyTorch disponibili.</p>
+</div>
+</div>
 <p>Usiamo <code>librosa</code> per le rappresentazioni nel tempo e in frequenza, <code>scikit-learn</code> per classificatori e metriche, <code>torch</code> per la rete convoluzionale 2D. Le funzioni di servizio in <a href="../lab-2026/audiolab/classification.py"><code>audiolab/classification.py</code></a> (documentate in <a href="./app-b-manuale-funzioni.html">Appendice B — Manuale delle funzioni <code>audiolab</code></a>) gestiscono metadati, cache e addestramento; le scelte sperimentali sono esplicite nelle demo.</p>
 <p>Avvia dalla dispensa o da <code>lab-2026</code>, con le dipendenze del corso disponibili. Il dataset deve essere già presente in <code>datasets/UrbanSound8K</code>, oppure indicato dalla variabile <code>URBANSOUND8K</code>: il codice non lo scarica. Il <a href="../lab-2026/04-feature-e-classificazione-demo.ipynb">notebook delle demo (<code>04-feature-e-classificazione-demo.ipynb</code>)</a> contiene le stesse celle; il <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb">laboratorio (<code>04-feature-e-classificazione-TODO.ipynb</code>)</a> propone il percorso guidato (con le soluzioni in <a href="../lab-2026/04-feature-e-classificazione-SOLUZ.ipynb"><code>04-feature-e-classificazione-SOLUZ.ipynb</code></a>). In calce al capitolo trovi inoltre le <strong><a href="#sec-slide-lezione-4">Slide della lezione</a></strong> sfogliabili direttamente nella pagina o apribili a schermo intero.</p>
 <div id="fc-preparazione" class="cell" data-execution_count="1">
@@ -490,8 +504,8 @@ window.Quarto = {
 <p><strong>Train</strong> serve per apprendere i parametri. <strong>Validazione</strong> serve per scegliere rappresentazione, iperparametri ed epoca della CNN. <strong>Test</strong> serve per il confronto finale, dopo aver fissato le scelte. Se modifichiamo il modello in base agli errori del test, quel test diventa di fatto un altro insieme di validazione.</p>
 <p>Il <strong>data leakage</strong> si verifica quando informazione che non sarebbe disponibile su dati nuovi influenza l’addestramento o la selezione. Esempi: ritagli della stessa registrazione in insiemi diversi, statistiche di standardizzazione calcolate anche sul test, varianti aumentate di uno stesso clip distribuite fra train e test.</p>
 <p>Nella demo usiamo fold 1–8 per train, 9 per validazione, 10 per test, con un massimo di 60, 10 e 15 clip <strong>per classe</strong>. È un sottoinsieme tendenzialmente bilanciato; stampiamo i conteggi effettivi. Non rappresenta la distribuzione naturale degli eventi in una città.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Demo 1 — Un elenco di file condiviso da tutti i modelli">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div id="demo-cap4-1" class="callout callout-style-default callout-note callout-titled" title="Demo 1 — Un elenco di file condiviso da tutti i modelli">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -500,7 +514,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="cell-fc-dataset" class="cell" data-execution_count="2">
 <details class="code-fold">
@@ -530,6 +544,7 @@ Esempio: 204240-0-0-6.mp3</code></pre>
               
 </div>
 </div>
+<p><strong>Esecuzione in Jupyter:</strong> <a href="_jupyterlite/files/04-feature-e-classificazione-jupyter.ipynb" download="04-feature-e-classificazione-demo.ipynb">scarica il notebook completo con le API <code>audiolab</code></a>. Richiede il dataset UrbanSound8K del corso; le celle della CNN richiedono anche PyTorch. Eseguire le celle in ordine con <strong>Run → Run All Cells</strong>.</p>
 </div>
 </div>
 </div>
@@ -553,8 +568,8 @@ Esempio: 204240-0-0-6.mp3</code></pre>
 <p><span class="math display">\[\operatorname{flatness}(P)=
 \frac{\exp\left(\frac{1}{K}\sum_k\ln(\max(P_k,\varepsilon))\right)}
 {\frac{1}{K}\sum_k\max(P_k,\varepsilon)},\qquad P_k=|X[k]|^2.\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled" title="Demo 2 — Tre segnali controllati, non tre strumenti reali">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div id="demo-cap4-2" class="callout callout-style-default callout-note callout-titled" title="Demo 2 — Tre segnali controllati, non tre strumenti reali">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -563,49 +578,12 @@ Esempio: 204240-0-0-6.mp3</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Confrontiamo un tono, una somma armonica e rumore, a pari RMS. Sono costruzioni per isolare le proprietà, non simulazioni fedeli di flauto, clarinetto o percussioni.</p>
-<div id="cell-fc-feature" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(FS)<span class="op">/</span>FS</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>segnali <span class="op">=</span> {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Tono 330 Hz"</span>: np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">330</span><span class="op">*</span>t),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Somma armonica"</span>: <span class="bu">sum</span>(np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">330</span><span class="op">*</span>k<span class="op">*</span>t)<span class="op">/</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>)),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rumore"</span>: rng.standard_normal(<span class="bu">len</span>(t)),</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (nome, y) <span class="kw">in</span> <span class="bu">zip</span>(axes, segnali.items()):</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> y<span class="op">/</span>np.sqrt(np.mean(y<span class="op">*</span>y))<span class="op">*</span><span class="fl">0.05</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    segnali[nome] <span class="op">=</span> y</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.<span class="bu">abs</span>(librosa.stft(y, n_fft<span class="op">=</span><span class="dv">1024</span>, hop_length<span class="op">=</span><span class="dv">512</span>))</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    P <span class="op">=</span> A<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    centroide <span class="op">=</span> librosa.feature.spectral_centroid(S<span class="op">=</span>A, sr<span class="op">=</span>FS).mean()</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    rolloff <span class="op">=</span> librosa.feature.spectral_rolloff(S<span class="op">=</span>P, sr<span class="op">=</span>FS, roll_percent<span class="op">=</span><span class="fl">0.85</span>).mean()</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    flat <span class="op">=</span> librosa.feature.spectral_flatness(S<span class="op">=</span>P, power<span class="op">=</span><span class="fl">1.0</span>).mean()</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    zcr <span class="op">=</span> librosa.feature.zero_crossing_rate(y).mean()</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">: RMS 0.050; ZCR </span><span class="sc">{</span>zcr<span class="sc">:.3f}</span><span class="ss">; centroide </span><span class="sc">{</span>centroide<span class="sc">:.0f}</span><span class="ss"> Hz; "</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"rolloff </span><span class="sc">{</span>rolloff<span class="sc">:.0f}</span><span class="ss"> Hz; flatness </span><span class="sc">{</span>flat<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    ax.plot(librosa.fft_frequencies(sr<span class="op">=</span>FS, n_fft<span class="op">=</span><span class="dv">1024</span>), A.mean(axis<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(nome)<span class="op">;</span> ax.set_xlim(<span class="dv">0</span>, FS<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">"Frequenza [Hz]"</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Spettro medio in ampiezza: stessa scala di frequenza"</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Tono 330 Hz: RMS 0.050; ZCR 0.029; centroide 337 Hz; rolloff 345 Hz; flatness 0.000
-Somma armonica: RMS 0.050; ZCR 0.029; centroide 1060 Hz; rolloff 991 Hz; flatness 0.000
-Rumore: RMS 0.050; ZCR 0.483; centroide 5523 Hz; rolloff 9413 Hz; flatness 0.561</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="04-feature-e-classificazione_files/figure-html/fc-feature-output-2.png" id="fc-feature" width="849" height="568" class="figure-img"></p>
-</figure>
-</div>
-</div>
+<div class="python-demo" data-demo="4-2">
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=04-demo-2-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=04-demo-2-audiolab.ipynb" title="Demo 2 — Tre segnali controllati, non tre strumenti reali: Python con audiolab" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Prova.</strong> Porta il tono a 4000 Hz: lo ZCR cresce anche senza rumore. Questo basta a confutare l’equivalenza “molti attraversamenti dello zero = rumore”.</p>
 </div>
@@ -777,8 +755,8 @@ k &amp;= [\;\;64,\;\;\;\; 93,\;\; 129,\;\; 174,\;\; 232,\;\; 304,\;\; 396,\;\; 5
 <figcaption>Confronto sullo stesso campione di flauto (<code>Flute_C4.wav</code>) tra lo spettrogramma Log-Mel a 64 bande (a sinistra, in cui sono visibili le righe orizzontali delle armoniche) e i 12 coefficienti MFCC <span class="math inline">\(c_1 \dots c_{12}\)</span> standardizzati (a destra, che riassumono soprattutto la forma globale dello spettro).</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-note callout-titled" title="Demo 3 — Lo stesso clip in tre rappresentazioni">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div id="demo-cap4-3" class="callout callout-style-default callout-note callout-titled" title="Demo 3 — Lo stesso clip in tre rappresentazioni">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -787,58 +765,19 @@ k &amp;= [\;\;64,\;\;\;\; 93,\;\; 129,\;\; 174,\;\; 232,\;\; 304,\;\; 396,\;\; 5
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="fc-mel-mfcc" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> al.load_clip(split[<span class="st">"train"</span>][<span class="dv">0</span>][<span class="st">"file"</span>], sr<span class="op">=</span>FS)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.<span class="bu">abs</span>(librosa.stft(y, n_fft<span class="op">=</span><span class="dv">1024</span>, hop_length<span class="op">=</span><span class="dv">512</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> librosa.filters.mel(sr<span class="op">=</span>FS, n_fft<span class="op">=</span><span class="dv">1024</span>, n_mels<span class="op">=</span><span class="dv">64</span>, htk<span class="op">=</span><span class="va">False</span>, norm<span class="op">=</span><span class="st">"slaney"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mel <span class="op">=</span> B <span class="op">@</span> A<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>logmel <span class="op">=</span> librosa.power_to_db(mel, ref<span class="op">=</span><span class="fl">1.0</span>, top_db<span class="op">=</span><span class="dv">80</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>mfcc <span class="op">=</span> librosa.feature.mfcc(S<span class="op">=</span>logmel, n_mfcc<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Banco:"</span>, B.shape, <span class="st">"potenza:"</span>, A.shape, <span class="st">"log-mel:"</span>, logmel.shape, <span class="st">"MFCC:"</span>, mfcc.shape)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">3</span>))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> librosa.fft_frequencies(sr<span class="op">=</span>FS, n_fft<span class="op">=</span><span class="dv">1024</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> banda <span class="kw">in</span> B[::<span class="dv">4</span>]: ax.plot(f, banda)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">"Frequenza [Hz]"</span>, ylabel<span class="op">=</span><span class="st">"Peso"</span>, title<span class="op">=</span><span class="st">"Una banda ogni quattro: banco Slaney normalizzato per area"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, S, asse_y, titolo <span class="kw">in</span> <span class="bu">zip</span>(axes,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    [librosa.power_to_db(A<span class="op">**</span><span class="dv">2</span>, ref<span class="op">=</span><span class="fl">1.0</span>), logmel, mfcc],</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"linear"</span>, <span class="st">"mel"</span>, <span class="va">None</span>], [<span class="st">"Potenza STFT in dB"</span>, <span class="st">"Log-mel: 64 bande"</span>, <span class="st">"MFCC: coefficienti 0–12"</span>]):</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> librosa.display.specshow(S, sr<span class="op">=</span>FS, hop_length<span class="op">=</span><span class="dv">512</span>, x_axis<span class="op">=</span><span class="st">"time"</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                                  y_axis<span class="op">=</span>asse_y, ax<span class="op">=</span>ax)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    ax.set_title(titolo)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(img, ax<span class="op">=</span>ax)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="op">-</span><span class="dv">1</span>].set_ylabel(<span class="st">"Indice del coefficiente"</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Banco: (64, 513) potenza: (513, 173) log-mel: (64, 173) MFCC: (13, 173)</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="04-feature-e-classificazione_files/figure-html/fc-mel-mfcc-output-2.png" id="fc-mel-mfcc-1" width="847" height="275" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="04-feature-e-classificazione_files/figure-html/fc-mel-mfcc-output-3.png" id="fc-mel-mfcc-2" width="872" height="755" class="figure-img"></p>
-</figure>
-</div>
-</div>
+<div class="python-demo" data-demo="4-3">
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=04-demo-3-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=04-demo-3-audiolab.ipynb" title="Demo 3 — Lo stesso clip in tre rappresentazioni: Python con audiolab" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p>Le scale cromatiche delle tre rappresentazioni hanno significati differenti; non si confrontano direttamente i colori di un MFCC con quelli di uno spettrogramma.</p>
+<p>La versione browser analizza un singolo clip reale, indicato nel notebook. Per confrontare tutti i modelli sugli stessi split si usa il notebook Jupyter completo.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Approfondimento: derivate temporali ($\Delta, \Delta\Delta$), pre-enfasi, liftering e scelta tra Log-Mel e MFCC">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -847,7 +786,7 @@ k &amp;= [\;\;64,\;\;\;\; 93,\;\; 129,\;\; 174,\;\; 232,\;\; 304,\;\; 396,\;\; 5
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Catturare la dinamica: coefficienti <span class="math inline">\(\Delta\)</span> e <span class="math inline">\(\Delta\Delta\)</span>.</strong> I coefficienti <span class="math inline">\(C[q, t]\)</span> descrivono l’inviluppo di ciascun frame preso isolatamente. Per rappresentare la velocità e l’accelerazione con cui il timbro evolve nel tempo (fondamentali nelle transizioni tra fonemi o negli attacchi strumentali), si affiancano le derivate discrete del primo ordine (<strong>delta</strong>, <span class="math inline">\(\Delta\)</span>) e del secondo ordine (<strong>delta-delta</strong>, <span class="math inline">\(\Delta\Delta\)</span>), calcolate su una finestra simmetrica di <span class="math inline">\(\pm W\)</span> frame:</p>
 <p><span class="math display">\[\Delta C[q, t] = \frac{\sum_{i=1}^{W} i\,\big(C[q, t+i] - C[q, t-i]\big)}{2\sum_{i=1}^{W} i^2}, \qquad \Delta\Delta C[q, t] = \Delta\big(\Delta C[q, t]\big).\]</span></p>
@@ -907,9 +846,9 @@ k &amp;= [\;\;64,\;\;\;\; 93,\;\; 129,\;\; 174,\;\; 232,\;\; 304,\;\; 396,\;\; 5
 <div id="fc-aggregazione" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>permutati <span class="op">=</span> mfcc[:, np.random.default_rng(<span class="dv">7</span>).permutation(mfcc.shape[<span class="dv">1</span>])]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Media invariata:"</span>, np.allclose(mfcc.mean(<span class="dv">1</span>), permutati.mean(<span class="dv">1</span>)))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Deviazione standard invariata:"</span>, np.allclose(mfcc.std(<span class="dv">1</span>), permutati.std(<span class="dv">1</span>)))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>permutati <span class="op">=</span> mfcc[:, np.random.default_rng(<span class="dv">7</span>).permutation(mfcc.shape[<span class="dv">1</span>])]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Media invariata:"</span>, np.allclose(mfcc.mean(<span class="dv">1</span>), permutati.mean(<span class="dv">1</span>)))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Deviazione standard invariata:"</span>, np.allclose(mfcc.std(<span class="dv">1</span>), permutati.std(<span class="dv">1</span>)))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Media invariata: True
@@ -925,8 +864,8 @@ Deviazione standard invariata: True</code></pre>
 <p>Per una classe, <strong>precisione</strong> indica quanti esempi predetti in quella classe sono corretti; <strong>richiamo</strong> quanti esempi reali della classe vengono recuperati:</p>
 <p><span class="math display">\[P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2PR}{P+R}.\]</span></p>
 <p>La <strong>macro-F1</strong> media gli F1 delle dieci classi dando a ciascuna lo stesso peso. L’accuratezza conta invece tutti i clip allo stesso modo. Una classe al 95% può portare una baseline costante al 95% di accuratezza; il nostro sottoinsieme bilanciato non riproduce quel caso. Usiamo <code>zero_division=0</code> per rendere esplicita la gestione delle classi senza predizioni corrette o positive.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Demo 4 — Confrontare le feature sulla validazione">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div id="demo-cap4-4" class="callout callout-style-default callout-note callout-titled" title="Demo 4 — Confrontare le feature sulla validazione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -935,24 +874,24 @@ Deviazione standard invariata: True</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="fc-baseline" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dati, chiave <span class="op">=</span> al.prepare_features(split, OUTPUT)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>modelli <span class="op">=</span> {}</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>costi <span class="op">=</span> {}</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, dimensioni <span class="kw">in</span> ((<span class="st">"Dummy"</span>, <span class="dv">13</span>), (<span class="st">"RF media"</span>, <span class="dv">13</span>), (<span class="st">"RF media+std"</span>, <span class="dv">26</span>)):</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    modello <span class="op">=</span> (DummyClassifier(strategy<span class="op">=</span><span class="st">"most_frequent"</span>) <span class="cf">if</span> nome <span class="op">==</span> <span class="st">"Dummy"</span> <span class="cf">else</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>               RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">150</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_jobs<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    inizio <span class="op">=</span> time.perf_counter()</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    modello.fit(dati[<span class="st">"train_feat"</span>][:, :dimensioni], dati[<span class="st">"train_y"</span>])</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    costi[nome] <span class="op">=</span> time.perf_counter()<span class="op">-</span>inizio</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    pred <span class="op">=</span> modello.predict(dati[<span class="st">"val_feat"</span>][:, :dimensioni])</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(nome, <span class="st">"macro-F1 validazione:"</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>          <span class="bu">round</span>(f1_score(dati[<span class="st">"val_y"</span>], pred, labels<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>), average<span class="op">=</span><span class="st">"macro"</span>, zero_division<span class="op">=</span><span class="dv">0</span>), <span class="dv">3</span>))</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    modelli[nome] <span class="op">=</span> (modello, dimensioni)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dati, chiave <span class="op">=</span> al.prepare_features(split, OUTPUT)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>modelli <span class="op">=</span> {}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>costi <span class="op">=</span> {}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, dimensioni <span class="kw">in</span> ((<span class="st">"Dummy"</span>, <span class="dv">13</span>), (<span class="st">"RF media"</span>, <span class="dv">13</span>), (<span class="st">"RF media+std"</span>, <span class="dv">26</span>)):</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    modello <span class="op">=</span> (DummyClassifier(strategy<span class="op">=</span><span class="st">"most_frequent"</span>) <span class="cf">if</span> nome <span class="op">==</span> <span class="st">"Dummy"</span> <span class="cf">else</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">150</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_jobs<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    inizio <span class="op">=</span> time.perf_counter()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    modello.fit(dati[<span class="st">"train_feat"</span>][:, :dimensioni], dati[<span class="st">"train_y"</span>])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    costi[nome] <span class="op">=</span> time.perf_counter()<span class="op">-</span>inizio</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    pred <span class="op">=</span> modello.predict(dati[<span class="st">"val_feat"</span>][:, :dimensioni])</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(nome, <span class="st">"macro-F1 validazione:"</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>          <span class="bu">round</span>(f1_score(dati[<span class="st">"val_y"</span>], pred, labels<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>), average<span class="op">=</span><span class="st">"macro"</span>, zero_division<span class="op">=</span><span class="dv">0</span>), <span class="dv">3</span>))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    modelli[nome] <span class="op">=</span> (modello, dimensioni)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Feature ricaricate dalla cache.
@@ -962,6 +901,7 @@ RF media macro-F1 validazione: 0.481
 RF media+std macro-F1 validazione: 0.536</code></pre>
 </div>
 </div>
+<p><strong>Esecuzione in Jupyter:</strong> <a href="_jupyterlite/files/04-feature-e-classificazione-jupyter.ipynb" download="04-feature-e-classificazione-demo.ipynb">scarica il notebook completo con le API <code>audiolab</code></a>. Richiede il dataset UrbanSound8K del corso; le celle della CNN richiedono anche PyTorch. Eseguire le celle in ordine con <strong>Run → Run All Cells</strong>.</p>
 </div>
 </div>
 </div>
@@ -980,13 +920,13 @@ RF media+std macro-F1 validazione: 0.536</code></pre>
 <div id="fc-cnn-forme" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">42</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>rete <span class="op">=</span> al.build_sound_cnn()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.zeros(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">64</span>, <span class="dv">173</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, blocco <span class="kw">in</span> <span class="bu">enumerate</span>(rete.blocks, <span class="dv">1</span>):</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> blocco(x)<span class="op">;</span> <span class="bu">print</span>(<span class="st">"Blocco"</span>, i, <span class="bu">tuple</span>(x.shape))</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Parametri:"</span>, <span class="bu">sum</span>(p.numel() <span class="cf">for</span> p <span class="kw">in</span> rete.parameters()))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">42</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>rete <span class="op">=</span> al.build_sound_cnn()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.zeros(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">64</span>, <span class="dv">173</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, blocco <span class="kw">in</span> <span class="bu">enumerate</span>(rete.blocks, <span class="dv">1</span>):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> blocco(x)<span class="op">;</span> <span class="bu">print</span>(<span class="st">"Blocco"</span>, i, <span class="bu">tuple</span>(x.shape))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Parametri:"</span>, <span class="bu">sum</span>(p.numel() <span class="cf">for</span> p <span class="kw">in</span> rete.parameters()))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Blocco 1 (1, 8, 32, 86)
@@ -1001,8 +941,8 @@ Parametri: 25034</code></pre>
 <section id="addestrare-e-scegliere-lepoca" class="level3">
 <h3 class="anchored" data-anchor-id="addestrare-e-scegliere-lepoca">Addestrare e scegliere l’epoca</h3>
 <p>Standardizziamo il log-mel con <strong>una media e una deviazione standard globali calcolate solo sul train</strong>, poi applichiamo quelle stesse costanti a validazione e test. Non stiamo normalizzando ogni banda separatamente.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Demo 5 — Curve train/validation e checkpoint">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div id="demo-cap4-5" class="callout callout-style-default callout-note callout-titled" title="Demo 5 — Curve train/validation e checkpoint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1011,32 +951,32 @@ Parametri: 25034</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="cell-fc-cnn-train" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> <span class="bu">float</span>(dati[<span class="st">"train_mel"</span>].mean())</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> <span class="bu">max</span>(<span class="bu">float</span>(dati[<span class="st">"train_mel"</span>].std()), <span class="fl">1e-6</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> {nome: ((dati[<span class="ss">f"</span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">_mel"</span>]<span class="op">-</span>media)<span class="op">/</span>std)[:, <span class="va">None</span>].astype(np.float32)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> nome <span class="kw">in</span> (<span class="st">"train"</span>, <span class="st">"val"</span>, <span class="st">"test"</span>)}</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>rete, info <span class="op">=</span> al.train_or_load_cnn(X[<span class="st">"train"</span>], dati[<span class="st">"train_y"</span>], X[<span class="st">"val"</span>], dati[<span class="st">"val_y"</span>],</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                               OUTPUT, chiave, epochs<span class="op">=</span><span class="dv">8</span>, seed<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Epoca scelta sulla validazione:"</span>, info[<span class="st">"best_epoch"</span>])</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempo dell'addestramento registrato:"</span>, <span class="bu">round</span>(info[<span class="st">"seconds"</span>], <span class="dv">1</span>), <span class="st">"s"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">3.5</span>))</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>storia <span class="op">=</span> info[<span class="st">"history"</span>]</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot([r[<span class="st">"epoch"</span>] <span class="cf">for</span> r <span class="kw">in</span> storia], [r[<span class="st">"loss"</span>] <span class="cf">for</span> r <span class="kw">in</span> storia])</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Loss train"</span>, xlabel<span class="op">=</span><span class="st">"Epoca"</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> campo <span class="kw">in</span> (<span class="st">"train_f1"</span>, <span class="st">"val_f1"</span>):</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].plot([r[<span class="st">"epoch"</span>] <span class="cf">for</span> r <span class="kw">in</span> storia], [r[campo] <span class="cf">for</span> r <span class="kw">in</span> storia], label<span class="op">=</span>campo)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Macro-F1"</span>, xlabel<span class="op">=</span><span class="st">"Epoca"</span>, ylim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>))<span class="op">;</span> axes[<span class="dv">1</span>].legend()</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> <span class="bu">float</span>(dati[<span class="st">"train_mel"</span>].mean())</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> <span class="bu">max</span>(<span class="bu">float</span>(dati[<span class="st">"train_mel"</span>].std()), <span class="fl">1e-6</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> {nome: ((dati[<span class="ss">f"</span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">_mel"</span>]<span class="op">-</span>media)<span class="op">/</span>std)[:, <span class="va">None</span>].astype(np.float32)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> nome <span class="kw">in</span> (<span class="st">"train"</span>, <span class="st">"val"</span>, <span class="st">"test"</span>)}</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>rete, info <span class="op">=</span> al.train_or_load_cnn(X[<span class="st">"train"</span>], dati[<span class="st">"train_y"</span>], X[<span class="st">"val"</span>], dati[<span class="st">"val_y"</span>],</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                               OUTPUT, chiave, epochs<span class="op">=</span><span class="dv">8</span>, seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Epoca scelta sulla validazione:"</span>, info[<span class="st">"best_epoch"</span>])</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempo dell'addestramento registrato:"</span>, <span class="bu">round</span>(info[<span class="st">"seconds"</span>], <span class="dv">1</span>), <span class="st">"s"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">3.5</span>))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>storia <span class="op">=</span> info[<span class="st">"history"</span>]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot([r[<span class="st">"epoch"</span>] <span class="cf">for</span> r <span class="kw">in</span> storia], [r[<span class="st">"loss"</span>] <span class="cf">for</span> r <span class="kw">in</span> storia])</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Loss train"</span>, xlabel<span class="op">=</span><span class="st">"Epoca"</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> campo <span class="kw">in</span> (<span class="st">"train_f1"</span>, <span class="st">"val_f1"</span>):</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].plot([r[<span class="st">"epoch"</span>] <span class="cf">for</span> r <span class="kw">in</span> storia], [r[campo] <span class="cf">for</span> r <span class="kw">in</span> storia], label<span class="op">=</span>campo)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Macro-F1"</span>, xlabel<span class="op">=</span><span class="st">"Epoca"</span>, ylim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>))<span class="op">;</span> axes[<span class="dv">1</span>].legend()</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Pesi ricaricati: cnn-df1498b7486912b0-0114288c.pt
+<pre><code>Pesi ricaricati: cnn-4a97e8a11ad683d2-0114288c.pt
 Epoca scelta sulla validazione: 8
-Tempo dell'addestramento registrato: 10.7 s</code></pre>
+Tempo dell'addestramento registrato: 13.3 s</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1048,6 +988,7 @@ Tempo dell'addestramento registrato: 10.7 s</code></pre>
 </div>
 <p>La funzione salva i pesi dell’epoca con macro-F1 di validazione più alta, configurazione e storia delle curve. Se trova lo stesso esperimento già calcolato, ricarica i pesi: rieseguire la pagina non richiede riaddestramento. La chiave comprende dati, preprocessing, codice e versioni delle librerie interessate.</p>
 <p>Loss e punteggi possono oscillare. Un miglioramento sul train accompagnato da un peggioramento persistente sulla validazione suggerisce overfitting. Aumentare epoche o profondità non è una soluzione automatica; ogni modifica va scelta sulla validazione.</p>
+<p><strong>Esecuzione in Jupyter:</strong> <a href="_jupyterlite/files/04-feature-e-classificazione-jupyter.ipynb" download="04-feature-e-classificazione-demo.ipynb">scarica il notebook completo con le API <code>audiolab</code></a>. Richiede il dataset UrbanSound8K del corso; le celle della CNN richiedono anche PyTorch. Eseguire le celle in ordine con <strong>Run → Run All Cells</strong>.</p>
 </div>
 </div>
 </div>
@@ -1056,8 +997,8 @@ Tempo dell'addestramento registrato: 10.7 s</code></pre>
 <section id="sec-fc-confronto" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="sec-fc-confronto"><span class="header-section-number">4.9</span> Il confronto finale: misurare e ascoltare</h2>
 <p>Dopo aver fissato le configurazioni confrontiamo i quattro sistemi sul test comune. Il confronto media contro media+std isola una scelta di aggregazione; quello RF contro CNN cambia <strong>sia rappresentazione sia modello</strong>, quindi valuta due pipeline complete, non dimostra una causa unica. La stessa separazione dei dati rende il confronto controllato, ma non assicura pari ottimizzazione: vanno dichiarati budget e ricerca degli iperparametri.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Demo 6 — Stessi clip, metriche e audio degli errori">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div id="demo-cap4-6" class="callout callout-style-default callout-note callout-titled" title="Demo 6 — Stessi clip, metriche e audio degli errori">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1066,44 +1007,44 @@ Tempo dell'addestramento registrato: 10.7 s</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="cell-fc-test" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>predizioni <span class="op">=</span> {}</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, (modello, dimensioni) <span class="kw">in</span> modelli.items():</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    predizioni[nome] <span class="op">=</span> modello.predict(dati[<span class="st">"test_feat"</span>][:, :dimensioni])</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>predizioni[<span class="st">"CNN"</span>] <span class="op">=</span> al.predict(rete, X[<span class="st">"test"</span>])</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>veri <span class="op">=</span> dati[<span class="st">"test_y"</span>]</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, pred <span class="kw">in</span> predizioni.items():</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>nome<span class="sc">:14s}</span><span class="ss"> accuratezza </span><span class="sc">{</span>accuracy_score(veri, pred)<span class="sc">:.3f}</span><span class="ss">; "</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"macro-F1 </span><span class="sc">{</span>f1_score(veri, pred, labels<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>), average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempi fit RF/Dummy (s):"</span>, {k:<span class="bu">round</span>(v, <span class="dv">2</span>) <span class="cf">for</span> k,v <span class="kw">in</span> costi.items()})</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempo training CNN (s):"</span>, <span class="bu">round</span>(info[<span class="st">"seconds"</span>], <span class="dv">2</span>))</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, nome <span class="kw">in</span> <span class="bu">zip</span>(axes, (<span class="st">"RF media+std"</span>, <span class="st">"CNN"</span>)):</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    ConfusionMatrixDisplay.from_predictions(veri, predizioni[nome], labels<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>),</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        display_labels<span class="op">=</span>al.URBAN_CLASSES, normalize<span class="op">=</span><span class="st">"true"</span>, values_format<span class="op">=</span><span class="st">".1f"</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        xticks_rotation<span class="op">=</span><span class="dv">90</span>, colorbar<span class="op">=</span><span class="va">False</span>, im_kw<span class="op">=</span>{<span class="st">"vmin"</span>: <span class="dv">0</span>, <span class="st">"vmax"</span>: <span class="dv">1</span>}, ax<span class="op">=</span>ax)</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    ax.set_title(nome <span class="op">+</span> <span class="st">" — righe normalizzate"</span>)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"Classe predetta"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"Classe reale"</span>)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>errori <span class="op">=</span> np.flatnonzero(predizioni[<span class="st">"CNN"</span>] <span class="op">!=</span> veri)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> errori[:<span class="dv">3</span>]:</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> split[<span class="st">"test"</span>][k]</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(Path(record[<span class="st">"file"</span>]).name, <span class="st">"vero:"</span>, al.URBAN_CLASSES[veri[k]],</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>          <span class="st">"predetto:"</span>, al.URBAN_CLASSES[predizioni[<span class="st">"CNN"</span>][k]])</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    al.listen(al.load_clip(record[<span class="st">"file"</span>], sr<span class="op">=</span>FS), FS)  <span class="co"># il file originale, non lo spettrogramma!</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>predizioni <span class="op">=</span> {}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, (modello, dimensioni) <span class="kw">in</span> modelli.items():</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    predizioni[nome] <span class="op">=</span> modello.predict(dati[<span class="st">"test_feat"</span>][:, :dimensioni])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>predizioni[<span class="st">"CNN"</span>] <span class="op">=</span> al.predict(rete, X[<span class="st">"test"</span>])</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>veri <span class="op">=</span> dati[<span class="st">"test_y"</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, pred <span class="kw">in</span> predizioni.items():</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>nome<span class="sc">:14s}</span><span class="ss"> accuratezza </span><span class="sc">{</span>accuracy_score(veri, pred)<span class="sc">:.3f}</span><span class="ss">; "</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"macro-F1 </span><span class="sc">{</span>f1_score(veri, pred, labels<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>), average<span class="op">=</span><span class="st">'macro'</span>, zero_division<span class="op">=</span><span class="dv">0</span>)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempi fit RF/Dummy (s):"</span>, {k:<span class="bu">round</span>(v, <span class="dv">2</span>) <span class="cf">for</span> k,v <span class="kw">in</span> costi.items()})</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempo training CNN (s):"</span>, <span class="bu">round</span>(info[<span class="st">"seconds"</span>], <span class="dv">2</span>))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, nome <span class="kw">in</span> <span class="bu">zip</span>(axes, (<span class="st">"RF media+std"</span>, <span class="st">"CNN"</span>)):</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    ConfusionMatrixDisplay.from_predictions(veri, predizioni[nome], labels<span class="op">=</span><span class="bu">range</span>(<span class="dv">10</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        display_labels<span class="op">=</span>al.URBAN_CLASSES, normalize<span class="op">=</span><span class="st">"true"</span>, values_format<span class="op">=</span><span class="st">".1f"</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        xticks_rotation<span class="op">=</span><span class="dv">90</span>, colorbar<span class="op">=</span><span class="va">False</span>, im_kw<span class="op">=</span>{<span class="st">"vmin"</span>: <span class="dv">0</span>, <span class="st">"vmax"</span>: <span class="dv">1</span>}, ax<span class="op">=</span>ax)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    ax.set_title(nome <span class="op">+</span> <span class="st">" — righe normalizzate"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"Classe predetta"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"Classe reale"</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>errori <span class="op">=</span> np.flatnonzero(predizioni[<span class="st">"CNN"</span>] <span class="op">!=</span> veri)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> errori[:<span class="dv">3</span>]:</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> split[<span class="st">"test"</span>][k]</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(Path(record[<span class="st">"file"</span>]).name, <span class="st">"vero:"</span>, al.URBAN_CLASSES[veri[k]],</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>          <span class="st">"predetto:"</span>, al.URBAN_CLASSES[predizioni[<span class="st">"CNN"</span>][k]])</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    al.listen(al.load_clip(record[<span class="st">"file"</span>], sr<span class="op">=</span>FS), FS)  <span class="co"># il file originale, non lo spettrogramma!</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Dummy          accuratezza 0.100; macro-F1 0.018
 RF media       accuratezza 0.453; macro-F1 0.452
 RF media+std   accuratezza 0.560; macro-F1 0.565
 CNN            accuratezza 0.293; macro-F1 0.248
-Tempi fit RF/Dummy (s): {'Dummy': 0.0, 'RF media': 0.13, 'RF media+std': 0.13}
-Tempo training CNN (s): 10.67</code></pre>
+Tempi fit RF/Dummy (s): {'Dummy': 0.0, 'RF media': 0.16, 'RF media+std': 0.2}
+Tempo training CNN (s): 13.26</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1118,6 +1059,7 @@ Tempo training CNN (s): 10.67</code></pre>
 189982-0-0-6.mp3 vero: air_conditioner predetto: jackhammer</code></pre>
 </div>
 </div>
+<p><strong>Esecuzione in Jupyter:</strong> <a href="_jupyterlite/files/04-feature-e-classificazione-jupyter.ipynb" download="04-feature-e-classificazione-demo.ipynb">scarica il notebook completo con le API <code>audiolab</code></a>. Richiede il dataset UrbanSound8K del corso; le celle della CNN richiedono anche PyTorch. Eseguire le celle in ordine con <strong>Run → Run All Cells</strong>.</p>
 </div>
 </div>
 </div>
@@ -1130,17 +1072,17 @@ Tempo training CNN (s): 10.67</code></pre>
 <div id="fc-robustezza" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> al.load_clip(split[<span class="st">"val"</span>][<span class="dv">0</span>][<span class="st">"file"</span>], sr<span class="op">=</span>FS)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">11</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>rms <span class="op">=</span> np.sqrt(np.mean(y<span class="op">*</span>y))</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>rumore <span class="op">=</span> rng.standard_normal(<span class="bu">len</span>(y))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>rumore <span class="op">=</span> rumore<span class="op">/</span>np.sqrt(np.mean(rumore<span class="op">**</span><span class="dv">2</span>))<span class="op">*</span>rms<span class="op">*</span><span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">10</span><span class="op">/</span><span class="dv">20</span>)  <span class="co"># SNR 10 dB</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>_, f_originale <span class="op">=</span> al.representations(y)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>_, f_rumoroso <span class="op">=</span> al.representations(y<span class="op">+</span>rumore)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>modello, _ <span class="op">=</span> modelli[<span class="st">"RF media+std"</span>]</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, f <span class="kw">in</span> ((<span class="st">"Originale"</span>, f_originale), (<span class="st">"Con rumore"</span>, f_rumoroso)):</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(nome, <span class="st">"→"</span>, al.URBAN_CLASSES[modello.predict(f[<span class="va">None</span>])[<span class="dv">0</span>]])</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Distanza fra vettori MFCC:"</span>, np.linalg.norm(f_originale<span class="op">-</span>f_rumoroso))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> al.load_clip(split[<span class="st">"val"</span>][<span class="dv">0</span>][<span class="st">"file"</span>], sr<span class="op">=</span>FS)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">11</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rms <span class="op">=</span> np.sqrt(np.mean(y<span class="op">*</span>y))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>rumore <span class="op">=</span> rng.standard_normal(<span class="bu">len</span>(y))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>rumore <span class="op">=</span> rumore<span class="op">/</span>np.sqrt(np.mean(rumore<span class="op">**</span><span class="dv">2</span>))<span class="op">*</span>rms<span class="op">*</span><span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">10</span><span class="op">/</span><span class="dv">20</span>)  <span class="co"># SNR 10 dB</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>_, f_originale <span class="op">=</span> al.representations(y)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>_, f_rumoroso <span class="op">=</span> al.representations(y<span class="op">+</span>rumore)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>modello, _ <span class="op">=</span> modelli[<span class="st">"RF media+std"</span>]</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nome, f <span class="kw">in</span> ((<span class="st">"Originale"</span>, f_originale), (<span class="st">"Con rumore"</span>, f_rumoroso)):</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(nome, <span class="st">"→"</span>, al.URBAN_CLASSES[modello.predict(f[<span class="va">None</span>])[<span class="dv">0</span>]])</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Distanza fra vettori MFCC:"</span>, np.linalg.norm(f_originale<span class="op">-</span>f_rumoroso))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Originale → engine_idling
@@ -1178,13 +1120,13 @@ Distanza fra vettori MFCC: 204.75809</code></pre>
 <div id="cell-fc-chroma" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(FS)<span class="op">/</span>FS</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>accordo <span class="op">=</span> <span class="bu">sum</span>(np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>librosa.midi_to_hz(m)<span class="op">*</span>t) <span class="cf">for</span> m <span class="kw">in</span> (<span class="dv">60</span>, <span class="dv">64</span>, <span class="dv">67</span>))<span class="op">/</span><span class="dv">6</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>profilo <span class="op">=</span> librosa.feature.chroma_stft(y<span class="op">=</span>accordo, sr<span class="op">=</span>FS).mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ax.bar([<span class="st">"C"</span>, <span class="st">"C#"</span>, <span class="st">"D"</span>, <span class="st">"D#"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"F#"</span>, <span class="st">"G"</span>, <span class="st">"G#"</span>, <span class="st">"A"</span>, <span class="st">"A#"</span>, <span class="st">"B"</span>], profilo)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Accordo sintetico Do–Mi–Sol"</span>, ylabel<span class="op">=</span><span class="st">"Chroma medio"</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(FS)<span class="op">/</span>FS</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>accordo <span class="op">=</span> <span class="bu">sum</span>(np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>librosa.midi_to_hz(m)<span class="op">*</span>t) <span class="cf">for</span> m <span class="kw">in</span> (<span class="dv">60</span>, <span class="dv">64</span>, <span class="dv">67</span>))<span class="op">/</span><span class="dv">6</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>profilo <span class="op">=</span> librosa.feature.chroma_stft(y<span class="op">=</span>accordo, sr<span class="op">=</span>FS).mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ax.bar([<span class="st">"C"</span>, <span class="st">"C#"</span>, <span class="st">"D"</span>, <span class="st">"D#"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"F#"</span>, <span class="st">"G"</span>, <span class="st">"G#"</span>, <span class="st">"A"</span>, <span class="st">"A#"</span>, <span class="st">"B"</span>], profilo)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(title<span class="op">=</span><span class="st">"Accordo sintetico Do–Mi–Sol"</span>, ylabel<span class="op">=</span><span class="st">"Chroma medio"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1521,6 +1463,7 @@ Mostra la risposta
     <iframe class="slide-deck-iframe" src="slides/04-feature-e-classificazione-slides.html" title="Slide Lezione 4 — Feature audio e classificazione" loading="lazy" allowfullscreen=""></iframe>
   </div>
 </div>
+<script src="demo-python.js"></script>
 
 
 </section>

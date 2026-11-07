@@ -448,7 +448,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le <strong>14 demo</strong> si trovano nei riquadri azzurri richiudibili delle rispettive sezioni. Un clic sul titolo apre il codice modificabile e i risultati nella stessa pagina. In ogni demo, selezionare la cella di codice, modificare i parametri iniziali e premere <strong>Shift + Invio</strong> oppure usare <strong>Run → Run All Cells</strong>. Non occorre eseguire altre demo prima: ciascuna è indipendente.</p>
+<p>Le <strong>14 demo</strong> si trovano nei riquadri azzurri richiudibili delle rispettive sezioni. Un clic sul titolo apre il codice modificabile e i risultati nella stessa pagina. Al primo avvio usare <strong>Run → Run All Cells</strong>: la preparazione carica <code>audiolab</code>, la stessa libreria dei laboratori. Poi modificare la cella della demo e premere <strong>Shift + Invio</strong>. Non occorre eseguire altre demo prima: ciascuna è indipendente.</p>
 <p>Il primo avvio carica Python e le librerie nel browser e può richiedere qualche istante. Le modifiche al codice restano locali al browser; il notebook può essere esportato dal menu <strong>File</strong>.</p>
 </div>
 </div>
@@ -564,8 +564,8 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Il codice disegna le particelle del mezzo in due istanti successivi: si vede che si spostano di poco attorno alla loro posizione mentre la perturbazione avanza. Serve a distinguere il moto delle particelle dal moto dell’onda.</p>
 <div class="python-demo" data-demo="1">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-1.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-1.ipynb" title="Demo 1 — Le particelle oscillano, la perturbazione si sposta: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-1-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-1-audiolab.ipynb" title="Demo 1 — Le particelle oscillano, la perturbazione si sposta: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Osserva:</strong> confronta le linee verticali (posizioni di equilibrio) nei due istanti. Le particelle cambiano poco posizione, mentre i massimi di pressione si spostano. Il grafico sinusoidale è una rappresentazione della pressione, non una traiettoria “su e giù” dell’aria.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -649,8 +649,8 @@ Mostra la risposta
 <div class="callout-body-container callout-body">
 <p>Dato un tono, il codice calcola periodo e lunghezza d’onda e li confronta con l’istantanea dell’onda nello spazio. Lega così le tre grandezze con un esempio numerico.</p>
 <div class="python-demo" data-demo="2">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-2.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-2.ipynb" title="Demo 2 — Frequenza, periodo e lunghezza d’onda: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-2-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-2-audiolab.ipynb" title="Demo 2 — Frequenza, periodo e lunghezza d’onda: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Predizione prima di muovere il cursore:</strong> nello stesso mezzo, se <span class="math inline">\(f\)</span> raddoppia, <span class="math inline">\(T\)</span> e <span class="math inline">\(\lambda\)</span> si dimezzano; la velocità resta (circa) invariata. La velocità è quella del <strong>fronte d’onda</strong>, non la velocità di oscillazione delle particelle.</p>
 </div>
@@ -687,8 +687,8 @@ Mostra la risposta
 <div class="callout-body-container callout-body">
 <p>Il codice somma a un suono una sua copia ritardata, con ampiezza controllata dal peso della riflessione. Cambiando il ritardo si passa dal rinforzo all’eco distinta: è il meccanismo di base di ogni riverbero.</p>
 <div class="python-demo" data-demo="3">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-3.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-3.ipynb" title="Demo 3 — Suono diretto e riflesso: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-3-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-3-audiolab.ipynb" title="Demo 3 — Suono diretto e riflesso: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -734,8 +734,8 @@ Mostra la risposta
 <div class="callout-body-container callout-body">
 <p>Tre sinusoidi costruite variando una sola grandezza per volta: la prima ha ampiezza doppia, la seconda frequenza diversa, la terza fase diversa. Il confronto mostra che effetto ha ciascun parametro sulla forma d’onda.</p>
 <div class="python-demo" data-demo="4">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-4.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-4.ipynb" title="Demo 4 — Separare gli effetti dei tre parametri: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-4-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-4-audiolab.ipynb" title="Demo 4 — Separare gli effetti dei tre parametri: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -755,8 +755,8 @@ Mostra la risposta
 <div class="callout-body-container callout-body">
 <p>Le stesse tre sinusoidi a 220, 440 e 880 Hz, con la stessa ampiezza. Confrontando forma d’onda e ascolto si vede che raddoppiare la frequenza significa salire di un’ottava.</p>
 <div class="python-demo" data-demo="14">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-14.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-14.ipynb" title="Demo 14 — Stessa ampiezza, frequenze diverse: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-14-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-14-audiolab.ipynb" title="Demo 14 — Stessa ampiezza, frequenze diverse: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -777,8 +777,8 @@ Mostra la risposta
 <p>Confrontiamo tre toni puri a <strong>220, 440 e 880 Hz</strong>, tutti con ampiezza digitale <strong>0,15</strong>. Il grafico mostra 20 ms; ogni ascolto dura un secondo, con brevi rampe ai bordi per evitare click.</p>
 <p><strong>Prevedi:</strong> quale tono completa più cicli nello stesso intervallo? Come cambia il periodo quando la frequenza raddoppia?</p>
 <div class="python-demo" data-demo="4bis">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-4bis.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-4bis.ipynb" title="Demo 4 bis — Stessa ampiezza, frequenze diverse: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-4bis-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-4bis-audiolab.ipynb" title="Demo 4 bis — Stessa ampiezza, frequenze diverse: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Osserva e spiega:</strong> raddoppiando la frequenza, il periodo si dimezza e il tono sale di un’ottava. L’ampiezza resta invariata. La stessa ampiezza digitale non garantisce la stessa sonorità percepita: contano anche la risposta del dispositivo e la sensibilità dell’orecchio alle diverse frequenze.</p>
 </div>
@@ -845,8 +845,8 @@ L’intensità è una misura della potenza trasferita per unità di area. Nella 
 <div class="callout-body-container callout-body">
 <p>Una sorgente di potenza fissata irradia su sfere sempre più grandi: il codice calcola come cala l’intensità con la distanza e quanto vale il calo in decibel. È il fondamento della legge dell’inverso del quadrato.</p>
 <div class="python-demo" data-demo="10">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-10.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-10.ipynb" title="Demo 10 — La stessa potenza si distribuisce su sfere più grandi: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-10-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-10-audiolab.ipynb" title="Demo 10 — La stessa potenza si distribuisce su sfere più grandi: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Regola pratica:</strong> raddoppiare la distanza divide l’intensità per 4 e riduce il livello di circa <span class="math inline">\(10\log_{10}(1/4)\approx-6.02\)</span> dB.</p>
 </div>
@@ -921,8 +921,8 @@ Avviso
 <div class="callout-body-container callout-body">
 <p>Il codice converte alcuni rapporti di ampiezza nei corrispondenti decibel: raddoppiare sono 6 dB, dieci volte sono 20, cento volte 40. Serve a prendere confidenza con la scala logaritmica.</p>
 <div class="python-demo" data-demo="11">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-11.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-11.ipynb" title="Demo 11 — Rapporti fisici e differenze in dB: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-11-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-11-audiolab.ipynb" title="Demo 11 — Rapporti fisici e differenze in dB: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -941,8 +941,8 @@ Avviso
 <div class="callout-body-container callout-body">
 <p>Il codice costruisce prima il segnale di una sola sorgente e poi la somma di più sorgenti non correlate: la potenza media della somma cresce approssimativamente con il numero di sorgenti, con fluttuazioni dovute alla durata finita dei segnali.</p>
 <div class="python-demo" data-demo="12">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-12.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-12.ipynb" title="Demo 12 — Una sorgente, due sorgenti non correlate: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-12-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-12-audiolab.ipynb" title="Demo 12 — Una sorgente, due sorgenti non correlate: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -968,8 +968,8 @@ Avviso
 <div class="callout-body-container callout-body">
 <p>Il codice confronta la frequenza fisica con l’altezza percepita, usando ottave e semitoni. Serve a mostrare che la percezione degli intervalli è moltiplicativa, non additiva.</p>
 <div class="python-demo" data-demo="5">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-5.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-5.ipynb" title="Demo 5 — Frequenza fisica e altezza percepita: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-5-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-5-audiolab.ipynb" title="Demo 5 — Frequenza fisica e altezza percepita: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -1020,8 +1020,8 @@ In alcuni strumenti il rumore fa parte del carattere del suono: il soffio di un 
 <div class="callout-body-container callout-body">
 <p>Stesso periodo e stessa fondamentale, ma contenuto armonico diverso: il codice costruisce due suoni e ne confronta lo spettro. È la differenza fra un tono puro e un suono reale.</p>
 <div class="python-demo" data-demo="9">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-9.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-9.ipynb" title="Demo 9 — Stessa fondamentale, timbro diverso: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-9-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-9-audiolab.ipynb" title="Demo 9 — Stessa fondamentale, timbro diverso: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -1109,8 +1109,8 @@ In alcuni strumenti il rumore fa parte del carattere del suono: il soffio di un 
 <div class="callout-body-container callout-body">
 <p>Due copie dello stesso tono sommate in fase e in contro-fase: nella prima l’ampiezza raddoppia, nella seconda si annulla. Il codice produce anche l’ascolto, dove la differenza è evidente.</p>
 <div class="python-demo" data-demo="6">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-6.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-6.ipynb" title="Demo 6 — Interferenza controllata dalla fase: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-6-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-6-audiolab.ipynb" title="Demo 6 — Interferenza controllata dalla fase: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Fisica reale:</strong> la cancellazione perfetta richiede stessa frequenza, stessa ampiezza e opposizione di fase <strong>nel punto di misura</strong>. Spostare il microfono cambia la distanza dalle sorgenti e quindi la fase relativa.</p>
 </div>
@@ -1136,8 +1136,8 @@ In alcuni strumenti il rumore fa parte del carattere del suono: il soffio di un 
 <div class="callout-body-container callout-body">
 <p>Due toni a 440 e 443 Hz sommati: il livello sale e scende tre volte al secondo. Il codice disegna il segnale e il suo inviluppo, e ne fa sentire il risultato.</p>
 <div class="python-demo" data-demo="7">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-7.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-7.ipynb" title="Demo 7 — Vedere e ascoltare i battimenti: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-7-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-7-audiolab.ipynb" title="Demo 7 — Vedere e ascoltare i battimenti: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
@@ -1313,8 +1313,8 @@ In alcuni strumenti il rumore fa parte del carattere del suono: il soffio di un 
 <div class="callout-body-container callout-body">
 <p>A parità di ampiezza digitale l’ascolto cambia molto con la frequenza: il codice mette a confronto alcuni casi e commenta la sensazione. Serve a mostrare che il numero nel file non è la sonorità.</p>
 <div class="python-demo" data-demo="13">
-  <p class="python-demo-instructions">Modificare i parametri ed eseguire la cella con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-13.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
-  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-13.ipynb" title="Demo 13 — Stessa ampiezza digitale, sensazioni diverse: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
+  <p class="python-demo-instructions">Al primo avvio: <strong>Run → Run All Cells</strong>. Poi modificare la demo e rieseguirla con <strong>Shift + Invio</strong>. <a href="_jupyterlite/notebooks/index.html?path=01-demo-13-audiolab.ipynb" target="_blank" rel="noopener">Apri in una scheda separata ↗</a></p>
+  <iframe data-demo-src="_jupyterlite/notebooks/index.html?path=01-demo-13-audiolab.ipynb" title="Demo 13 — Stessa ampiezza digitale, sensazioni diverse: Python interattivo" width="100%" height="880" style="display:block;width:100%;height:880px;border:1px solid #cbd5e1;border-radius:8px;background:white;" loading="lazy" allowfullscreen=""></iframe>
 </div>
 <p><strong>Domanda:</strong> sono percepiti ugualmente forti? La risposta attesa è spesso “no”. Questa prova non misura curve isofoniche: mostra soltanto perché ampiezza numerica e loudness non vanno identificate.</p>
 </div>
@@ -1581,35 +1581,7 @@ Mostra la risposta
     <iframe class="slide-deck-iframe" src="slides/01-il-suono-slides.html" title="Slide Lezione 1 — Il suono" loading="lazy" allowfullscreen=""></iframe>
   </div>
 </div>
-<script>
-(() => {
-  function startDemo(frame) {
-    if (frame.dataset.demoSrc) {
-      frame.src = frame.dataset.demoSrc;
-      delete frame.dataset.demoSrc;
-    }
-  }
-  function initDemos() {
-    const frames = document.querySelectorAll("iframe[data-demo-src]");
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.target.clientWidth > 0 && entry.target.clientHeight > 0) {
-            startDemo(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {rootMargin: "150px"});
-      frames.forEach(frame => observer.observe(frame));
-    }
-    document.addEventListener("shown.bs.collapse", event => {
-      event.target.querySelectorAll("iframe[data-demo-src]").forEach(startDemo);
-    });
-  }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initDemos);
-  else initDemos();
-})();
-</script>
+<script src="demo-python.js"></script>
 
 
 </section>

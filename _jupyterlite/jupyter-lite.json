@@ -1,6 +1,6 @@
 {
   "jupyter-config-data": {
-    "appName": "JupyterLite",
+    "appName": "Laboratorio Audio \u2014 audiolab",
     "appUrl": "./lab",
     "appVersion": "0.8.7",
     "baseUrl": "./",
@@ -12,6 +12,11 @@
         "extension": "./extension",
         "load": "static/remoteEntry.3fd2fc616c9d99ad.js",
         "name": "@jupyterlite/pyodide-kernel-extension"
+      },
+      {
+        "load": "static/remoteEntry.38ea05461c254e327731.js",
+        "mimeExtension": "./mimeExtension",
+        "name": "jupyterlab-plotly"
       },
       {
         "extension": "./extension",
