@@ -5177,7 +5177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fn-modulated_delay" class="level3">
 <h3 class="anchored" data-anchor-id="fn-modulated_delay"><code>modulated_delay</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb157"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>al.modulated_delay(signal, sr<span class="op">=</span><span class="dv">44100</span>, delay_ms<span class="op">=</span><span class="fl">5.0</span>, depth_ms<span class="op">=</span><span class="fl">1.0</span>, rate_hz<span class="op">=</span><span class="fl">5.0</span>, phase<span class="op">=</span><span class="fl">0.0</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb157"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>al.modulated_delay(signal, sr<span class="op">=</span><span class="dv">44100</span>, delay_ms<span class="op">=</span><span class="fl">5.0</span>, depth_ms<span class="op">=</span><span class="fl">1.0</span>, rate_hz<span class="op">=</span><span class="fl">5.0</span>, phase<span class="op">=</span><span class="fl">0.0</span>, delay_curve<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Read the signal with a sinusoidal delay: vibrato, chorus, flanger.</p>
 <section id="parametri-75" class="level4">
 <h4 class="anchored" data-anchor-id="parametri-75">Parametri</h4>
@@ -5232,6 +5232,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>float</td>
 <td><code>0.0</code></td>
 <td>Initial phase of the modulation, in radians (for stereo or multi-voice chorus).</td>
+</tr>
+<tr class="odd">
+<td><code>delay_curve</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Optional delay in samples for each input sample. It overrides the sinusoidal parameters, for example for a slowly random chorus.</td>
 </tr>
 </tbody>
 </table>
