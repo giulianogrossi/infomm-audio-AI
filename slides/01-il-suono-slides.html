@@ -705,6 +705,104 @@ border-bottom: none;
 border-radius: 7px;
 padding: 9px 16px;
 }
+
+.reveal .slides section .us8k-grid {
+display: grid;
+grid-template-columns: repeat(5, minmax(0, 1fr));
+gap: 7px 8px;
+width: 100%;
+max-width: 944px;
+margin: 0 auto;
+box-sizing: border-box;
+}
+.reveal .slides section .us8k-card {
+background: #f8fafc;
+border: 1.5px solid #cbd5e1;
+border-radius: 7px;
+padding: 4px 4px 3px 4px;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-width: 0;
+overflow: hidden;
+box-sizing: border-box;
+}
+.reveal .slides section .us8k-title {
+font-size: 13px;
+font-weight: 700;
+line-height: 1.1;
+margin: 0;
+text-align: center;
+white-space: nowrap;
+}
+.reveal .slides section .us8k-sub {
+font-size: 10.5px;
+color: #475569;
+line-height: 1.1;
+margin: 1px 0 2px 0;
+text-align: center;
+white-space: nowrap;
+}
+.reveal .slides section .us8k-card img {
+width: 100%;
+height: 95px;
+object-fit: contain;
+margin: 0;
+}
+.reveal .slides section .us8k-audio-wrap {
+width: 100%;
+height: 23px;
+position: relative;
+overflow: hidden;
+margin-top: 2px;
+}
+.reveal .slides section .us8k-card audio {
+position: absolute;
+left: 50%;
+top: 50%;
+width: 226px;
+height: 28px;
+margin: 0;
+transform: translate(-50%, -50%) scale(0.73);
+}
+
+.reveal .slides section .mel-audio-row {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 12px;
+width: 96%;
+margin: 6px auto 0 auto;
+}
+.reveal .slides section .mel-audio-card {
+background: #f8fafc;
+border: 1.8px solid #cbd5e1;
+border-radius: 8px;
+padding: 6px 8px 5px 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+box-sizing: border-box;
+}
+.reveal .slides section .mel-audio-title {
+font-size: 14px;
+font-weight: 700;
+line-height: 1.15;
+margin: 0;
+text-align: center;
+}
+.reveal .slides section .mel-audio-sub {
+font-size: 11.2px;
+color: #334155;
+line-height: 1.15;
+margin: 2px 0 4px 0;
+text-align: center;
+white-space: nowrap;
+}
+.reveal .slides section .mel-audio-card audio {
+width: 96%;
+height: 28px;
+margin: 0;
+}
 </style>
   <style type="text/css">.reveal
 div.sourceCode
@@ -1526,8 +1624,8 @@ Un decimo dell’ampiezza, stesso tono
 <h2>Le curve isofoniche</h2>
 <p><img role="img" data-src="media/ffa615e756e006ad.png"></p>
 </section>
-<section id="esempio-2-ampiezza-e-decibel" class="slide level2">
-<h2>Esempio 2 — Ampiezza e decibel</h2>
+<section id="esercizio-2-ampiezza-e-decibel" class="slide level2 esercizio">
+<h2>Esercizio 2 — Ampiezza e decibel</h2>
 <ul>
 <li><p>Due toni alla stessa frequenza, con ampiezze molto diverse: che cosa cambia nelle misure e che cosa cambia all’ascolto?</p></li>
 <li><p><strong>Funzioni usate.</strong> <code>sine()</code> con il parametro <code>amplitude</code>; <code>plot_waveforms()</code> disegna i segnali insieme; <code>rms()</code> e <code>to_dbfs()</code> misurano; <code>to_db()</code> converte un rapporto di ampiezze in decibel. <strong>Simili:</strong> <code>plot_waveform()</code> disegna un solo segnale; <code>plot_spectrum()</code> guarda le componenti in frequenza invece del livello nel tempo.</p></li>
@@ -1663,8 +1761,8 @@ Due toni in contro-fase: si annullano
 </tbody>
 </table>
 </section>
-<section id="esempio-3-il-battimento" class="slide level2">
-<h2>Esempio 3 — Il battimento</h2>
+<section id="esercizio-3-il-battimento" class="slide level2 esercizio">
+<h2>Esercizio 3 — Il battimento</h2>
 <ul>
 <li><p>Se due toni hanno frequenze molto vicine, sommandoli non si sente una nota sola: si sente una nota che va e viene, con un’oscillazione regolare del volume. Si chiama <strong>battimento</strong>, e la sua frequenza è la differenza fra le due frequenze.</p></li>
 <li><p><strong>Funzioni usate.</strong> <code>sum_tones()</code> somma i due toni; <code>envelope()</code> segue il livello nel tempo; <code>plot_waveform()</code> disegna; <code>listen()</code> prepara l’ascolto. <strong>Simili:</strong> <code>plot_spectrum()</code> mostrerebbe le due righe separate; <code>estimate_frequency()</code> conta le oscillazioni e servirà nell’esercizio.</p></li>
@@ -1803,8 +1901,8 @@ I due canali contengono sorgenti diverse
 </p>
 <p><strong>Conclusione.</strong> Nel primo caso in mono si perde poco, nel secondo la somma cambia il suono.</p>
 </section>
-<section id="esempio-4-un-file-a-due-canali" class="slide level2">
-<h2>Esempio 4 — Un file a due canali</h2>
+<section id="esercizio-4-un-file-a-due-canali" class="slide level2 esercizio">
+<h2>Esercizio 4 — Un file a due canali</h2>
 <ul>
 <li><p>I file audio possono avere due canali. I due canali non sono mai identici: differiscono per ampiezza e per fase, ed è questa differenza a creare l’impressione di spazio. Qui carichiamo un file stereo e guardiamo che cosa contengono i due canali.</p></li>
 <li><p><strong>Funzioni usate.</strong> <code>load_channels()</code> legge il file tenendo i canali separati; <code>file_info()</code> legge la scheda tecnica; <code>size_mb()</code> calcola la dimensione non compressa; <code>plot_channels()</code> disegna i due canali sovrapposti; <code>rms()</code> e <code>to_dbfs()</code> misurano i livelli. <strong>Simili:</strong> <code>load_audio()</code> fa la media dei canali e restituisce un segnale mono; <code>plot_waveforms()</code> disegnerebbe più segnali sullo stesso asse</p></li>
@@ -1978,11 +2076,19 @@ display:block!important;
 </section>
 <section id="laboratorio" class="slide level2">
 <h2>Laboratorio</h2>
-<p>I file contenenti esercizi da svolgere in laboratorio:</p>
+<p>Quattro esempi ed esercizi paradigmatici con <code>audiolab</code>:</p>
+<ol type="1">
+<li><strong>Il tono puro</strong> (<code>al.sine</code>, <code>al.estimate_frequency</code>, <code>al.to_dbfs</code>)</li>
+<li><strong>Ampiezza e decibel</strong> (<code>al.rms</code>, <code>al.to_dbfs</code>, <code>al.plot_waveforms</code>)</li>
+<li><strong>Il battimento</strong> (<code>al.sum_tones</code>, <code>al.envelope</code>, <code>al.plot_waveform</code>)</li>
+<li><strong>Un file a due canali</strong> (<code>al.file_info</code>, <code>al.load_channels</code>, <code>al.plot_channels</code>)</li>
+</ol>
+<p>Materiali:</p>
 <ul>
-<li>Notebook: <a href="../lab-2026/01-il-suono-TODO.ipynb"><code>01-il-suono-TODO.ipynb</code></a></li>
+<li>Notebook degli esercizi: <a href="../lab-2026/01-il-suono-TODO.ipynb"><code>01-il-suono-TODO.ipynb</code></a></li>
 <li>Notebook delle soluzioni: <a href="../lab-2026/01-il-suono-SOLUZ.ipynb"><code>01-il-suono-SOLUZ.ipynb</code></a></li>
-<li>Libreria della lezione: <a href="../lab-2026/audiolab"><code>audiolab</code></a></li>
+<li>Notebook delle demo: <a href="../lab-2026/01-il-suono-demo.ipynb"><code>01-il-suono-demo.ipynb</code></a></li>
+<li>Riferimento funzioni: <a href="https://giulianogrossi.github.io/infomm-audio-AI/app-b-manuale-funzioni.html">Manuale di <code>audiolab</code></a></li>
 </ul>
 
 </section></section>

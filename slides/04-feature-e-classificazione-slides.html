@@ -1527,15 +1527,6 @@ display:block!important;
 <li>È un esperimento <strong>didattico</strong>, non un punteggio di benchmark: va dichiarato</li>
 <li>Le sorgenti condivise fra fold sono escluse: nessun clip della stessa registrazione in due split</li>
 </ul>
-</section>
-<section id="esercizio-1-la-scheda-dati" class="slide level2 esercizio">
-<h2>Esercizio 1 — La scheda dati</h2>
-<ul>
-<li>Per ciascuno split: numero di clip, <strong>conteggio per classe</strong>, fold presenti</li>
-<li>Verifica che nessuna <strong>sorgente</strong> compaia in due split</li>
-<li>Ascolta un clip del test e dichiara file e classe</li>
-</ul>
-<p><strong>Funzioni usate.</strong> <code>al.urban_metadata()</code>, <code>al.split_dataset()</code>, <code>al.load_clip()</code>, <code>al.listen()</code></p>
 </section></section>
 <section>
 <section id="feature-temporali-e-spettrali" class="title-slide slide level1 divider center">
@@ -1646,14 +1637,14 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
-<section id="esercizio-2-che-cosa-misura-ogni-numero" class="slide level2 esercizio">
-<h2>Esercizio 2 — Che cosa misura ogni numero</h2>
+<section id="esercizio-1-verifica-assenza-di-leakage-e-descrittori-spettrali" class="slide level2 esercizio">
+<h2>Esercizio 1 — Verifica assenza di leakage e descrittori spettrali</h2>
 <ul>
-<li>Ripeti la misura sui tre segnali a pari RMS (RMS, ZCR, centroide, rolloff e flatness) e commenta le differenze</li>
-<li>Quale feature separa il <strong>rumore</strong> dal tono? quale distingue tono e somma armonica?</li>
-<li>Porta il tono a <strong>4000 Hz</strong> e misura lo ZCR: cresce senza rumore. Che cosa dimostra?</li>
+<li>Verifica che l’intersezione degli identificativi di sorgente (<code>fsID</code>) tra train, validazione e test sia vuota (<code>al.urban_metadata()</code>, <code>al.split_dataset()</code>).</li>
+<li>Confronta ZCR, centroide e rolloff di un tono a <strong>4000 Hz</strong> con il tono a <strong>330 Hz</strong>: perché lo ZCR sale pur in assenza di rumore?</li>
 </ul>
-<p><strong>Funzioni usate.</strong> <code>al.sine()</code>, <code>al.sum_harmonics()</code>, <code>al.time_features()</code>, <code>al.zero_crossing_rate()</code>, <code>al.spectral_features()</code></p>
+<p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.urban_metadata()</code>, <code>al.split_dataset()</code>, <code>al.sine()</code>, <code>al.sum_harmonics()</code>, <code>al.time_features()</code>, <code>al.spectral_features()</code></p>
+<p><strong>Notebook:</strong> <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb"><code>04-feature-e-classificazione-TODO.ipynb</code></a></p>
 </section></section>
 <section>
 <section id="mel-e-mfcc" class="title-slide slide level1 divider center">
@@ -1853,22 +1844,11 @@ display:block!important;
 <li>A un classificatore classico conviene invece un vettore compatto e decorrelato</li>
 </ul>
 </section>
-<section id="esercizio-3-quante-bande-quale-risoluzione" class="slide level2 esercizio">
-<h2>Esercizio 3 — Quante bande, quale risoluzione</h2>
+<section id="esercizio-2-risoluzione-del-banco-mel-e-mfcc-di-flauto-e-tromba" class="slide level2 esercizio">
+<h2>Esercizio 2 — Risoluzione del banco Mel e MFCC di flauto e tromba</h2>
 <ul>
-<li>Banco a <strong>12</strong> e a <strong>80</strong> bande: quante sotto 1 kHz? che cosa cambia?</li>
-<li>Verifica le forme <span class="math inline">\(513\times173\)</span>, <span class="math inline">\(64\times173\)</span>, <span class="math inline">\(13\times173\)</span> e il prodotto <span class="math inline">\(B\,P\)</span></li>
-<li>Disegna il banco con 6 e con 64 bande</li>
-</ul>
-<p><strong>Funzioni usate.</strong> <code>al.stft_power()</code>, <code>al.mel_filterbank()</code>, <code>al.mel_frequencies()</code>, <code>al.log_mel()</code>, <code>al.plot_mel_filterbank()</code></p>
-</section>
-<section id="esercizio-4-che-cosa-distingue-due-strumenti" class="slide level2 esercizio">
-<h2>Esercizio 4 — Che cosa distingue due strumenti</h2>
-<ul>
-<li>Confronta la <strong>media dei coefficienti 1–12</strong> di flauto e tromba</li>
-<li>Quali tre coefficienti differiscono di più?</li>
-<li>Sul parlato, calcola le <strong>delta</strong> e trova i tre istanti di massima energia</li>
-<li>Cadono nei passaggi fra fonemi o dentro le vocali?</li>
+<li>Conta quanti centri di banda Mel cadono sotto 1000 Hz con <span class="math inline">\(M=12\)</span> e con <span class="math inline">\(M=80\)</span> (<code>al.mel_frequencies()</code>) e disegna il banco con <code>al.plot_mel_filterbank()</code>.</li>
+<li>Confronta la <strong>media temporale dei coefficienti MFCC <span class="math inline">\(c_1\dots c_{12}\)</span></strong> di <code>flauto.wav</code> e <code>tromba.wav</code> (<code>al.mfcc_matrix()</code>) e individua i tre coefficienti che differiscono di più.</li>
 </ul>
 <div class="player">
 <span>Flauto</span><audio role="img" controls src="media/a1b6b52000417307.wav"></audio>
@@ -1879,7 +1859,8 @@ display:block!important;
 <div class="player">
 <span>Parlato</span><audio role="img" controls src="media/78f893dff2ef923f.wav"></audio>
 </div>
-<p><strong>Funzioni usate.</strong> <code>al.mfcc_matrix()</code>, <code>al.delta()</code>, <code>al.plot_mfcc()</code>, <code>al.zero_crossing_rate()</code></p>
+<p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.stft_power()</code>, <code>al.mel_filterbank()</code>, <code>al.mel_frequencies()</code>, <code>al.plot_mel_filterbank()</code>, <code>al.mfcc_matrix()</code></p>
+<p><strong>Notebook:</strong> <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb"><code>04-feature-e-classificazione-TODO.ipynb</code></a></p>
 </section></section>
 <section>
 <section id="dalla-sequenza-al-vettore" class="title-slide slide level1 divider center">
@@ -1902,16 +1883,6 @@ s_k=\sqrt{\frac{1}{T}\sum_t\big(c_k(t)-\bar{c}_k\big)^2}\]</span></p>
 <li>Le delta descrivono cambiamenti locali, ma aggregarle non conserva l’intera sequenza</li>
 <li>Conservare il tempo permette alla CNN di sfruttare pattern che il riassunto elimina</li>
 </ul>
-</section>
-<section id="esercizio-5-media-o-media-e-deviazione-standard" class="slide level2 esercizio">
-<h2>Esercizio 5 — Media o media e deviazione standard?</h2>
-<ul>
-<li>Costruisci i due vettori per un clip e verifica l’invarianza alla permutazione</li>
-<li>Calcola la distanza fra flauto e tromba con <strong>13</strong> e con <strong>26</strong> numeri</li>
-<li>La distanza in 26 dimensioni non può diminuire: questo non prova una migliore separazione delle classi</li>
-<li>Verifica l’utilità della std confrontando i classificatori sulla validazione</li>
-</ul>
-<p><strong>Funzioni usate.</strong> <code>al.mfcc_matrix()</code>, <code>np.mean()</code>, <code>np.std()</code>, <code>np.random.permutation()</code></p>
 </section></section>
 <section>
 <section id="baseline-e-cnn" class="title-slide slide level1 divider center">
@@ -1933,14 +1904,14 @@ s_k=\sqrt{\frac{1}{T}\sum_t\big(c_k(t)-\bar{c}_k\big)^2}\]</span></p>
 <li><code>zero_division=0</code> rende esplicita la gestione dei denominatori nulli nelle metriche</li>
 </ul>
 </section>
-<section id="esercizio-6-tre-modelli-sulla-validazione" class="slide level2 esercizio">
-<h2>Esercizio 6 — Tre modelli sulla validazione</h2>
+<section id="esercizio-3-invarianza-alla-permutazione-e-confronto-delle-baseline-sulla-validazione" class="slide level2 esercizio">
+<h2>Esercizio 3 — Invarianza alla permutazione e confronto delle baseline sulla validazione</h2>
 <ul>
-<li>Confronta <strong>Dummy</strong>, <strong>RF media</strong> e <strong>RF media+std</strong> sulla validazione</li>
-<li>Macro-F1 per ciascuno e tempi di addestramento</li>
-<li>Perché la scelta si fa qui e non sul test?</li>
+<li>Verifica che permutando casualmente i frame di una matrice MFCC (<span class="math inline">\(13\times 173\)</span>) il vettore riassuntivo <span class="math inline">\([\mu, \sigma] \in \mathbb{R}^{26}\)</span> resta identico (<code>np.allclose</code>).</li>
+<li>Confronta sulla <strong>validazione</strong> la Macro-<span class="math inline">\(F_1\)</span> di <code>DummyClassifier</code>, <code>RandomForest</code> su sola media (<span class="math inline">\(13\)</span> dim.) e <code>RandomForest</code> su media+std (<span class="math inline">\(26\)</span> dim.) estratti con <code>al.prepare_features()</code>.</li>
 </ul>
-<p><strong>Funzioni usate.</strong> <code>al.prepare_features()</code>, <code>al.URBAN_CLASSES</code>; <code>DummyClassifier</code>, <code>RandomForestClassifier</code>, <code>f1_score</code></p>
+<p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.mfcc_matrix()</code>, <code>al.prepare_features()</code>, <code>DummyClassifier</code>, <code>RandomForestClassifier</code>, <code>f1_score</code></p>
+<p><strong>Notebook:</strong> <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb"><code>04-feature-e-classificazione-TODO.ipynb</code></a></p>
 </section>
 <section id="la-cnn-sul-log-mel" class="slide level2">
 <h2>La CNN sul log-mel</h2>
@@ -1969,15 +1940,6 @@ s_k=\sqrt{\frac{1}{T}\sum_t\big(c_k(t)-\bar{c}_k\big)^2}\]</span></p>
 <ul>
 <li>La validazione sceglie l’epoca 8; il train continua a scendere</li>
 </ul>
-</section>
-<section id="esercizio-7-addestrare-e-scegliere-lepoca" class="slide level2 esercizio">
-<h2>Esercizio 7 — Addestrare e scegliere l’epoca</h2>
-<ul>
-<li>Segui le forme del tensore nei quattro blocchi e conta i parametri</li>
-<li>Standardizza con media e std del train, addestra (o ricarica dalla cache)</li>
-<li>Stampa epoca scelta e tempo; disegna loss e macro-F1</li>
-</ul>
-<p><strong>Funzioni usate.</strong> <code>al.build_sound_cnn()</code>, <code>al.train_or_load_cnn()</code></p>
 </section></section>
 <section>
 <section id="confronto-e-limiti" class="title-slide slide level1 divider center">
@@ -2051,14 +2013,14 @@ s_k=\sqrt{\frac{1}{T}\sum_t\big(c_k(t)-\bar{c}_k\big)^2}\]</span></p>
 <li>Le modifiche si scelgono su un <strong>nuovo esperimento</strong>, non sul test appena aperto</li>
 </ul>
 </section>
-<section id="esercizio-8-misurare-e-ascoltare" class="slide level2 esercizio">
-<h2>Esercizio 8 — Misurare e ascoltare</h2>
+<section id="esercizio-4-confronto-finale-sul-test-set-matrice-di-confusione-e-ascolto-degli-errori" class="slide level2 esercizio">
+<h2>Esercizio 4 — Confronto finale sul test set, matrice di confusione e ascolto degli errori</h2>
 <ul>
-<li>Accuratezza e macro-F1 dei quattro sistemi sul test, con i tempi</li>
-<li>Matrice di confusione di RF media+std e della CNN</li>
-<li>Ascolta tre errori della CNN: file, classe vera, classe predetta</li>
+<li>Confronta sul <strong>test set</strong> (una sola volta!) accuratezza e Macro-<span class="math inline">\(F_1\)</span> di Dummy, RF (media), RF (media+std) e CNN (<code>al.train_or_load_cnn()</code>, <code>al.predict()</code>).</li>
+<li>Disegna le matrici di confusione con <code>al.plot_confusion()</code> e riascolta con <code>al.listen()</code> un clip di test classificato erroneamente dalla CNN.</li>
 </ul>
-<p><strong>Funzioni usate.</strong> <code>al.predict()</code>, <code>al.plot_confusion()</code>, <code>al.URBAN_CLASSES</code>, <code>al.listen()</code></p>
+<p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.build_sound_cnn()</code>, <code>al.train_or_load_cnn()</code>, <code>al.predict()</code>, <code>al.plot_confusion()</code>, <code>al.load_clip()</code>, <code>al.listen()</code></p>
+<p><strong>Notebook:</strong> <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb"><code>04-feature-e-classificazione-TODO.ipynb</code></a></p>
 </section>
 <section id="robustezza-rumore-e-classi-chiuse" class="slide level2">
 <h2>Robustezza: rumore e classi chiuse</h2>
@@ -2075,15 +2037,6 @@ s_k=\sqrt{\frac{1}{T}\sum_t\big(c_k(t)-\bar{c}_k\big)^2}\]</span></p>
 <div class="player">
 <span>SNR 10 dB</span><audio role="img" controls src="media/8950032683a18a07.wav"></audio>
 </div>
-</section>
-<section id="esercizio-9-che-cosa-succede-con-il-rumore" class="slide level2 esercizio">
-<h2>Esercizio 9 — Che cosa succede con il rumore</h2>
-<ul>
-<li>Ripeti la prova su un clip di validazione: distanza fra i vettori e previsione prima e dopo</li>
-<li>Che cosa misureresti per parlare di robustezza del sistema, e non di un singolo clip?</li>
-<li>Che cosa significa che il modello è a classi chiuse?</li>
-</ul>
-<p><strong>Funzioni usate.</strong> <code>al.add_noise()</code>, <code>al.representations()</code></p>
 </section>
 <section id="il-ponte-agli-embedding-preaddestrati" class="slide level2">
 <h2>Il ponte agli embedding preaddestrati</h2>
@@ -2158,22 +2111,22 @@ s_k=\sqrt{\frac{1}{T}\sum_t\big(c_k(t)-\bar{c}_k\big)^2}\]</span></p>
 </section>
 <section id="laboratorio" class="slide level2">
 <h2>Laboratorio</h2>
-<p>Nove esercizi guidati su Python e <code>audiolab</code>:</p>
+<p>Quattro esempi guidati e quattro esercizi paradigmatici con <code>audiolab</code>:</p>
 <ul>
-<li><strong>Es. 1–2</strong>: esplorazione di UrbanSound8K, verifica dello split e descrittori scalari (RMS, ZCR, centroide, rolloff, flatness)</li>
-<li><strong>Es. 3–4</strong>: costruzione del banco di filtri Mel, spettrogramma Log-Mel e compressione MFCC via DCT</li>
-<li><strong>Es. 5–6</strong>: aggregazione temporale (<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>), baseline Random Forest e metriche per classe (<span class="math inline">\(P, R, F_1\)</span>)</li>
-<li><strong>Es. 7–9</strong>: architettura CNN 2D, matrice di confusione con ascolto degli errori e test di robustezza al rumore</li>
+<li><strong>Esercizio 1</strong>: protocollo sperimentale su UrbanSound8K (verifica assenza di <em>data leakage</em> per <code>fsID</code>) e descrittori temporali/spettrali (<code>al.time_features</code>, <code>al.spectral_features</code>)</li>
+<li><strong>Esercizio 2</strong>: risoluzione del banco di filtri Mel (<code>al.mel_filterbank</code>, <code>al.mel_frequencies</code>) e confronto MFCC di flauto e tromba (<code>al.mfcc_matrix</code>)</li>
+<li><strong>Esercizio 3</strong>: invarianza alla permutazione dell’aggregazione <span class="math inline">\((\mu, \sigma)\)</span> e selezione sulla validazione tra Dummy, RF (media) e RF (media+std) (<code>al.prepare_features</code>)</li>
+<li><strong>Esercizio 4</strong>: architettura CNN 2D su Log-Mel (<code>al.build_sound_cnn</code>, <code>al.train_or_load_cnn</code>), confronto finale sul test set, matrice di confusione (<code>al.plot_confusion</code>) e ascolto degli errori</li>
 </ul>
 <p>Materiali:</p>
 <ul>
 <li>Notebook da completare: <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb"><code>04-feature-e-classificazione-TODO.ipynb</code></a></li>
 <li>Notebook con soluzioni: <a href="../lab-2026/04-feature-e-classificazione-SOLUZ.ipynb"><code>04-feature-e-classificazione-SOLUZ.ipynb</code></a></li>
-<li>Quaderno delle demo delle slide: <a href="../lab-2026/04-feature-e-classificazione-demo.ipynb"><code>04-feature-e-classificazione-demo.ipynb</code></a></li>
+<li>Notebook delle demo delle slide: <a href="../lab-2026/04-feature-e-classificazione-demo.ipynb"><code>04-feature-e-classificazione-demo.ipynb</code></a></li>
 <li>Riferimento rapido alle funzioni: <a href="https://giulianogrossi.github.io/infomm-audio-AI/app-b-manuale-funzioni.html">Manuale di <code>audiolab</code></a></li>
 </ul>
 <aside class="notes">
-<p>Nella sessione in aula (60 minuti) si eseguono le estrazioni feature, il confronto tra baseline RF e checkpoint CNN pre-addestrato, l’ascolto di tre errori dalla matrice di confusione e la prova di perturbazione a 10 dB di SNR. Il training completo da zero e la cross-validation sui 10 fold restano estensioni facoltative.</p>
+<p>Nella sessione in aula (60 minuti) si svolgono i quattro esempi ed esercizi paradigmatici: split e descrittori scalari, banco Mel e MFCC, baseline RF sulla validazione e confronto finale sul test set con la CNN pre-addestrata e l’ascolto degli errori.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;

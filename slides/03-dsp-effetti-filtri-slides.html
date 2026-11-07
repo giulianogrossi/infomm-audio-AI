@@ -705,6 +705,104 @@ border-bottom: none;
 border-radius: 7px;
 padding: 9px 16px;
 }
+
+.reveal .slides section .us8k-grid {
+display: grid;
+grid-template-columns: repeat(5, minmax(0, 1fr));
+gap: 7px 8px;
+width: 100%;
+max-width: 944px;
+margin: 0 auto;
+box-sizing: border-box;
+}
+.reveal .slides section .us8k-card {
+background: #f8fafc;
+border: 1.5px solid #cbd5e1;
+border-radius: 7px;
+padding: 4px 4px 3px 4px;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-width: 0;
+overflow: hidden;
+box-sizing: border-box;
+}
+.reveal .slides section .us8k-title {
+font-size: 13px;
+font-weight: 700;
+line-height: 1.1;
+margin: 0;
+text-align: center;
+white-space: nowrap;
+}
+.reveal .slides section .us8k-sub {
+font-size: 10.5px;
+color: #475569;
+line-height: 1.1;
+margin: 1px 0 2px 0;
+text-align: center;
+white-space: nowrap;
+}
+.reveal .slides section .us8k-card img {
+width: 100%;
+height: 95px;
+object-fit: contain;
+margin: 0;
+}
+.reveal .slides section .us8k-audio-wrap {
+width: 100%;
+height: 23px;
+position: relative;
+overflow: hidden;
+margin-top: 2px;
+}
+.reveal .slides section .us8k-card audio {
+position: absolute;
+left: 50%;
+top: 50%;
+width: 226px;
+height: 28px;
+margin: 0;
+transform: translate(-50%, -50%) scale(0.73);
+}
+
+.reveal .slides section .mel-audio-row {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 12px;
+width: 96%;
+margin: 6px auto 0 auto;
+}
+.reveal .slides section .mel-audio-card {
+background: #f8fafc;
+border: 1.8px solid #cbd5e1;
+border-radius: 8px;
+padding: 6px 8px 5px 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+box-sizing: border-box;
+}
+.reveal .slides section .mel-audio-title {
+font-size: 14px;
+font-weight: 700;
+line-height: 1.15;
+margin: 0;
+text-align: center;
+}
+.reveal .slides section .mel-audio-sub {
+font-size: 11.2px;
+color: #334155;
+line-height: 1.15;
+margin: 2px 0 4px 0;
+text-align: center;
+white-space: nowrap;
+}
+.reveal .slides section .mel-audio-card audio {
+width: 96%;
+height: 28px;
+margin: 0;
+}
 </style>
   <style type="text/css">.reveal
 div.sourceCode
@@ -1396,8 +1494,8 @@ display:block!important;
 <li><p>Nessuno dei due recupera perfettamente la voce originale: si sceglie il compromesso</p></li>
 </ul>
 </section>
-<section id="esercizio-1-il-riverbero-della-cattedrale" class="slide level2 esercizio">
-<h2>Esercizio 1 — Il riverbero della cattedrale</h2>
+<section id="il-riverbero-della-cattedrale-convoluzione" class="slide level2">
+<h2>Il riverbero della cattedrale (convoluzione)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img role="img" data-src="media/0532f3daca433927.png" class="quarto-figure quarto-figure-center" style="width:68.0%"></p>
@@ -1449,12 +1547,13 @@ display:block!important;
 <h2>Filtro a media mobile: esempio di risposta in frequenza</h2>
 <p><img role="img" data-src="media/68d3976b129bbf51.png"></p>
 </section>
-<section id="esercizio-2-la-media-mobile" class="slide level2 esercizio">
-<h2>Esercizio 2 — La media mobile</h2>
+<section id="esercizio-1-media-mobile-fir-su-più-lunghezze-e-ascolto-sulla-chitarra" class="slide level2 esercizio">
+<h2>Esercizio 1 — Media mobile FIR su più lunghezze e ascolto sulla chitarra</h2>
 <ul>
-<li><p>Confronta la risposta di tre medie mobili (<span class="math inline">\(L=2, 8, 32\)</span>): individua sugli assi la posizione del <strong>primo zero</strong> e verifica che sia <span class="math inline">\(F_s/L\)</span>. Poi ascolta la chitarra filtrata con <span class="math inline">\(L=8\)</span> e descrivi che cosa cambia</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>al.frequency_response()</code> per la risposta; <code>np.ones(L)/L</code> per i coefficienti; <code>al.filter_signal()</code> per filtrare; <code>al.load_audio()</code> e <code>al.compare_audio()</code> per l’ascolto</p></li>
+<li><p>Confronta la risposta in frequenza di tre medie mobili (<span class="math inline">\(L=2, 8, 32\)</span>): verifica che il <strong>primo zero</strong> cada a <span class="math inline">\(F_s/L\)</span> (con <span class="math inline">\(L=32\)</span>, a <span class="math inline">\(1378{,}1\)</span> Hz). Poi filtra <code>Guitar_C4.wav</code> con <span class="math inline">\(L=32\)</span> e ascolta l’attenuazione delle armoniche acute.</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.frequency_response()</code>, <code>al.to_db()</code>, <code>al.filter_signal()</code>, <code>al.load_audio()</code>, <code>al.compare_audio()</code>.</p></li>
 </ul>
+<p><strong>Notebook:</strong> <a href="../lab-2026/03-dsp-effetti-TODO.ipynb"><code>03-dsp-effetti-TODO.ipynb</code></a></p>
 </section>
 <section id="un-polo-la-memoria-che-si-rigenera" class="slide level2">
 <h2>Un polo: la memoria che si rigenera</h2>
@@ -1546,14 +1645,6 @@ display:block!important;
 <li>Non esiste una famiglia migliore in assoluto: contano attenuazione, transizione, fase, ritardo e costo</li>
 <li>Un FIR stabile può comunque amplificare e causare clipping: stabilità non significa «dentro −1…+1»</li>
 </ul>
-</section>
-<section id="esercizio-3-un-polo" class="slide level2 esercizio">
-<h2>Esercizio 3 — Un polo</h2>
-<ul>
-<li><p>Genera la risposta all’impulso di <span class="math inline">\(y=(1-a)x+a\,y(n-1)\)</span> per <span class="math inline">\(a=0{,}5\)</span>, <span class="math inline">\(0{,}9\)</span>, <span class="math inline">\(0{,}98\)</span>: misura dopo quanti campioni la coda scende sotto 0,01 e confronta con <span class="math inline">\(\ln(0{,}01)/\ln(a)\)</span>. Poi prova <span class="math inline">\(a=1{,}02\)</span> e spiega che cosa succede.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>np.zeros()</code> per l’impulso; <code>al.filter_signal()</code>; <code>al.frequency_response()</code>; <code>al.to_db()</code>.</p></li>
-<li><p><strong>Simili:</strong> <code>al.sos_response()</code> per filtri di ordine superiore; <code>np.log()</code> per il conto teorico.</p></li>
-</ul>
 </section></section>
 <section>
 <section id="pettini-comb-e-risuonatore" class="title-slide slide level1 divider center">
@@ -1638,13 +1729,13 @@ display:block!important;
 </div>
 </div>
 </section>
-<section id="esercizio-4-il-pettine-e-il-risuonatore" class="slide level2 esercizio">
-<h2>Esercizio 4 — Il pettine e il risuonatore</h2>
+<section id="esercizio-2-dal-pettine-al-risuonatore-a-due-poli" class="slide level2 esercizio">
+<h2>Esercizio 2 — Dal pettine al risuonatore a due poli</h2>
 <ul>
-<li><p>Con <span class="math inline">\(D=220\)</span> campioni e <span class="math inline">\(g=0{,}7\)</span> disegna la risposta del comb FIR e del comb IIR: misura la distanza fra due denti e confrontala con <span class="math inline">\(F_s/D\)</span>. Poi progetta un risuonatore a 500 Hz con <span class="math inline">\(R=0{,}99\)</span> e verifica la banda a −3 dB con la formula <span class="math inline">\(F_s(1-R)/\pi\)</span></p></li>
-<li><p><strong>Funzioni usate.</strong> <code>al.frequency_response()</code>; <code>al.filter_signal()</code>; <code>al.compare_audio()</code> per ascoltare le code</p></li>
-<li><p><strong>Simili:</strong> <code>al.design_filter(&quot;notch&quot;, ...)</code> per un notch stretto; <code>al.plucked_string()</code> per una corda di Karplus-Strong</p></li>
+<li><p>Dopo aver confrontato il filtro a pettine FIR e IIR (<span class="math inline">\(D=220\)</span>, <span class="math inline">\(\Delta f = F_s/D = 200{,}5\)</span> Hz), progetta un <strong>risuonatore a due poli</strong> centrato a <span class="math inline">\(f_0 = 500\)</span> Hz con raggio <span class="math inline">\(R = 0{,}99\)</span>, misura la larghezza di banda a <span class="math inline">\(-3\)</span> dB e confrontala con <span class="math inline">\(B \approx F_s(1-R)/\pi \approx 140{,}4\)</span> Hz.</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.frequency_response()</code>, <code>al.to_db()</code>, <code>al.filter_signal()</code>, <code>al.compare_audio()</code>.</p></li>
 </ul>
+<p><strong>Notebook:</strong> <a href="../lab-2026/03-dsp-effetti-TODO.ipynb"><code>03-dsp-effetti-TODO.ipynb</code></a></p>
 </section></section>
 <section>
 <section id="equalizzazione" class="title-slide slide level1 divider center">
@@ -1728,12 +1819,11 @@ display:block!important;
 </figure>
 </div>
 </section>
-<section id="esercizio-5-la-campana-e-la-mensola" class="slide level2 esercizio">
-<h2>Esercizio 5 — La campana e la mensola</h2>
+<section id="esercizio-3-campana-mensola-e-passa-basso-alla-stessa-frequenza" class="slide level2 esercizio">
+<h2>Esercizio 3 — Campana, mensola e passa-basso alla stessa frequenza</h2>
 <ul>
-<li><p>Progetta una campana a 1700 Hz con +9 dB e larghezza 500 Hz misurata a +6 dB e verifica centro e banda sulla risposta. Poi applica in cascata un filtro Cut, un Peak e uno Shelving a una traccia vocale e a una musicale confrontando spettri e ascolto.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>al.eq_bell()</code>; <code>al.eq_shelf()</code>; <code>al.design_filter()</code>; <code>al.frequency_response()</code> e <code>al.sos_response()</code>; <code>al.filter_sos()</code>; <code>al.compare_audio()</code>.</p></li>
-<li><p><strong>Simili:</strong> <code>al.voice_eq_chain()</code> per una catena già pronta; <code>signal.tf2sos()</code> per collegare più celle.</p></li>
+<li><p>Confronta alla stessa frequenza caratteristica (<span class="math inline">\(800\)</span> Hz) una <strong>campana</strong> (<code>al.eq_bell</code>, <span class="math inline">\(+6\)</span> dB), una <strong>mensola</strong> (<code>al.eq_shelf</code>, <span class="math inline">\(+6\)</span> dB) e un <strong>passa-basso</strong> Butterworth del 4° ordine (<code>al.design_filter</code>, <code>al.sos_response</code>), poi applica la catena vocale <code>al.voice_eq_chain()</code> a <code>leaf.wav</code>.</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.eq_bell()</code>, <code>al.eq_shelf()</code>, <code>al.design_filter()</code>, <code>al.frequency_response()</code>, <code>al.sos_response()</code>, <code>al.voice_eq_chain()</code>, <code>al.compare_audio()</code>.</p></li>
 </ul>
 <p><strong>Notebook:</strong> <a href="../lab-2026/03-dsp-effetti-TODO.ipynb"><code>03-dsp-effetti-TODO.ipynb</code></a></p>
 </section></section>
@@ -1828,12 +1918,11 @@ display:block!important;
 </div>
 </div>
 </section>
-<section id="esercizio-6-delay-flanger-e-chorus" class="slide level2 esercizio">
-<h2>Esercizio 6 — Delay, Flanger e Chorus</h2>
+<section id="esercizio-4-eco-sincronizzata-ai-bpm-tremolo-e-vibrato" class="slide level2 esercizio">
+<h2>Esercizio 4 — Eco sincronizzata ai BPM, tremolo e vibrato</h2>
 <ul>
-<li><p>Sincronizza un delay a una <strong>croma puntata</strong> a 120 BPM (375 ms) sulla chitarra e confronta una sola copia con un eco a feedback 0,55. Poi implementa il <strong>flanger</strong> con ritardo sinusoidale <span class="math inline">\(d(n)=\frac{D}{2}(1-\cos(2\pi f_d n))\)</span> (<span class="math inline">\(0\text{–}10\text{ ms}\)</span>, <span class="math inline">\(f_d=1\text{ Hz}\)</span>) e il <strong>chorus</strong> con ritardi casuali lenti <span class="math inline">\(d_k(n)=D(0{,}5+r_k(n))\)</span>.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>al.delay_signal()</code>; <code>al.feedback_delay()</code>; <code>al.modulated_delay()</code> per il ritardo variabile <span class="math inline">\(d(n)\)</span>; <code>al.compare_audio()</code>.</p></li>
-<li><p><strong>Simili:</strong> <code>al.process()</code> con <code>Delay</code> e <code>Chorus</code> di pedalboard.</p></li>
+<li><p>Sincronizza un delay a una <strong>croma puntata</strong> a 120 BPM (<span class="math inline">\(375\)</span> ms) su <code>Guitar_C4.wav</code> con <code>al.feedback_delay()</code>, poi confronta all’ascolto la modulazione di ampiezza (<strong>tremolo</strong>, <code>al.tremolo</code>) e la modulazione del ritardo (<strong>vibrato</strong>, <code>al.modulated_delay</code>).</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.delay_signal()</code>, <code>al.feedback_delay()</code>, <code>al.tremolo()</code>, <code>al.modulated_delay()</code>, <code>al.compare_audio()</code>.</p></li>
 </ul>
 <p><strong>Notebook:</strong> <a href="../lab-2026/03-dsp-effetti-TODO.ipynb"><code>03-dsp-effetti-TODO.ipynb</code></a></p>
 </section></section>
@@ -1904,12 +1993,16 @@ display:block!important;
 </section>
 <section id="laboratorio" class="slide level2">
 <h2>Laboratorio</h2>
-<p>Sei esercizi guidati: risposta impulsiva e riverbero a convoluzione, media mobile, un polo, pettine e risuonatore, equalizzazione parametrica in cascata, delay/flanger/chorus. Ogni esercizio chiede numeri e un commento, non solo figure.</p>
+<p>Quattro esempi guidati e quattro esercizi paradigmatici con <code>audiolab</code>:</p>
+<ol type="1">
+<li><strong>Media mobile FIR</strong> (<span class="math inline">\(L=2, 8, 32\)</span>, primo zero a <span class="math inline">\(F_s/L\)</span> e ascolto su <code>Guitar_C4.wav</code>)</li>
+<li><strong>Dal pettine al risuonatore a due poli</strong> (comb FIR/IIR e banda a <span class="math inline">\(-3\)</span> dB del risuonatore)</li>
+<li><strong>Equalizzazione parametrica</strong> (campana, mensola, passa-basso e catena vocale <code>al.voice_eq_chain</code>)</li>
+<li><strong>Effetti nel tempo e LFO</strong> (eco sincronizzata a 120 BPM, tremolo e vibrato)</li>
+</ol>
 <ul>
-<li><a href="../lab-2026/03-dsp-effetti-TODO.ipynb">Notebook degli esercizi (<code>03-dsp-effetti-TODO.ipynb</code>)</a></li>
-<li><a href="../lab-2026/03-dsp-effetti-SOLUZ.ipynb">Soluzioni (<code>03-dsp-effetti-SOLUZ.ipynb</code>)</a></li>
-<li><a href="../lab-2026/03-dsp-effetti-demo.ipynb">Quaderno delle demo (<code>03-dsp-effetti-demo.ipynb</code>)</a></li>
-<li><a href="../dispensa-2026/_book/app-b-manuale-funzioni.html">Manuale delle funzioni <code>audiolab</code> (Appendice B)</a></li>
+<li><a href="../lab-2026/03-dsp-effetti-TODO.ipynb">Notebook degli esercizi (<code>03-dsp-effetti-TODO.ipynb</code>)</a> · <a href="../lab-2026/03-dsp-effetti-SOLUZ.ipynb">Soluzioni (<code>03-dsp-effetti-SOLUZ.ipynb</code>)</a></li>
+<li><a href="../lab-2026/03-dsp-effetti-demo.ipynb">Notebook delle demo (<code>03-dsp-effetti-demo.ipynb</code>)</a> · <a href="../dispensa-2026/_book/app-b-manuale-funzioni.html">Manuale delle funzioni <code>audiolab</code> (Appendice B)</a></li>
 </ul>
 
 </section></section>

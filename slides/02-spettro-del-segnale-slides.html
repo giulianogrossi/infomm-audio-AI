@@ -1668,12 +1668,11 @@ display:block!important;
 <p><img role="img" data-src="media/32588e9bcc117e41.png"></p>
 <p>L’<strong>ampiezza lineare</strong> confronta le grandezze; i <strong>decibel</strong> mostrano la dinamica, e fanno emergere anche le componenti deboli</p>
 </section>
-<section id="esercizio-1-la-ricetta-in-cinque-passi" class="slide level2 esercizio">
-<h2>Esercizio 1 — La ricetta in cinque passi</h2>
+<section id="esercizio-1-la-voce-leaf-nel-tempo-e-in-frequenza" class="slide level2 esercizio">
+<h2>Esercizio 1 — La voce «leaf» nel tempo e in frequenza</h2>
 <ul>
-<li><p>Ogni esercizio del laboratorio segue la stessa <strong>ricetta</strong>: carica e info → forma d’onda → spettro → grafico → ascolto. La parte guidata è su una nota di pianoforte (C4), da completare è la voce «leaf».</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>load_audio()</code> carica il file; <code>file_info()</code> ne legge la scheda; <code>plot_waveform()</code> disegna la forma d’onda; <code>amplitude_spectrum()</code> calcola lo spettro; <code>plot_curves()</code> lo disegna; <code>listen()</code> prepara l’ascolto.</p></li>
-<li><p><strong>Simili:</strong> <code>plot_spectrum()</code> mostra lo spettro in dB con gli assi pronti; <code>load_channels()</code> legge tenendo i canali separati.</p></li>
+<li><p>Ogni esempio del laboratorio segue la stessa <strong>ricetta</strong>: carica → forma d’onda → spettro in dB → fondamentale → ascolto. L’Esempio 1 è guidato su una nota di pianoforte (C4); l’<strong>Esercizio 1</strong> ti chiede di ripeterlo sulla voce <code>leaf.wav</code> (entro 2000 Hz) e stimarne la fondamentale tra 80 e 400 Hz.</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.load_audio()</code>, <code>al.plot_waveform()</code>, <code>al.plot_spectrum()</code>, <code>al.fundamental_frequency()</code>, <code>al.listen()</code>.</p></li>
 </ul>
 <p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
 </section>
@@ -1701,15 +1700,6 @@ f_k=\frac{k}{NT_s}=k\cdot \frac{F_s}{N}, \quad k=0,\dots,N-1
 <span id="cb1-3"><a href aria-hidden="true" tabindex="-1"></a>ampiezza <span class="op">=</span> np.<span class="bu">abs</span>(X)</span>
 <span id="cb1-4"><a href aria-hidden="true" tabindex="-1"></a>fase <span class="op">=</span> np.angle(X)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="esercizio-3-il-picco-principale" class="slide level2 esercizio">
-<h2>Esercizio 3 — Il picco principale</h2>
-<ul>
-<li><p>Flauto e tromba suonano lo stesso do4: trova la frequenza del <strong>picco più alto</strong> sotto i 1000 Hz e confrontala con i 261,63 Hz teorici; lo scarto dice quanto è intonato lo strumento</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>load_audio()</code>; <code>db_spectrum()</code> per lo spettro in decibel; <code>fundamental_frequency()</code> per la fondamentale vicino al picco</p></li>
-<li><p><strong>Simili:</strong> <code>plot_spectra()</code> sovrappone gli spettri di più strumenti; <code>harmonic_levels()</code> misura le armoniche una per una</p></li>
-</ul>
-<p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
-</section>
 <section id="dft-e-fft-stesso-risultato" class="slide level2">
 <h2>DFT e FFT: stesso risultato</h2>
 <ul>
@@ -1727,6 +1717,14 @@ f_k=\frac{k}{NT_s}=k\cdot \frac{F_s}{N}, \quad k=0,\dots,N-1
 <audio role="img" controls src="media/7d01028ba2e0e550.wav">
 </audio>
 <p>Il <strong>bianco</strong> ha potenza media uniforme per hertz. Il <strong>rosa</strong> ha densità di potenza proporzionale a <span class="math inline">\(1/f\)</span> (−3 dB per ottava), quindi uguale potenza per ottava</p>
+</section>
+<section id="esercizio-4-rumore-bianco-e-rumore-rosa-a-confronto" class="slide level2 esercizio">
+<h2>Esercizio 4 — Rumore bianco e rumore rosa a confronto</h2>
+<ul>
+<li><p>Genera 2 secondi di <strong>rumore bianco</strong> (<code>al.white_noise</code>) e 2 secondi di <strong>rumore rosa</strong> (<code>al.pink_noise</code>), misura la pendenza spettrale in dB/ottava con <code>al.spectrum_slope()</code> tra 100 e 8000 Hz e sovrapponi i due spettri con <code>al.plot_spectra()</code>.</p></li>
+<li><p><strong>Verifica:</strong> intorno a <span class="math inline">\(0\)</span> dB/ottava per il rumore bianco e circa <span class="math inline">\(-3\)</span> dB/ottava per il rumore rosa.</p></li>
+</ul>
+<p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
 </section>
 <section id="le-formanti-in-figura" class="slide level2">
 <h2>Le formanti in figura</h2>
@@ -1761,15 +1759,6 @@ f_k=\frac{k}{NT_s}=k\cdot \frac{F_s}{N}, \quad k=0,\dots,N-1
 <section id="suoni-armonici-inarmonici" class="slide level2">
 <h2>Suoni armonici-inarmonici</h2>
 <p><img role="img" data-src="media/fe0bd21e5223baf3.png"></p>
-<!-- ## Esercizio 7 — Suoni senza altezza {.esercizio}
-
-- Dalla campana estrai le prime **sei componenti**: sono multipli interi della più bassa? Poi confronta rumore bianco e rosa e misurane la pendenza.
-
-- **Funzioni usate.** `db_spectrum()` per lo spettro in decibel; `white_noise()` e `pink_noise()` per i due rumori; `spectrum_slope()` per la pendenza in dB per ottava.
-
-- **Simili:** `plot_spectra()` sovrappone i due spettri; `listen()` li fa ascoltare.
-
-**Notebook:** [`02-analisi-spettrale-TODO.ipynb`](../lab-2026/02-analisi-spettrale-TODO.ipynb) -->
 </section>
 <section id="pitch-altezza" class="slide level2">
 <h2>Pitch (altezza)</h2>
@@ -1807,12 +1796,11 @@ f_k=\frac{k}{NT_s}=k\cdot \frac{F_s}{N}, \quad k=0,\dots,N-1
 <h2>Il timbro: le armoniche</h2>
 <p><img role="img" data-src="media/3af54ddc8e02a75e.png"></p>
 </section>
-<section id="esercizio-6-profilo-e-sintesi-delle-armoniche" class="slide level2 esercizio">
-<h2>Esercizio 6 — Profilo e sintesi delle armoniche</h2>
+<section id="esercizio-2-profilo-armonico-e-sintesi-additiva" class="slide level2 esercizio">
+<h2>Esercizio 2 — Profilo armonico e sintesi additiva</h2>
 <ul>
-<li><p>Misura in decibel le prime <strong>8 armoniche</strong> di flauto e tromba rispetto alla fondamentale: chi tiene più energia in alto? Poi ricostruisci i due timbri e ascoltali.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>harmonic_levels()</code> legge le armoniche; <code>sum_harmonics()</code> costruisce le due serie; <code>plot_spectra()</code> le confronta; <code>listen()</code> prepara l’ascolto.</p></li>
-<li><p><strong>Simili:</strong> <code>spectrum_slope()</code> misura la pendenza media dello spettro; <code>synthetic_timbre()</code> genera timbri già pronti.</p></li>
+<li><p>Misura in decibel le prime <strong>8 armoniche</strong> di flauto e tromba rispetto alla fondamentale (<code>al.harmonic_levels</code>), poi sintetizza con <code>al.sum_harmonics()</code> due note alla stessa <span class="math inline">\(f_0 = 261{,}63\)</span> Hz: un timbro morbido (<span class="math inline">\(1/k^2\)</span>) e uno brillante (<span class="math inline">\(1/k\)</span>).</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.harmonic_levels()</code>, <code>al.sum_harmonics()</code>, <code>al.plot_spectra()</code>, <code>al.listen()</code>.</p></li>
 </ul>
 <p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
 </section>
@@ -1846,15 +1834,6 @@ width: 1px!important;
 overflow: hidden!important;
 display:block!important;
 }</style></aside>
-<!-- ## Esercizio 2 — Il decadimento, misurato {.esercizio}
-
-- Una nota con inviluppo $e^{-t/\tau}$ scende di 20 dB in circa $2{,}303\,\tau$: misuralo sull'**RMS** e confronta con il valore atteso ($\tau=0{,}15$ s).
-
-- **Funzioni usate.** `decaying_tone()` genera la nota; `librosa.feature.rms` misura il livello nel tempo; `plot_curves()` disegna l'inviluppo.
-
-- **Simili:** `envelope()` segue il livello a finestre; `tone_with_envelope()` prepara una nota completa di attacco e rilascio.
-
-**Notebook:** [`02-analisi-spettrale-TODO.ipynb`](../lab-2026/02-analisi-spettrale-TODO.ipynb) -->
 </section>
 <section id="fondamentale-ipertoni-e-parziali-non-armonici" class="slide level2">
 <h2>Fondamentale, ipertoni e parziali non armonici</h2>
@@ -2010,15 +1989,6 @@ display:block!important;
 </table>
 <p>Un passo di 10 ms non garantisce una risoluzione temporale di 10 ms. La distanza fra bin non coincide automaticamente con la separabilità dei toni</p>
 </section>
-<section id="esercizio-4c-tre-parametri-e-la-forma-della-matrice" class="slide level2 esercizio">
-<h2>Esercizio 4c — Tre parametri e la forma della matrice</h2>
-<ul>
-<li><p>Su «leaf» con finestra 1024 e hop 512: quante <strong>righe</strong> e quante <strong>colonne</strong> ha la matrice? Rifai il conto con <code>center=False</code> e spiega le colonne in più del padding.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>load_audio()</code>; <code>librosa.stft</code> per la matrice complessa; <code>plot_spectrogram()</code> per la mappa.</p></li>
-<li><p><strong>Simili:</strong> <code>plot_spectrogram(..., mel=True)</code> per la scala mel; <code>spectrogram_levels()</code> per confronti a pari scala.</p></li>
-</ul>
-<p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
-</section>
 <section id="lo-spettrogramma-matrice-a-colori" class="slide level2">
 <h2>Lo spettrogramma: matrice a colori</h2>
 <p><img role="img" data-src="media/e3d8d0f8f5a17a82.png"></p>
@@ -2087,15 +2057,6 @@ width: 1px!important;
 overflow: hidden!important;
 display:block!important;
 }</style></aside>
-</section>
-<section id="esercizio-4b-il-chirp-dalla-formula-allo-spettrogramma" class="slide level2 esercizio">
-<h2>Esercizio 4b — Il chirp: dalla formula allo spettrogramma</h2>
-<ul>
-<li><p>Ricostruisci la formula del chirp a mano e confrontala con <code>chirp()</code>; poi misura la pendenza della riga nello spettrogramma fra 0,25 s e 0,75 s: deve tornare <span class="math inline">\(k\)</span>.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>chirp()</code>; <code>time_axis()</code> per ricostruire l’asse dei tempi; <code>librosa.stft</code> per la matrice; <code>plot_spectrogram()</code> per la mappa.</p></li>
-<li><p><strong>Simili:</strong> <code>plot_waveform()</code> per la forma d’onda; <code>sum_tones()</code> per un suono stazionario.</p></li>
-</ul>
-<p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
 </section>
 <section id="chirp-forma-donda" class="slide level2">
 <h2>Chirp forma d’onda</h2>
@@ -2177,12 +2138,11 @@ display:block!important;
 <p><img role="img" data-src="media/cd7293d4eab48b48.png"></p>
 <p><strong>Stessi hop e dimensione FFT.</strong> La finestra corta localizza meglio i cambiamenti; quella lunga separa meglio le frequenze vicine.</p>
 </section>
-<section id="esercizio-4-finestre-e-risoluzione" class="slide level2 esercizio">
-<h2>Esercizio 4 — Finestre e risoluzione</h2>
+<section id="esercizio-3-finestra-corta-e-finestra-lunga-sullo-spettrogramma" class="slide level2 esercizio">
+<h2>Esercizio 3 — Finestra corta e finestra lunga sullo spettrogramma</h2>
 <ul>
-<li><p>Un tono di 1000 Hz lungo 10,5 ms non contiene un numero intero di periodi: confronta il <strong>primo lobo laterale</strong> con finestra rettangolare e Hann. Poi somma 1000 e 1050 Hz: da quale durata compaiono due picchi distinti?</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>sine()</code>; <code>amplitude_spectrum()</code> con finestra <code>boxcar</code> o <code>hann</code>; <code>sum_tones()</code>; <code>plot_spectra()</code> per il confronto in decibel.</p></li>
-<li><p><strong>Simili:</strong> <code>plot_spectrum()</code> per un solo spettro; <code>fundamental_frequency()</code> per leggere il picco.</p></li>
+<li><p>Confronta lo spettrogramma di <code>C-major-scale.wav</code> con finestra corta (<code>n_fft=256</code>, <code>hop_length=64</code>) e finestra lunga (<code>n_fft=4096</code>, <code>hop_length=1024</code>), calcolando <span class="math inline">\(\Delta f = F_s / N_{\mathrm{FFT}}\)</span> e <span class="math inline">\(\Delta t = H / F_s\)</span>.</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.load_audio()</code>, <code>al.plot_spectrogram()</code>.</p></li>
 </ul>
 <p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
 </section>
@@ -2197,15 +2157,6 @@ display:block!important;
 <audio role="img" controls src="media/17fd8419dc6224e6.wav">
 </audio>
 <p>Tempo sull’asse <strong>orizzontale</strong>, frequenza sul <strong>verticale</strong>. Ogni nota può produrre più righe: fondamentale e armoniche si muovono insieme.</p>
-</section>
-<section id="esercizio-5-la-scala-misurata" class="slide level2 esercizio">
-<h2>Esercizio 5 — La scala, misurata</h2>
-<ul>
-<li><p>Segui l’altezza della scala con un <strong>pitch tracker</strong> (pyin), dividi il brano sugli attacchi e calcola l’errore in cent di ogni nota rispetto al temperamento equabile.</p></li>
-<li><p><strong>Funzioni usate.</strong> <code>load_audio()</code>; <code>librosa.pyin</code> per la traccia di altezza; <code>plot_curves()</code> per disegnarla.</p></li>
-<li><p><strong>Simili:</strong> <code>estimate_frequency()</code> per una stima rapida su una finestra; <code>midi_to_frequency()</code> per le frequenze teoriche.</p></li>
-</ul>
-<p><strong>Notebook:</strong> <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></p>
 </section>
 <section id="righe-e-traiettorie" class="slide level2">
 <h2>Righe e traiettorie</h2>
@@ -2305,12 +2256,16 @@ display:block!important;
 </section>
 <section id="laboratorio" class="slide level2">
 <h2>Laboratorio</h2>
-<p>Sette esercizi, stessa <strong>ricetta in cinque passi</strong>: carica e info → forma d’onda → spettro → grafico → ascolto.</p>
+<p>Quattro esempi guidati e quattro esercizi paradigmatici con <code>audiolab</code>:</p>
+<ol type="1">
+<li><strong>Forma d’onda e spettro in dB</strong> (<code>leaf.wav</code> e stima della fondamentale)</li>
+<li><strong>Profilo armonico e sintesi additiva</strong> (flauto, tromba e sintesi <span class="math inline">\(1/k^2\)</span> vs <span class="math inline">\(1/k\)</span>)</li>
+<li><strong>Spettrogramma STFT</strong> (compromesso finestra corta / finestra lunga su <code>C-major-scale.wav</code>)</li>
+<li><strong>Spettri di rumore</strong> (rumore bianco vs rumore rosa e pendenza in dB/ottava)</li>
+</ol>
 <ul>
-<li>Notebook: <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a></li>
-<li>Soluzioni: <a href="../lab-2026/02-analisi-spettrale-SOLUZ.ipynb"><code>02-analisi-spettrale-SOLUZ.ipynb</code></a></li>
-<li>Quaderno delle demo: <a href="../lab-2026/02-analisi-spettrale-demo.ipynb"><code>02-analisi-spettrale-demo.ipynb</code></a></li>
-<li>Libreria: <a href="../lab-2026/audiolab"><code>audiolab</code></a></li>
+<li>Notebook: <a href="../lab-2026/02-analisi-spettrale-TODO.ipynb"><code>02-analisi-spettrale-TODO.ipynb</code></a> · Soluzioni: <a href="../lab-2026/02-analisi-spettrale-SOLUZ.ipynb"><code>02-analisi-spettrale-SOLUZ.ipynb</code></a></li>
+<li>Notebook delle demo: <a href="../lab-2026/02-analisi-spettrale-demo.ipynb"><code>02-analisi-spettrale-demo.ipynb</code></a> · Libreria: <a href="../lab-2026/audiolab"><code>audiolab</code></a></li>
 </ul>
 
 </section></section>
