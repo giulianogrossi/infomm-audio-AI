@@ -259,6 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#convenzioni-da-conoscere" id="toc-convenzioni-da-conoscere" class="nav-link" data-scroll-target="#convenzioni-da-conoscere">Convenzioni da conoscere</a></li>
   <li><a href="#conservare-e-modificare-una-figura" id="toc-conservare-e-modificare-una-figura" class="nav-link" data-scroll-target="#conservare-e-modificare-una-figura">Conservare e modificare una figura</a></li>
   <li><a href="#percorso-per-le-lezioni" id="toc-percorso-per-le-lezioni" class="nav-link" data-scroll-target="#percorso-per-le-lezioni">Percorso per le lezioni</a></li>
+  <li><a href="#le-demo-nel-browser" id="toc-le-demo-nel-browser" class="nav-link" data-scroll-target="#le-demo-nel-browser">Le demo nel browser</a></li>
   <li><a href="#come-leggere-una-scheda" id="toc-come-leggere-una-scheda" class="nav-link" data-scroll-target="#come-leggere-una-scheda">Come leggere una scheda</a></li>
   <li><a href="#01-file-ascolto" id="toc-01-file-ascolto" class="nav-link" data-scroll-target="#01-file-ascolto"><span class="header-section-number">B.1</span> File, percorsi e ascolto</a>
   <ul class="collapse">
@@ -413,6 +414,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fn-generate" id="toc-fn-generate" class="nav-link" data-scroll-target="#fn-generate"><code>generate</code></a></li>
   <li><a href="#fn-load_samples" id="toc-fn-load_samples" class="nav-link" data-scroll-target="#fn-load_samples"><code>load_samples</code></a></li>
   </ul></li>
+  <li><a href="#09-analisi-portabile" id="toc-09-analisi-portabile" class="nav-link" data-scroll-target="#09-analisi-portabile"><span class="header-section-number">B.9</span> Analisi portabile nel browser</a>
+  <ul class="collapse">
+  <li><a href="#fn-analysis-stft" id="toc-fn-analysis-stft" class="nav-link" data-scroll-target="#fn-analysis-stft"><code>analysis.stft</code></a></li>
+  <li><a href="#fn-analysis-istft" id="toc-fn-analysis-istft" class="nav-link" data-scroll-target="#fn-analysis-istft"><code>analysis.istft</code></a></li>
+  <li><a href="#fn-analysis-fft_frequencies" id="toc-fn-analysis-fft_frequencies" class="nav-link" data-scroll-target="#fn-analysis-fft_frequencies"><code>analysis.fft_frequencies</code></a></li>
+  <li><a href="#fn-analysis-frames_to_time" id="toc-fn-analysis-frames_to_time" class="nav-link" data-scroll-target="#fn-analysis-frames_to_time"><code>analysis.frames_to_time</code></a></li>
+  <li><a href="#fn-analysis-midi_to_hz" id="toc-fn-analysis-midi_to_hz" class="nav-link" data-scroll-target="#fn-analysis-midi_to_hz"><code>analysis.midi_to_hz</code></a></li>
+  <li><a href="#fn-analysis-note_to_hz" id="toc-fn-analysis-note_to_hz" class="nav-link" data-scroll-target="#fn-analysis-note_to_hz"><code>analysis.note_to_hz</code></a></li>
+  <li><a href="#fn-analysis-power_to_db" id="toc-fn-analysis-power_to_db" class="nav-link" data-scroll-target="#fn-analysis-power_to_db"><code>analysis.power_to_db</code></a></li>
+  <li><a href="#fn-analysis-amplitude_to_db" id="toc-fn-analysis-amplitude_to_db" class="nav-link" data-scroll-target="#fn-analysis-amplitude_to_db"><code>analysis.amplitude_to_db</code></a></li>
+  <li><a href="#fn-analysis-hz_to_mel" id="toc-fn-analysis-hz_to_mel" class="nav-link" data-scroll-target="#fn-analysis-hz_to_mel"><code>analysis.hz_to_mel</code></a></li>
+  <li><a href="#fn-analysis-mel_to_hz" id="toc-fn-analysis-mel_to_hz" class="nav-link" data-scroll-target="#fn-analysis-mel_to_hz"><code>analysis.mel_to_hz</code></a></li>
+  <li><a href="#fn-analysis-mel_frequencies" id="toc-fn-analysis-mel_frequencies" class="nav-link" data-scroll-target="#fn-analysis-mel_frequencies"><code>analysis.mel_frequencies</code></a></li>
+  <li><a href="#fn-analysis-mel" id="toc-fn-analysis-mel" class="nav-link" data-scroll-target="#fn-analysis-mel"><code>analysis.mel</code></a></li>
+  <li><a href="#fn-analysis-melspectrogram" id="toc-fn-analysis-melspectrogram" class="nav-link" data-scroll-target="#fn-analysis-melspectrogram"><code>analysis.melspectrogram</code></a></li>
+  <li><a href="#fn-analysis-mfcc" id="toc-fn-analysis-mfcc" class="nav-link" data-scroll-target="#fn-analysis-mfcc"><code>analysis.mfcc</code></a></li>
+  <li><a href="#fn-analysis-spectral_centroid" id="toc-fn-analysis-spectral_centroid" class="nav-link" data-scroll-target="#fn-analysis-spectral_centroid"><code>analysis.spectral_centroid</code></a></li>
+  <li><a href="#fn-analysis-spectral_bandwidth" id="toc-fn-analysis-spectral_bandwidth" class="nav-link" data-scroll-target="#fn-analysis-spectral_bandwidth"><code>analysis.spectral_bandwidth</code></a></li>
+  <li><a href="#fn-analysis-spectral_rolloff" id="toc-fn-analysis-spectral_rolloff" class="nav-link" data-scroll-target="#fn-analysis-spectral_rolloff"><code>analysis.spectral_rolloff</code></a></li>
+  <li><a href="#fn-analysis-spectral_flatness" id="toc-fn-analysis-spectral_flatness" class="nav-link" data-scroll-target="#fn-analysis-spectral_flatness"><code>analysis.spectral_flatness</code></a></li>
+  <li><a href="#fn-analysis-rms" id="toc-fn-analysis-rms" class="nav-link" data-scroll-target="#fn-analysis-rms"><code>analysis.rms</code></a></li>
+  <li><a href="#fn-analysis-zero_crossing_rate" id="toc-fn-analysis-zero_crossing_rate" class="nav-link" data-scroll-target="#fn-analysis-zero_crossing_rate"><code>analysis.zero_crossing_rate</code></a></li>
+  <li><a href="#fn-analysis-delta" id="toc-fn-analysis-delta" class="nav-link" data-scroll-target="#fn-analysis-delta"><code>analysis.delta</code></a></li>
+  <li><a href="#fn-analysis-resample" id="toc-fn-analysis-resample" class="nav-link" data-scroll-target="#fn-analysis-resample"><code>analysis.resample</code></a></li>
+  <li><a href="#fn-analysis-load" id="toc-fn-analysis-load" class="nav-link" data-scroll-target="#fn-analysis-load"><code>analysis.load</code></a></li>
+  <li><a href="#fn-analysis-specshow" id="toc-fn-analysis-specshow" class="nav-link" data-scroll-target="#fn-analysis-specshow"><code>analysis.specshow</code></a></li>
+  </ul></li>
   <li><a href="#indice-funzioni" id="toc-indice-funzioni" class="nav-link" data-scroll-target="#indice-funzioni">Indice alfabetico delle funzioni</a></li>
   </ul>
 </nav>
@@ -451,6 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#06-feature">Feature audio</a> — Calcolare descrittori, rappresentazioni Mel, MFCC e chroma.</li>
 <li><a href="#07-classificazione">Classificazione</a> — Preparare dati, addestrare modelli e valutarne le previsioni.</li>
 <li><a href="#08-modelli-ia">Modelli IA preaddestrati</a> — Usare CLAP, ricostruzione con RAVE e generazione audio.</li>
+<li><a href="#09-analisi-portabile">Analisi portabile nel browser</a> — Calcolare STFT, feature e conversioni con NumPy e SciPy nelle demo Pyodide.</li>
 </ul>
 </section>
 <section id="il-primo-esperimento" class="level2 unnumbered">
@@ -517,6 +546,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+</section>
+<section id="le-demo-nel-browser" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="le-demo-nel-browser">Le demo nel browser</h2>
+<p>Il modulo <code>al.analysis</code> offre le operazioni di analisi usate dalle demo Pyodide, con NumPy e SciPy. Nei laboratori desktop le funzioni di servizio continuano a usare librosa. Le funzioni portabili si chiamano con il nome del modulo, per esempio <code>al.analysis.stft(y)</code>; controlla i valori predefiniti nella scheda, perché possono differire da quelli delle funzioni <code>al.*</code>.</p>
+<p>Per consultare esperimenti di classificazione già registrati usa <code>al.load_classification_results()</code> e <code>al.classification_metrics()</code>. <code>al.load_result_clip()</code> è asincrona: nei notebook si usa con <code>await al.load_result_clip(...)</code> per caricare il campione associato a una previsione.</p>
 <p>Il manuale documenta <code>audiolab</code>, non tutte le API delle librerie esterne usate nelle lezioni 6 e 7.</p>
 </section>
 <section id="come-leggere-una-scheda" class="level2 unnumbered">
@@ -3496,7 +3530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="#fn-amplitude_spectrum"><code>amplitude_spectrum</code></a> — One-sided spectrum in linear amplitude.</li>
 <li><a href="#fn-db_spectrum"><code>db_spectrum</code></a> — Spectrum in decibels: 20 log10 of the amplitude, with an initial offset in seconds.</li>
-<li><a href="#fn-plot_spectrum"><code>plot_spectrum</code></a> — Two-panel spectrum: linear amplitude and level in decibels.</li>
+<li><a href="#fn-plot_spectrum"><code>plot_spectrum</code></a> — Spectrum in linear amplitude, decibels, or both.</li>
 <li><a href="#fn-plot_spectra"><code>plot_spectra</code></a> — Spectra of one or more signals, overlaid or in a grid.</li>
 <li><a href="#fn-plot_spectrograms"><code>plot_spectrograms</code></a> — Grid of spectrograms with the same colour scale.</li>
 <li><a href="#fn-plot_spectrogram"><code>plot_spectrogram</code></a> — Plotly-style spectrogram: time-frequency map with colours in decibels.</li>
@@ -3637,8 +3671,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fn-plot_spectrum" class="level3">
 <h3 class="anchored" data-anchor-id="fn-plot_spectrum"><code>plot_spectrum</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(signal, sr, n_fft<span class="op">=</span><span class="va">None</span>, window<span class="op">=</span><span class="st">'hann'</span>, title<span class="op">=</span><span class="st">'Spettro'</span>, up_to<span class="op">=</span><span class="va">None</span>, <span class="op">*</span>, show: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Two-panel spectrum: linear amplitude and level in decibels.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(signal, sr, n_fft<span class="op">=</span><span class="va">None</span>, window<span class="op">=</span><span class="st">'hann'</span>, title<span class="op">=</span><span class="st">'Spettro'</span>, up_to<span class="op">=</span><span class="va">None</span>, scale<span class="op">=</span><span class="st">'linear'</span>, <span class="op">*</span>, show: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Spectrum in linear amplitude, decibels, or both.</p>
 <p>The two readings serve different purposes: the linear one compares the amplitudes, the logarithmic one shows the dynamics.</p>
 <section id="parametri-53" class="level4">
 <h4 class="anchored" data-anchor-id="parametri-53">Parametri</h4>
@@ -3695,6 +3729,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>If given, limit the frequency axis to <code>up_to</code> Hz.</td>
 </tr>
 <tr class="odd">
+<td><code>scale</code></td>
+<td>{“linear”, “db”, “both”}</td>
+<td><code>'linear'</code></td>
+<td><code>"linear"</code> (or <code>"lineare"</code>) plots only linear amplitude, <code>"db"</code> plots only the level in decibels, and <code>"both"</code> (or <code>"entrambi"</code>) plots both panels.</td>
+</tr>
+<tr class="even">
 <td><code>show</code></td>
 <td>bool</td>
 <td><code>True</code></td>
@@ -3712,7 +3752,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="esempio-54" class="level4">
 <h4 class="anchored" data-anchor-id="esempio-54">Esempio</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>signal, sr <span class="op">=</span> al.load_audio(al.AUDIO_DIR <span class="op">/</span> <span class="st">"Piano_C4.wav"</span>)</span>
-<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(signal, sr, up_to<span class="op">=</span><span class="dv">5000</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(signal, sr, up_to<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(signal, sr, up_to<span class="op">=</span><span class="dv">5000</span>, scale<span class="op">=</span><span class="st">"db"</span>)</span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(signal, sr, up_to<span class="op">=</span><span class="dv">5000</span>, scale<span class="op">=</span><span class="st">"both"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="fn-plot_spectra" class="level3">
@@ -7737,6 +7779,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>(numpy.ndarray, int)</strong>: Original mono samples and their sampling rate, as read by load_audio.</li>
 </ul>
 </section>
+<section id="chiamata-asincrona" class="level4">
+<h4 class="anchored" data-anchor-id="chiamata-asincrona">Chiamata asincrona</h4>
+<p>Questa funzione restituisce una coroutine. In un notebook usa <code>await al.load_result_clip(...)</code> per ottenere il risultato.</p>
+</section>
 </section>
 </section>
 <section id="08-modelli-ia" class="level2" data-number="B.8">
@@ -8147,9 +8193,1459 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
+<section id="09-analisi-portabile" class="level2" data-number="B.9">
+<h2 data-number="B.9" class="anchored" data-anchor-id="09-analisi-portabile"><span class="header-section-number">B.9</span> Analisi portabile nel browser</h2>
+<p>Calcolare STFT, feature e conversioni con NumPy e SciPy nelle demo Pyodide.</p>
+<section id="in-questa-sezione-8" class="level3 unnumbered unlisted">
+<h3 class="unnumbered unlisted anchored" data-anchor-id="in-questa-sezione-8">In questa sezione</h3>
+<ul>
+<li><a href="#fn-analysis-stft"><code>analysis.stft</code></a> — Complex STFT with frequency rows and time columns.</li>
+<li><a href="#fn-analysis-istft"><code>analysis.istft</code></a> — Invert a complex STFT by windowed overlap-add and squared-window correction.</li>
+<li><a href="#fn-analysis-fft_frequencies"><code>analysis.fft_frequencies</code></a> — Return the nonnegative FFT-bin frequencies.</li>
+<li><a href="#fn-analysis-frames_to_time"><code>analysis.frames_to_time</code></a> — Convert frame indices into time instants without adding a window offset.</li>
+<li><a href="#fn-analysis-midi_to_hz"><code>analysis.midi_to_hz</code></a> — Convert MIDI note numbers to frequency using A4 = 440 Hz.</li>
+<li><a href="#fn-analysis-note_to_hz"><code>analysis.note_to_hz</code></a> — Convert a note name and octave into a frequency.</li>
+<li><a href="#fn-analysis-power_to_db"><code>analysis.power_to_db</code></a> — Convert absolute power values to decibels relative to a reference.</li>
+<li><a href="#fn-analysis-amplitude_to_db"><code>analysis.amplitude_to_db</code></a> — Convert absolute amplitudes to decibels relative to a reference.</li>
+<li><a href="#fn-analysis-hz_to_mel"><code>analysis.hz_to_mel</code></a> — Convert frequencies in Hz to Slaney or HTK Mel coordinates.</li>
+<li><a href="#fn-analysis-mel_to_hz"><code>analysis.mel_to_hz</code></a> — Convert Slaney or HTK Mel coordinates to Hz.</li>
+<li><a href="#fn-analysis-mel_frequencies"><code>analysis.mel_frequencies</code></a> — Return equally spaced Mel coordinates converted to Hz.</li>
+<li><a href="#fn-analysis-mel"><code>analysis.mel</code></a> — Build a triangular Mel filter bank over the nonnegative FFT bins.</li>
+<li><a href="#fn-analysis-melspectrogram"><code>analysis.melspectrogram</code></a> — Project a precomputed or newly computed power spectrum onto Mel bands.</li>
+<li><a href="#fn-analysis-mfcc"><code>analysis.mfcc</code></a> — Compute orthonormal DCT-II coefficients of a log-Mel matrix.</li>
+<li><a href="#fn-analysis-spectral_centroid"><code>analysis.spectral_centroid</code></a> — Compute the magnitude-weighted frequency centroid of each frame.</li>
+<li><a href="#fn-analysis-spectral_bandwidth"><code>analysis.spectral_bandwidth</code></a> — Compute the magnitude-weighted standard deviation around each centroid.</li>
+<li><a href="#fn-analysis-spectral_rolloff"><code>analysis.spectral_rolloff</code></a> — Find the first FFT bin reaching a fraction of cumulative magnitude.</li>
+<li><a href="#fn-analysis-spectral_flatness"><code>analysis.spectral_flatness</code></a> — Compute the geometric-to-arithmetic mean ratio of spectral power.</li>
+<li><a href="#fn-analysis-rms"><code>analysis.rms</code></a> — Compute the RMS amplitude in overlapping time-domain frames.</li>
+<li><a href="#fn-analysis-zero_crossing_rate"><code>analysis.zero_crossing_rate</code></a> — Measure sign changes as a fraction of each frame length.</li>
+<li><a href="#fn-analysis-delta"><code>analysis.delta</code></a> — Compute coefficient derivatives with a Savitzky-Golay filter.</li>
+<li><a href="#fn-analysis-resample"><code>analysis.resample</code></a> — Resample audio by a reduced rational ratio with polyphase filtering.</li>
+<li><a href="#fn-analysis-load"><code>analysis.load</code></a> — Read float32 audio, optionally average channels, truncate and resample.</li>
+<li><a href="#fn-analysis-specshow"><code>analysis.specshow</code></a> — Draw a spectral matrix on Matplotlib axes using pcolormesh.</li>
+</ul>
+<p>Le funzioni si chiamano tramite <code>al.analysis</code>. Gli oggetti <code>filters</code>, <code>feature</code> e <code>display</code> sono raggruppamenti delle stesse funzioni (per esempio <code>al.analysis.feature.mfcc</code> e <code>al.analysis.filters.mel</code>). Negli esempi e nelle firme <code>np</code> indica NumPy (<code>import numpy as np</code>). <code>specshow</code> restituisce un oggetto Matplotlib, da visualizzare con <code>plt.show()</code>.</p>
+<section id="modulo-analysis" class="level4 unnumbered unlisted">
+<h4 class="unnumbered unlisted anchored" data-anchor-id="modulo-analysis">Modulo <code>analysis</code></h4>
+</section>
+</section>
+<section id="fn-analysis-stft" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-stft"><code>analysis.stft</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb258"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb258-1"><a href="#cb258-1" aria-hidden="true" tabindex="-1"></a>al.analysis.stft(y, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="va">None</span>, win_length<span class="op">=</span><span class="va">None</span>, window<span class="op">=</span><span class="st">'hann'</span>, center<span class="op">=</span><span class="va">True</span>, pad_mode<span class="op">=</span><span class="st">'constant'</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Complex STFT with frequency rows and time columns.</p>
+<section id="parametri-125" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-125">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td>Obbligatorio</td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>2048</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>None</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="even">
+<td><code>win_length</code></td>
+<td>int or None</td>
+<td><code>None</code></td>
+<td>Window length in samples; None uses n_fft. A shorter window is centred within the FFT frame.</td>
+</tr>
+<tr class="odd">
+<td><code>window</code></td>
+<td>str or array_like</td>
+<td><code>'hann'</code></td>
+<td>Periodic window name accepted by scipy.signal.get_window, or window samples of length win_length.</td>
+</tr>
+<tr class="even">
+<td><code>center</code></td>
+<td>bool</td>
+<td><code>True</code></td>
+<td>Whether frames are centred on their time instants. The forward transform pads the signal; the inverse removes the initial half-window.</td>
+</tr>
+<tr class="odd">
+<td><code>pad_mode</code></td>
+<td>str</td>
+<td><code>'constant'</code></td>
+<td>Padding mode passed to numpy.pad when center is True.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-129" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-129">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Complex matrix of shape (n_fft // 2 + 1, number of frames). The periodic Hann window, centred padding and frame conventions follow the desktop pipeline.</li>
+</ul>
+</section>
+<section id="esempio-126" class="level4">
+<h4 class="anchored" data-anchor-id="esempio-126">Esempio</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb259"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb259-1"><a href="#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb259-2"><a href="#cb259-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> al.sine(<span class="dv">440</span>, <span class="fl">0.1</span>, sr<span class="op">=</span><span class="dv">22050</span>)</span>
+<span id="cb259-3"><a href="#cb259-3" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> al.analysis.stft(y, n_fft<span class="op">=</span><span class="dv">512</span>, hop_length<span class="op">=</span><span class="dv">128</span>)</span>
+<span id="cb259-4"><a href="#cb259-4" aria-hidden="true" tabindex="-1"></a>restored <span class="op">=</span> al.analysis.istft(D, n_fft<span class="op">=</span><span class="dv">512</span>, hop_length<span class="op">=</span><span class="dv">128</span>, length<span class="op">=</span><span class="bu">len</span>(y))</span>
+<span id="cb259-5"><a href="#cb259-5" aria-hidden="true" tabindex="-1"></a>np.allclose(y, restored)</span>
+<span id="cb259-6"><a href="#cb259-6" aria-hidden="true" tabindex="-1"></a><span class="co"># True</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="fn-analysis-istft" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-istft"><code>analysis.istft</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb260"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb260-1"><a href="#cb260-1" aria-hidden="true" tabindex="-1"></a>al.analysis.istft(D, hop_length<span class="op">=</span><span class="va">None</span>, win_length<span class="op">=</span><span class="va">None</span>, n_fft<span class="op">=</span><span class="va">None</span>, window<span class="op">=</span><span class="st">'hann'</span>, center<span class="op">=</span><span class="va">True</span>, length<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Invert a complex STFT by windowed overlap-add and squared-window correction.</p>
+<section id="parametri-126" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-126">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>D</code></td>
+<td>numpy.ndarray</td>
+<td>Obbligatorio</td>
+<td>Complex STFT matrix, with frequency rows and time columns.</td>
+</tr>
+<tr class="even">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>None</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="odd">
+<td><code>win_length</code></td>
+<td>int or None</td>
+<td><code>None</code></td>
+<td>Window length in samples; None uses n_fft. A shorter window is centred within the FFT frame.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>None</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>window</code></td>
+<td>str or array_like</td>
+<td><code>'hann'</code></td>
+<td>Periodic window name accepted by scipy.signal.get_window, or window samples of length win_length.</td>
+</tr>
+<tr class="even">
+<td><code>center</code></td>
+<td>bool</td>
+<td><code>True</code></td>
+<td>Whether frames are centred on their time instants. The forward transform pads the signal; the inverse removes the initial half-window.</td>
+</tr>
+<tr class="odd">
+<td><code>length</code></td>
+<td>int or None</td>
+<td><code>None</code></td>
+<td>Requested output sample count. None trims the centred padding; a specified length truncates or zero-pads the output after removing initial padding.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-130" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-130">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: One-dimensional reconstructed samples. Samples with negligible overlap weights are left unnormalised.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-fft_frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-fft_frequencies"><code>analysis.fft_frequencies</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb261"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb261-1"><a href="#cb261-1" aria-hidden="true" tabindex="-1"></a>al.analysis.fft_frequencies(sr<span class="op">=</span><span class="dv">22050</span>, n_fft<span class="op">=</span><span class="dv">2048</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Return the nonnegative FFT-bin frequencies.</p>
+<section id="parametri-127" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-127">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int</td>
+<td><code>2048</code></td>
+<td>FFT length determining n_fft // 2 + 1 nonnegative bins.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-131" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-131">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Vector of n_fft // 2 + 1 frequencies in Hz.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-frames_to_time" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-frames_to_time"><code>analysis.frames_to_time</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb262"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb262-1"><a href="#cb262-1" aria-hidden="true" tabindex="-1"></a>al.analysis.frames_to_time(frames, sr<span class="op">=</span><span class="dv">22050</span>, hop_length<span class="op">=</span><span class="dv">512</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert frame indices into time instants without adding a window offset.</p>
+<section id="parametri-128" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-128">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>frames</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Frame indices to convert to seconds.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-132" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-132">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Frame indices multiplied by hop_length / sr, in seconds.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-midi_to_hz" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-midi_to_hz"><code>analysis.midi_to_hz</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb263"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb263-1"><a href="#cb263-1" aria-hidden="true" tabindex="-1"></a>al.analysis.midi_to_hz(notes)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert MIDI note numbers to frequency using A4 = 440 Hz.</p>
+<section id="parametri-129" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-129">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>notes</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>MIDI note numbers; fractional values are allowed.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-133" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-133">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray or numpy scalar</strong>: Frequencies in Hz, with the same shape as notes.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-note_to_hz" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-note_to_hz"><code>analysis.note_to_hz</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb264"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb264-1"><a href="#cb264-1" aria-hidden="true" tabindex="-1"></a>al.analysis.note_to_hz(note)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert a note name and octave into a frequency.</p>
+<section id="parametri-130" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-130">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>note</code></td>
+<td>str</td>
+<td>Obbligatorio</td>
+<td>Note name with octave, such as C4, A4, F#3 or Bb-1. Only a single sharp or flat is supported.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-134" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-134">Risultato</h4>
+<ul>
+<li><strong>numpy scalar</strong>: Frequency in Hz; C4 is MIDI 60 and A4 is 440 Hz. Invalid names raise ValueError.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-power_to_db" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-power_to_db"><code>analysis.power_to_db</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb265"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb265-1"><a href="#cb265-1" aria-hidden="true" tabindex="-1"></a>al.analysis.power_to_db(S, ref<span class="op">=</span><span class="fl">1.0</span>, amin<span class="op">=</span><span class="fl">1e-10</span>, top_db<span class="op">=</span><span class="dv">80</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert absolute power values to decibels relative to a reference.</p>
+<section id="parametri-131" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-131">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td>Obbligatorio</td>
+<td>Precomputed spectral matrix; when None, compute it from y.</td>
+</tr>
+<tr class="even">
+<td><code>ref</code></td>
+<td>float or callable</td>
+<td><code>1.0</code></td>
+<td>Reference value, or a function of the absolute input matrix returning one reference value.</td>
+</tr>
+<tr class="odd">
+<td><code>amin</code></td>
+<td>float</td>
+<td><code>1e-10</code></td>
+<td>Positive floor applied before taking logarithms.</td>
+</tr>
+<tr class="even">
+<td><code>top_db</code></td>
+<td>float or None</td>
+<td><code>80</code></td>
+<td>Clip levels below the matrix maximum minus this many dB; None disables clipping.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-135" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-135">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: 10 log10 of the floored input relative to the floored reference, optionally clipped using top_db.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-amplitude_to_db" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-amplitude_to_db"><code>analysis.amplitude_to_db</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb266"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb266-1"><a href="#cb266-1" aria-hidden="true" tabindex="-1"></a>al.analysis.amplitude_to_db(S, ref<span class="op">=</span><span class="fl">1.0</span>, amin<span class="op">=</span><span class="fl">1e-05</span>, top_db<span class="op">=</span><span class="dv">80</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert absolute amplitudes to decibels relative to a reference.</p>
+<section id="parametri-132" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-132">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td>Obbligatorio</td>
+<td>Precomputed spectral matrix; when None, compute it from y.</td>
+</tr>
+<tr class="even">
+<td><code>ref</code></td>
+<td>float or callable</td>
+<td><code>1.0</code></td>
+<td>Reference value, or a function of the absolute input matrix returning one reference value.</td>
+</tr>
+<tr class="odd">
+<td><code>amin</code></td>
+<td>float</td>
+<td><code>1e-05</code></td>
+<td>Positive floor applied before taking logarithms.</td>
+</tr>
+<tr class="even">
+<td><code>top_db</code></td>
+<td>float or None</td>
+<td><code>80</code></td>
+<td>Clip levels below the matrix maximum minus this many dB; None disables clipping.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-136" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-136">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Power-to-dB conversion of squared amplitudes and squared reference; equivalent to 20 log10 above the floor.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-hz_to_mel" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-hz_to_mel"><code>analysis.hz_to_mel</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb267"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb267-1"><a href="#cb267-1" aria-hidden="true" tabindex="-1"></a>al.analysis.hz_to_mel(f, htk<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert frequencies in Hz to Slaney or HTK Mel coordinates.</p>
+<section id="parametri-133" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-133">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>f</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Frequency values in Hz.</td>
+</tr>
+<tr class="even">
+<td><code>htk</code></td>
+<td>bool</td>
+<td><code>False</code></td>
+<td>Use the HTK Mel formula when True, otherwise the piecewise Slaney formula.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-137" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-137">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray or numpy scalar</strong>: Mel values with the same shape as f.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-mel_to_hz" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-mel_to_hz"><code>analysis.mel_to_hz</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb268"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb268-1"><a href="#cb268-1" aria-hidden="true" tabindex="-1"></a>al.analysis.mel_to_hz(m, htk<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Convert Slaney or HTK Mel coordinates to Hz.</p>
+<section id="parametri-134" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-134">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>m</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Mel values to convert to Hz.</td>
+</tr>
+<tr class="even">
+<td><code>htk</code></td>
+<td>bool</td>
+<td><code>False</code></td>
+<td>Use the HTK Mel formula when True, otherwise the piecewise Slaney formula.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-138" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-138">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray or numpy scalar</strong>: Frequency values with the same shape as m.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-mel_frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-mel_frequencies"><code>analysis.mel_frequencies</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb269"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb269-1"><a href="#cb269-1" aria-hidden="true" tabindex="-1"></a>al.analysis.mel_frequencies(n_mels<span class="op">=</span><span class="dv">128</span>, fmin<span class="op">=</span><span class="fl">0.0</span>, fmax<span class="op">=</span><span class="fl">11025.0</span>, htk<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Return equally spaced Mel coordinates converted to Hz.</p>
+<section id="parametri-135" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-135">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>n_mels</code></td>
+<td>int</td>
+<td><code>128</code></td>
+<td>Number of Mel bands or Mel frequency values, depending on the function.</td>
+</tr>
+<tr class="even">
+<td><code>fmin</code></td>
+<td>float</td>
+<td><code>0.0</code></td>
+<td>Lowest frequency in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>fmax</code></td>
+<td>float</td>
+<td><code>11025.0</code></td>
+<td>Highest frequency in Hz; the default is 11025 Hz.</td>
+</tr>
+<tr class="even">
+<td><code>htk</code></td>
+<td>bool</td>
+<td><code>False</code></td>
+<td>Use the HTK Mel formula when True, otherwise the piecewise Slaney formula.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-139" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-139">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: n_mels frequency values between fmin and fmax, including both endpoints when n_mels is greater than one.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-mel" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-mel"><code>analysis.mel</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb270"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb270-1"><a href="#cb270-1" aria-hidden="true" tabindex="-1"></a>al.analysis.mel(sr, n_fft, n_mels<span class="op">=</span><span class="dv">128</span>, fmin<span class="op">=</span><span class="fl">0.0</span>, fmax<span class="op">=</span><span class="va">None</span>, htk<span class="op">=</span><span class="va">False</span>, norm<span class="op">=</span><span class="st">'slaney'</span>, dtype<span class="op">=</span>np.float32)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Build a triangular Mel filter bank over the nonnegative FFT bins.</p>
+<section id="parametri-136" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-136">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sr</code></td>
+<td>int</td>
+<td>Obbligatorio</td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td>Obbligatorio</td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>n_mels</code></td>
+<td>int</td>
+<td><code>128</code></td>
+<td>Number of Mel bands or Mel frequency values, depending on the function.</td>
+</tr>
+<tr class="even">
+<td><code>fmin</code></td>
+<td>float</td>
+<td><code>0.0</code></td>
+<td>Lowest frequency in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>fmax</code></td>
+<td>float or None</td>
+<td><code>None</code></td>
+<td>Highest frequency in Hz. In mel, None (and zero) selects sr / 2.</td>
+</tr>
+<tr class="even">
+<td><code>htk</code></td>
+<td>bool</td>
+<td><code>False</code></td>
+<td>Use the HTK Mel formula when True, otherwise the piecewise Slaney formula.</td>
+</tr>
+<tr class="odd">
+<td><code>norm</code></td>
+<td>str or None</td>
+<td><code>'slaney'</code></td>
+<td>Use “slaney” for area-normalised triangles or None for unnormalised triangles; other values raise ValueError.</td>
+</tr>
+<tr class="even">
+<td><code>dtype</code></td>
+<td>numpy.dtype or type</td>
+<td><code>np.float32</code></td>
+<td>Data type of the returned filter-bank matrix.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-140" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-140">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Matrix of shape (n_mels, n_fft // 2 + 1), optionally area-normalised and converted to dtype.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-melspectrogram" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-melspectrogram"><code>analysis.melspectrogram</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb271"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb271-1"><a href="#cb271-1" aria-hidden="true" tabindex="-1"></a>al.analysis.melspectrogram(y<span class="op">=</span><span class="va">None</span>, sr<span class="op">=</span><span class="dv">22050</span>, S<span class="op">=</span><span class="va">None</span>, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>, power<span class="op">=</span><span class="fl">2.0</span>, <span class="op">**</span>kwargs)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Project a precomputed or newly computed power spectrum onto Mel bands.</p>
+<section id="parametri-137" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-137">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Already computed power spectrum, with n_fft // 2 + 1 rows. When supplied, y, hop_length and power are not used to compute a new STFT.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>2048</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="even">
+<td><code>power</code></td>
+<td>float</td>
+<td><code>2.0</code></td>
+<td>Exponent applied to the magnitude spectrum.</td>
+</tr>
+<tr class="odd">
+<td><code>kwargs</code></td>
+<td>dict</td>
+<td>Obbligatorio</td>
+<td>Additional arguments for mel, such as n_mels, fmin, fmax, htk, norm and dtype.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-141" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-141">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Mel matrix with one row per band and one column per frame. No decibel conversion is applied.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-mfcc" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-mfcc"><code>analysis.mfcc</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb272"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb272-1"><a href="#cb272-1" aria-hidden="true" tabindex="-1"></a>al.analysis.mfcc(y<span class="op">=</span><span class="va">None</span>, sr<span class="op">=</span><span class="dv">22050</span>, S<span class="op">=</span><span class="va">None</span>, n_mfcc<span class="op">=</span><span class="dv">20</span>, <span class="op">**</span>kwargs)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute orthonormal DCT-II coefficients of a log-Mel matrix.</p>
+<section id="parametri-138" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-138">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Already computed log-Mel spectrogram in dB. When supplied, the function applies the DCT directly.</td>
+</tr>
+<tr class="even">
+<td><code>n_mfcc</code></td>
+<td>int</td>
+<td><code>20</code></td>
+<td>Maximum number of leading MFCC coefficients returned.</td>
+</tr>
+<tr class="odd">
+<td><code>kwargs</code></td>
+<td>dict</td>
+<td>Obbligatorio</td>
+<td>Additional melspectrogram parameters when S is absent, such as n_mels, n_fft and hop_length.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-142" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-142">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: The first n_mfcc rows of the DCT along the Mel axis. When S is absent, compute a power Mel spectrogram and convert it to dB first.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-spectral_centroid" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-spectral_centroid"><code>analysis.spectral_centroid</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb273"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb273-1"><a href="#cb273-1" aria-hidden="true" tabindex="-1"></a>al.analysis.spectral_centroid(y<span class="op">=</span><span class="va">None</span>, sr<span class="op">=</span><span class="dv">22050</span>, S<span class="op">=</span><span class="va">None</span>, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute the magnitude-weighted frequency centroid of each frame.</p>
+<section id="parametri-139" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-139">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Precomputed spectral matrix; when None, compute it from y.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>2048</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-143" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-143">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Centroids in Hz with shape (1, number of frames). Zero-magnitude frames return zero.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-spectral_bandwidth" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-spectral_bandwidth"><code>analysis.spectral_bandwidth</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb274"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb274-1"><a href="#cb274-1" aria-hidden="true" tabindex="-1"></a>al.analysis.spectral_bandwidth(y<span class="op">=</span><span class="va">None</span>, sr<span class="op">=</span><span class="dv">22050</span>, S<span class="op">=</span><span class="va">None</span>, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute the magnitude-weighted standard deviation around each centroid.</p>
+<section id="parametri-140" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-140">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Precomputed spectral matrix; when None, compute it from y.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>2048</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-144" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-144">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Bandwidths in Hz with shape (1, number of frames).</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-spectral_rolloff" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-spectral_rolloff"><code>analysis.spectral_rolloff</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb275"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb275-1"><a href="#cb275-1" aria-hidden="true" tabindex="-1"></a>al.analysis.spectral_rolloff(y<span class="op">=</span><span class="va">None</span>, sr<span class="op">=</span><span class="dv">22050</span>, S<span class="op">=</span><span class="va">None</span>, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>, roll_percent<span class="op">=</span><span class="fl">0.85</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Find the first FFT bin reaching a fraction of cumulative magnitude.</p>
+<section id="parametri-141" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-141">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Precomputed spectral matrix; when None, compute it from y.</td>
+</tr>
+<tr class="even">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>2048</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="even">
+<td><code>roll_percent</code></td>
+<td>float</td>
+<td><code>0.85</code></td>
+<td>Fraction of cumulative spectral magnitude used as the rolloff threshold (normally between 0 and 1).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-145" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-145">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Rolloff frequencies in Hz with shape (1, number of frames).</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-spectral_flatness" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-spectral_flatness"><code>analysis.spectral_flatness</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb276"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb276-1"><a href="#cb276-1" aria-hidden="true" tabindex="-1"></a>al.analysis.spectral_flatness(y<span class="op">=</span><span class="va">None</span>, S<span class="op">=</span><span class="va">None</span>, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>, power<span class="op">=</span><span class="fl">2.0</span>, amin<span class="op">=</span><span class="fl">1e-10</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute the geometric-to-arithmetic mean ratio of spectral power.</p>
+<section id="parametri-142" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-142">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Mono audio samples; required when no precomputed matrix is supplied.</td>
+</tr>
+<tr class="even">
+<td><code>S</code></td>
+<td>array_like or None</td>
+<td><code>None</code></td>
+<td>Precomputed spectral matrix; when None, compute it from y.</td>
+</tr>
+<tr class="odd">
+<td><code>n_fft</code></td>
+<td>int or None</td>
+<td><code>2048</code></td>
+<td>FFT length in samples. For istft, None infers twice the number of frequency rows minus two; specify n_fft for an odd FFT length.</td>
+</tr>
+<tr class="even">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="odd">
+<td><code>power</code></td>
+<td>float</td>
+<td><code>2.0</code></td>
+<td>Exponent applied to the magnitude spectrum.</td>
+</tr>
+<tr class="even">
+<td><code>amin</code></td>
+<td>float</td>
+<td><code>1e-10</code></td>
+<td>Positive floor applied before taking logarithms.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-146" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-146">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Flatness values with shape (1, number of frames), using amin to floor the power values.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-rms" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-rms"><code>analysis.rms</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb277"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb277-1"><a href="#cb277-1" aria-hidden="true" tabindex="-1"></a>al.analysis.rms(y, frame_length<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>, center<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute the RMS amplitude in overlapping time-domain frames.</p>
+<section id="parametri-143" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-143">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Mono audio samples.</td>
+</tr>
+<tr class="even">
+<td><code>frame_length</code></td>
+<td>int</td>
+<td><code>2048</code></td>
+<td>Number of samples in each analysis frame.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="even">
+<td><code>center</code></td>
+<td>bool</td>
+<td><code>True</code></td>
+<td>Pad half a frame with zeros on each side before extracting frames.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-147" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-147">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: RMS values with shape (1, number of frames). Centred analysis uses zero padding.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-zero_crossing_rate" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-zero_crossing_rate"><code>analysis.zero_crossing_rate</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb278"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb278-1"><a href="#cb278-1" aria-hidden="true" tabindex="-1"></a>al.analysis.zero_crossing_rate(y, frame_length<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>, center<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Measure sign changes as a fraction of each frame length.</p>
+<section id="parametri-144" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-144">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Mono audio samples.</td>
+</tr>
+<tr class="even">
+<td><code>frame_length</code></td>
+<td>int</td>
+<td><code>2048</code></td>
+<td>Number of samples in each analysis frame.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="even">
+<td><code>center</code></td>
+<td>bool</td>
+<td><code>True</code></td>
+<td>Pad half a frame by repeating the first and last values before extracting frames.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-148" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-148">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Rates with shape (1, number of frames), divided by frame_length. Centred analysis repeats the edge values when padding.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-delta" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-delta"><code>analysis.delta</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb279"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb279-1"><a href="#cb279-1" aria-hidden="true" tabindex="-1"></a>al.analysis.delta(data, width<span class="op">=</span><span class="dv">9</span>, order<span class="op">=</span><span class="dv">1</span>, axis<span class="op">=-</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">'interp'</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Compute coefficient derivatives with a Savitzky-Golay filter.</p>
+<section id="parametri-145" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-145">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Coefficient matrix whose time derivatives are required.</td>
+</tr>
+<tr class="even">
+<td><code>width</code></td>
+<td>int</td>
+<td><code>9</code></td>
+<td>Savitzky-Golay window length, in frames; must satisfy scipy.signal.savgol_filter constraints.</td>
+</tr>
+<tr class="odd">
+<td><code>order</code></td>
+<td>int</td>
+<td><code>1</code></td>
+<td>Both the polynomial order and the derivative order passed to scipy.signal.savgol_filter.</td>
+</tr>
+<tr class="even">
+<td><code>axis</code></td>
+<td>int</td>
+<td><code>-1</code></td>
+<td>Array axis along which the derivative is computed.</td>
+</tr>
+<tr class="odd">
+<td><code>mode</code></td>
+<td>str</td>
+<td><code>'interp'</code></td>
+<td>Boundary mode passed to scipy.signal.savgol_filter.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-149" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-149">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Derivatives with the same shape as data, along the selected axis.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-resample" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-resample"><code>analysis.resample</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb280"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb280-1"><a href="#cb280-1" aria-hidden="true" tabindex="-1"></a>al.analysis.resample(y, orig_sr, target_sr)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Resample audio by a reduced rational ratio with polyphase filtering.</p>
+<section id="parametri-146" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-146">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>y</code></td>
+<td>array_like</td>
+<td>Obbligatorio</td>
+<td>Audio samples; resampling acts along axis 0.</td>
+</tr>
+<tr class="even">
+<td><code>orig_sr</code></td>
+<td>int</td>
+<td>Obbligatorio</td>
+<td>Original sampling rate in Hz; cast to an integer before finding the resampling ratio.</td>
+</tr>
+<tr class="odd">
+<td><code>target_sr</code></td>
+<td>int</td>
+<td>Obbligatorio</td>
+<td>Target sampling rate in Hz; cast to an integer before finding the resampling ratio.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-150" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-150">Risultato</h4>
+<ul>
+<li><strong>numpy.ndarray</strong>: Resampled values from scipy.signal.resample_poly along axis 0.</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-load" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-load"><code>analysis.load</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb281"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb281-1"><a href="#cb281-1" aria-hidden="true" tabindex="-1"></a>al.analysis.load(path, sr<span class="op">=</span><span class="dv">22050</span>, mono<span class="op">=</span><span class="va">True</span>, duration<span class="op">=</span><span class="va">None</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Read float32 audio, optionally average channels, truncate and resample.</p>
+<section id="parametri-147" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-147">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>path</code></td>
+<td>str or pathlib.Path</td>
+<td>Obbligatorio</td>
+<td>Audio file path supported by soundfile.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int or None</td>
+<td><code>22050</code></td>
+<td>Target sampling rate in Hz. None (or zero) preserves the original rate.</td>
+</tr>
+<tr class="odd">
+<td><code>mono</code></td>
+<td>bool</td>
+<td><code>True</code></td>
+<td>Average channels when True. With False, retain a matrix shaped channels by samples, including one row for a mono file.</td>
+</tr>
+<tr class="even">
+<td><code>duration</code></td>
+<td>float or None</td>
+<td><code>None</code></td>
+<td>Keep only the first duration seconds after reading the file; None keeps the entire signal.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-151" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-151">Risultato</h4>
+<ul>
+<li><strong>(numpy.ndarray, int)</strong>: Samples and sampling rate. Mono samples form a vector; mono=False returns channels by samples, unlike al.load_audio(mono=False).</li>
+</ul>
+</section>
+</section>
+<section id="fn-analysis-specshow" class="level3">
+<h3 class="anchored" data-anchor-id="fn-analysis-specshow"><code>analysis.specshow</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb282"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb282-1"><a href="#cb282-1" aria-hidden="true" tabindex="-1"></a>al.analysis.specshow(S, sr<span class="op">=</span><span class="dv">22050</span>, hop_length<span class="op">=</span><span class="dv">512</span>, x_axis<span class="op">=</span><span class="va">None</span>, y_axis<span class="op">=</span><span class="va">None</span>, ax<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Draw a spectral matrix on Matplotlib axes using pcolormesh.</p>
+<section id="parametri-148" class="level4">
+<h4 class="anchored" data-anchor-id="parametri-148">Parametri</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parametro</th>
+<th>Tipo</th>
+<th>Valore predefinito</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>S</code></td>
+<td>numpy.ndarray</td>
+<td>Obbligatorio</td>
+<td>Two-dimensional matrix to display, with frequency or feature rows and time columns.</td>
+</tr>
+<tr class="even">
+<td><code>sr</code></td>
+<td>int</td>
+<td><code>22050</code></td>
+<td>Sampling rate in Hz.</td>
+</tr>
+<tr class="odd">
+<td><code>hop_length</code></td>
+<td>int or None</td>
+<td><code>512</code></td>
+<td>Step between frames in samples. For stft and istft, None uses one quarter of win_length (or n_fft when win_length is absent).</td>
+</tr>
+<tr class="even">
+<td><code>x_axis</code></td>
+<td>str or None</td>
+<td><code>None</code></td>
+<td>Use “time” to label the horizontal axis in seconds. Coordinates always use hop_length and sr.</td>
+</tr>
+<tr class="odd">
+<td><code>y_axis</code></td>
+<td>str or None</td>
+<td><code>None</code></td>
+<td>“mel” uses Slaney Mel band centres; “linear” or “log” uses frequencies from 0 to sr / 2; other values use row indices.</td>
+</tr>
+<tr class="even">
+<td><code>ax</code></td>
+<td>matplotlib.axes.Axes or None</td>
+<td><code>None</code></td>
+<td>Axes to draw on; None uses matplotlib.pyplot.gca().</td>
+</tr>
+<tr class="odd">
+<td><code>kwargs</code></td>
+<td>dict</td>
+<td>Obbligatorio</td>
+<td>Style arguments passed to Matplotlib pcolormesh, such as cmap, vmin and vmax.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="risultato-152" class="level4">
+<h4 class="anchored" data-anchor-id="risultato-152">Risultato</h4>
+<ul>
+<li><strong>matplotlib.collections.QuadMesh</strong>: The colour mesh, usable with a Matplotlib colour bar. This helper does not display the figure automatically.</li>
+</ul>
+</section>
+</section>
+</section>
 <section id="indice-funzioni" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="indice-funzioni">Indice alfabetico delle funzioni</h2>
-<p>129 funzioni, raggruppate per attività nelle sezioni di questa appendice.</p>
+<p>153 funzioni, raggruppate per attività nelle sezioni di questa appendice.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -8173,6 +9669,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td><a href="#fn-amplitude_spectrum"><code>amplitude_spectrum</code></a></td>
 <td><a href="#04-spettro-stft">Spettro e spettrogrammi</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-amplitude_to_db"><code>analysis.amplitude_to_db</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-delta"><code>analysis.delta</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-fft_frequencies"><code>analysis.fft_frequencies</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-frames_to_time"><code>analysis.frames_to_time</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-hz_to_mel"><code>analysis.hz_to_mel</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-istft"><code>analysis.istft</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-load"><code>analysis.load</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-mel"><code>analysis.mel</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-mel_frequencies"><code>analysis.mel_frequencies</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-mel_to_hz"><code>analysis.mel_to_hz</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-melspectrogram"><code>analysis.melspectrogram</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-mfcc"><code>analysis.mfcc</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-midi_to_hz"><code>analysis.midi_to_hz</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-note_to_hz"><code>analysis.note_to_hz</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-power_to_db"><code>analysis.power_to_db</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-resample"><code>analysis.resample</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-rms"><code>analysis.rms</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-specshow"><code>analysis.specshow</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-spectral_bandwidth"><code>analysis.spectral_bandwidth</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-spectral_centroid"><code>analysis.spectral_centroid</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-spectral_flatness"><code>analysis.spectral_flatness</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-spectral_rolloff"><code>analysis.spectral_rolloff</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="odd">
+<td><a href="#fn-analysis-stft"><code>analysis.stft</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
+</tr>
+<tr class="even">
+<td><a href="#fn-analysis-zero_crossing_rate"><code>analysis.zero_crossing_rate</code></a></td>
+<td><a href="#09-analisi-portabile">Analisi portabile nel browser</a></td>
 </tr>
 <tr class="odd">
 <td><a href="#fn-block_rms"><code>block_rms</code></a></td>

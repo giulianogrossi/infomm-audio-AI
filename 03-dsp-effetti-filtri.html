@@ -1570,6 +1570,11 @@ H_{\mathrm{HP}}(z) = \frac{(G_0 + G\beta) + (G_0 - G\beta)z^{-1}}{(1+\beta) + (1
 \beta = \sqrt{\frac{G_C^2 - G_0^2}{G^2 - G_C^2}}\,\cot\left(\frac{\omega_c}{2}\right).
 \]</span> Qui a frequenza zero (<span class="math inline">\(z=1\)</span>) vale <span class="math inline">\(H_{\mathrm{HP}}(1) = G_0\)</span>, mentre a Nyquist (<span class="math inline">\(z=-1\)</span>) il guadagno raggiunge il plateau <span class="math inline">\(H_{\mathrm{HP}}(-1) = G\)</span>.</p></li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/eq-mensola-shelving.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Filtri a mensola del primo ordine: Low-Pass Shelving (centrato in omega0 = 0, larghezza Delta omega = omega_c) e High-Pass Shelving (centrato in omega0 = pi, larghezza Delta omega = pi - omega_c) in regime di Boost e Cut, con funzioni di trasferimento H_LP(z) e H_HP(z) e confronto con un filtro passa-basso."></p>
+</figure>
+</div>
 <div id="demo-cap3-10" class="callout callout-style-default callout-note callout-titled" title="Demo 10 — Ascoltare campana, mensola e passa-basso">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2137,8 +2142,8 @@ d_k(n) = D_1 + (D_2 - D_1)\bigl(0{,}5 + r_k(n)\bigr),
 </tr>
 <tr class="even">
 <td><strong>Esercizio 2 — Dal pettine al risuonatore a due poli</strong></td>
-<td>Spaziatura dei denti <span class="math inline">\(\Delta f = F_s/D\)</span> nel comb FIR e larghezza di banda <span class="math inline">\(B \approx F_s(1-R)/\pi\)</span> nel risuonatore IIR</td>
-<td><code>al.frequency_response</code>, <code>al.filter_signal</code>, <code>al.plot_curves</code>, <code>al.compare_audio</code></td>
+<td>Spaziatura dei denti <span class="math inline">\(\Delta f = F_s/D\)</span> nel comb FIR (<span class="math inline">\(D=220\)</span>) e progetto/applicazione di un risuonatore IIR a due poli (<span class="math inline">\(R=0{,}99\)</span>, <span class="math inline">\(f_0=3105\)</span> Hz) su <code>Guitar_C4.wav</code></td>
+<td><code>al.frequency_response</code>, <code>al.filter_signal</code>, <code>al.plot_waveform</code>, <code>al.plot_spectrum</code>, <code>al.plot_curves</code>, <code>al.compare_audio</code></td>
 </tr>
 <tr class="odd">
 <td><strong>Esercizio 3 — Campana, mensola e passa-basso alla stessa frequenza</strong></td>

@@ -1657,44 +1657,6 @@ display:block!important;
 <h2>Il filtro a pettine (Comb FIR e IIR)</h2>
 <p><img role="img" data-src="media/58f653e151a0e53a.png"></p>
 </section>
-<section id="effetto-percettivo-sullascolto-colorazione-timbrica-vs-eco-distinto" class="slide level2">
-<h2>Effetto percettivo sull’ascolto: colorazione timbrica vs eco distinto</h2>
-<p>Il comportamento percettivo del filtro a pettine dipende dalla scala del ritardo <span class="math inline">\(\tau = D/F_s\)</span>:</p>
-<ul>
-<li><strong>Con un ritardo breve</strong> (<span class="math inline">\(\tau \approx 5\text{ ms}\)</span>, <span class="math inline">\(D = 220\)</span> a <span class="math inline">\(F_s = 44{,}1\text{ kHz}\)</span>, sotto la soglia di Haas di <span class="math inline">\(\sim 50\text{ ms}\)</span>), le copie si fondono nel tempo e producono una <strong>colorazione timbrica</strong> con denti distanziati di <span class="math inline">\(\Delta f = 1/\tau = 200\text{ Hz}\)</span>: intagli profondi (<em>notches</em>) nel <strong>Comb FIR</strong> (timbro svuotato/fasico) e picchi risonanti stretti nel <strong>Comb IIR</strong> (timbro metallico e tubolare);</li>
-<li><strong>Con un ritardo più lungo</strong> (<span class="math inline">\(\tau = 250\text{ ms}\)</span> su un pizzico netto di chitarra), l’orecchio risolve invece le singole copie nel tempo: il <strong>Comb FIR</strong> produce <strong>un solo eco</strong> in <span class="math inline">\(t = \tau\)</span> e poi si spegne, mentre il <strong>Comb IIR</strong> rigenera <strong>una coda di echi ripetuti e smorzati</strong> con inviluppo <span class="math inline">\(g^m\)</span> in <span class="math inline">\(\tau, 2\tau, 3\tau, \dots\)</span></li>
-</ul>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Regime di ritardo <span class="math inline">\(\tau\)</span></th>
-<th>Denti <span class="math inline">\(\Delta f = 1/\tau\)</span></th>
-<th>Comb FIR (<span class="math inline">\(1 + g z^{-D}\)</span>)</th>
-<th>Comb IIR (<span class="math inline">\(1/(1 - g z^{-D})\)</span>)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Breve</strong> (<span class="math inline">\(\tau \approx 5\text{ ms} &lt; 50\text{ ms}\)</span>)</td>
-<td><span class="math inline">\(200\text{ Hz}\)</span></td>
-<td>Timbro svuotato / fasico (<em>notches</em>)</td>
-<td>Risonanza metallica / tubolare</td>
-</tr>
-<tr class="even">
-<td><strong>Lungo</strong> (<span class="math inline">\(\tau = 250\text{ ms} &gt; 50\text{ ms}\)</span>)</td>
-<td><span class="math inline">\(4\text{ Hz}\)</span></td>
-<td><strong>1 solo eco</strong> distinto in <span class="math inline">\(t = \tau\)</span></td>
-<td><strong>Coda di echi smorzati</strong> (<span class="math inline">\(g^m\)</span>) ogni <span class="math inline">\(\tau\)</span></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="filtro-a-pettine-risposta-in-frequenza-e-ascolto" class="slide level2">
 <h2>Filtro a pettine: risposta in frequenza e ascolto</h2>
 <p><img role="img" data-src="media/60bbb93b3466f3e7.png"></p>
@@ -1709,6 +1671,88 @@ display:block!important;
 <small><b>Comb IIR: coda di echi</b> (<span class="math inline">\(\tau=250\text{ ms}, g=0{,}78\)</span>)</small><br><audio role="img" controls preload="metadata" style="width: 215px; height: 28px;" src="media/6c500fdf759f901a.wav"></audio>
 </div>
 </div>
+</section>
+<section id="perché-un-ritardo-crea-i-denti-del-pettine" class="slide level2">
+<h2>Perché un ritardo crea i denti del pettine?</h2>
+<p><strong>Sommiamo il suono originale a una copia ritardata di 10 ms</strong> (Comb FIR, stesso segno).</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frequenza</th>
+<th>La copia arriva dopo…</th>
+<th>Che cosa succede?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>100 Hz</strong></td>
+<td><strong>1 periodo</strong></td>
+<td>Cresta + cresta → <strong>rinforzo: picco</strong></td>
+</tr>
+<tr class="even">
+<td><strong>150 Hz</strong></td>
+<td><strong>1 periodo e mezzo</strong></td>
+<td>Cresta + valle → <strong>attenuazione: intaglio</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>200 Hz</strong></td>
+<td><strong>2 periodi</strong></td>
+<td>Cresta + cresta → <strong>un altro picco</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>I picchi si ripetono ogni <span class="math inline">\(\Delta f=1/\tau=100\)</span> Hz.</strong> Più lungo è il ritardo, più fitti sono i denti.</p>
+<blockquote>
+<p><strong>L’eco è la copia nel tempo; i picchi sono le frequenze che si rinforzano.</strong> Un solo eco può creare molti picchi!</p>
+</blockquote>
+</section>
+<section id="effetto-percettivo-colorazione-timbrica-vs-eco-distinto" class="slide level2">
+<h2>Effetto percettivo: colorazione timbrica vs eco distinto</h2>
+<blockquote>
+<p>Il comportamento percettivo del filtro a pettine dipende dalla scala del ritardo <span class="math inline">\(\tau=D/F_s\)</span></p>
+</blockquote>
+<ul>
+<li><strong>Con un ritardo breve</strong> (<span class="math inline">\(\tau \approx 5\text{ ms}\)</span>, <span class="math inline">\(D = 220\)</span> a <span class="math inline">\(F_s = 44{,}1\text{ kHz}\)</span>, sotto la soglia di <span class="math inline">\(\sim 50\text{ ms}\)</span>), le copie si fondono nel tempo e producono una <strong>colorazione timbrica</strong> con denti distanziati di <span class="math inline">\(\Delta f = 1/\tau = 200\text{ Hz}\)</span>: intagli profondi (<em>notches</em>) nel <strong>Comb FIR</strong> (timbro svuotato/fasico) e picchi risonanti stretti nel <strong>Comb IIR</strong> (timbro metallico e tubolare)</li>
+<li><strong>Con un ritardo più lungo</strong> (<span class="math inline">\(\tau = 250\text{ ms}\)</span> su un pizzico netto di chitarra), l’orecchio risolve invece le singole copie nel tempo: il <strong>Comb FIR</strong> produce <strong>un solo eco</strong> in <span class="math inline">\(t = \tau\)</span> e poi si spegne, mentre il <strong>Comb IIR</strong> rigenera <strong>una coda di echi ripetuti e smorzati</strong> con inviluppo <span class="math inline">\(g^m\)</span> in <span class="math inline">\(\tau, 2\tau, 3\tau, \dots\)</span></li>
+</ul>
+</section>
+<section id="caratteristiche-del-filtro-a-pettine" class="slide level2">
+<h2>Caratteristiche del filtro a pettine</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Regime di<br> ritardo <span class="math inline">\(\tau\)</span></th>
+<th>Denti<br> <span class="math inline">\(\Delta f = 1/\tau\)</span></th>
+<th>Comb FIR<br> <span class="math inline">\(1 + g z^{-D}\)</span></th>
+<th>Comb IIR<br> <span class="math inline">\(1/(1 - g z^{-D})\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Breve</strong><br> <span class="math inline">\(\tau \approx 5\text{ ms} &lt; 50\text{ ms}\)</span></td>
+<td><span class="math inline">\(200\text{ Hz}\)</span></td>
+<td>Timbro svuotato, fasico (<em>notches</em>)</td>
+<td>Risonanza metallica, tubolare</td>
+</tr>
+<tr class="even">
+<td><strong>Lungo</strong><br> (<span class="math inline">\(\tau = 250\text{ ms} &gt; 50\text{ ms}\)</span>)</td>
+<td><span class="math inline">\(4\text{ Hz}\)</span></td>
+<td><strong>1 solo eco</strong><br> distinto in <span class="math inline">\(t = \tau\)</span></td>
+<td><strong>Coda di echi smorzati</strong><br> (<span class="math inline">\(g^m\)</span>) ogni <span class="math inline">\(\tau\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="il-risuonatore-poli-complessi-e-struttura" class="slide level2">
 <h2>Il risuonatore: poli complessi e struttura</h2>
@@ -1732,8 +1776,8 @@ display:block!important;
 <section id="esercizio-2-dal-pettine-al-risuonatore-a-due-poli" class="slide level2 esercizio">
 <h2>Esercizio 2 — Dal pettine al risuonatore a due poli</h2>
 <ul>
-<li><p>Dopo aver confrontato il filtro a pettine FIR e IIR (<span class="math inline">\(D=220\)</span>, <span class="math inline">\(\Delta f = F_s/D = 200{,}5\)</span> Hz), progetta un <strong>risuonatore a due poli</strong> centrato a <span class="math inline">\(f_0 = 500\)</span> Hz con raggio <span class="math inline">\(R = 0{,}99\)</span>, misura la larghezza di banda a <span class="math inline">\(-3\)</span> dB e confrontala con <span class="math inline">\(B \approx F_s(1-R)/\pi \approx 140{,}4\)</span> Hz.</p></li>
-<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.frequency_response()</code>, <code>al.to_db()</code>, <code>al.filter_signal()</code>, <code>al.compare_audio()</code>.</p></li>
+<li><p>Verifica la spaziatura dei denti di un <strong>filtro a pettine FIR</strong> (<span class="math inline">\(D=220\)</span>, <span class="math inline">\(\Delta f = F_s/D \approx 200{,}5\)</span> Hz), poi progetta e applica a <code>Guitar_C4.wav</code> un <strong>risuonatore a due poli</strong> (<span class="math inline">\(R = 0{,}99\)</span>, <span class="math inline">\(f_0 = 3105\)</span> Hz) confrontando forma d’onda, spettro, risposta in frequenza e ascolto.</p></li>
+<li><p><strong>Funzioni <code>audiolab</code>:</strong> <code>al.load_audio()</code>, <code>al.plot_waveform()</code>, <code>al.plot_spectrum()</code>, <code>al.frequency_response()</code>, <code>al.plot_curves()</code>, <code>al.filter_signal()</code>, <code>al.compare_audio()</code>.</p></li>
 </ul>
 <p><strong>Notebook:</strong> <a href="../lab-2026/03-dsp-effetti-TODO.ipynb"><code>03-dsp-effetti-TODO.ipynb</code></a></p>
 </section></section>
@@ -1779,13 +1823,17 @@ display:block!important;
 </figure>
 </div>
 </section>
-<section id="equalizzazione-sul-parlato-speech.wav-curva-eq-e-spettri" class="slide level2">
-<h2>Equalizzazione sul parlato (<code>speech.wav</code>): curva EQ e spettri</h2>
+<section id="filtri-a-mensola-low-shelf-e-high-shelf" class="slide level2">
+<h2>Filtri a mensola (Low-Shelf e High-Shelf)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img role="img" data-src="media/24c7062bf22f6b84.png" class="quarto-figure quarto-figure-center" style="width:96.0%"></p>
+<p><img role="img" data-src="media/b78f0922196ed502.png" class="quarto-figure quarto-figure-center" style="width:97.0%"></p>
 </figure>
 </div>
+</section>
+<section id="equalizzazione-sul-parlato-speech.wav-curva-eq-e-spettri" class="slide level2">
+<h2>Equalizzazione sul parlato (speech.wav): curva EQ e spettri</h2>
+<p><img role="img" data-src="media/24c7062bf22f6b84.png"></p>
 <div style="display: flex; gap: 1.4em; align-items: center; justify-content: center; margin-top: 0.15em;">
 <div style="text-align: center;">
 <small><b>Parlato originale (<code>speech.wav</code>, dry)</b></small><br><audio role="img" controls preload="metadata" style="width: 240px; height: 28px;" src="media/4aa9b098a9e5e62a.wav"></audio>
@@ -1796,12 +1844,8 @@ display:block!important;
 </div>
 </section>
 <section id="equalizzazione-sulla-musica-acoustic.wav-curva-eq-e-spettri" class="slide level2">
-<h2>Equalizzazione sulla musica (<code>acoustic.wav</code>): curva EQ e spettri</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img role="img" data-src="media/b1132e12b29473d9.png" class="quarto-figure quarto-figure-center" style="width:96.0%"></p>
-</figure>
-</div>
+<h2>Equalizzazione sulla musica (acoustic.wav): curva EQ e spettri</h2>
+<p><img role="img" data-src="media/b1132e12b29473d9.png"></p>
 <div style="display: flex; gap: 1.4em; align-items: center; justify-content: center; margin-top: 0.15em;">
 <div style="text-align: center;">
 <small><b>Musica originale (<code>acoustic.wav</code>, dry)</b></small><br><audio role="img" controls preload="metadata" style="width: 240px; height: 28px;" src="media/af82b5766c3124af.wav"></audio>
