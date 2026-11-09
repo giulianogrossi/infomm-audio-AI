@@ -363,6 +363,7 @@ window.Quarto = {
   <li><a href="#ritardi-frazionari-e-interpolazione-lineare" id="toc-ritardi-frazionari-e-interpolazione-lineare" class="nav-link" data-scroll-target="#ritardi-frazionari-e-interpolazione-lineare">Ritardi frazionari e interpolazione lineare</a></li>
   <li><a href="#flanger-ritardo-variabile-sinusoidale-e-pettine-in-movimento" id="toc-flanger-ritardo-variabile-sinusoidale-e-pettine-in-movimento" class="nav-link" data-scroll-target="#flanger-ritardo-variabile-sinusoidale-e-pettine-in-movimento">Flanger: ritardo variabile sinusoidale e pettine in movimento</a></li>
   <li><a href="#chorus-ritardi-variabili-casuali-per-simulare-un-ensemble" id="toc-chorus-ritardi-variabili-casuali-per-simulare-un-ensemble" class="nav-link" data-scroll-target="#chorus-ritardi-variabili-casuali-per-simulare-un-ensemble">Chorus: ritardi variabili casuali per simulare un ensemble</a></li>
+  <li><a href="#la-funzione-al.modulated_delay-da-ununica-linea-modulata-a-vibrato-flanger-e-chorus" id="toc-la-funzione-al.modulated_delay-da-ununica-linea-modulata-a-vibrato-flanger-e-chorus" class="nav-link" data-scroll-target="#la-funzione-al.modulated_delay-da-ununica-linea-modulata-a-vibrato-flanger-e-chorus">La funzione <code>al.modulated_delay()</code>: da un’unica linea modulata a Vibrato, Flanger e Chorus</a></li>
   </ul></li>
   <li><a href="#sec-dsp-sintesi" id="toc-sec-dsp-sintesi" class="nav-link" data-scroll-target="#sec-dsp-sintesi"><span class="header-section-number">3.16</span> Sintesi e collegamento dei risultati</a>
   <ul class="collapse">
@@ -2004,6 +2005,20 @@ d_k(n) = D_1 + (D_2 - D_1)\bigl(0{,}5 + r_k(n)\bigr),
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/flanger-chorus-esempio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Esempi applicativi di Flanger e Chorus: risposta del flanger su una sinusoide a 5 Hz (Fs=1000 Hz, D=20, fd=1 Hz) e spettrogrammi della chitarra acustica (acoustic.wav) che mostrano le bande di cancellazione periodiche del flanger rispetto all'ispessimento diffuso del chorus."></p>
+</figure>
+</div>
+</section>
+<section id="la-funzione-al.modulated_delay-da-ununica-linea-modulata-a-vibrato-flanger-e-chorus" class="level3">
+<h3 class="anchored" data-anchor-id="la-funzione-al.modulated_delay-da-ununica-linea-modulata-a-vibrato-flanger-e-chorus">La funzione <code>al.modulated_delay()</code>: da un’unica linea modulata a Vibrato, Flanger e Chorus</h3>
+<p>In <code>audiolab</code>, la lettura a ritardo variabile con interpolazione lineare sui campioni frazionari (<code>np.interp(n - D, n, x)</code>) è racchiusa nella funzione <code>al.modulated_delay(signal, sr, delay_ms, depth_ms, rate_hz, phase, delay_curve)</code>, che restituisce la tupla <code>(y, D)</code> formata dalla <strong>sola copia ritardata</strong> <span class="math inline">\(y(n) = x\bigl(n - D(n)\bigr)\)</span> e dal vettore del ritardo istantaneo <span class="math inline">\(D(n)\)</span> in campioni:</p>
+<ul>
+<li>ascoltando <strong>solo l’uscita <code>y</code></strong> (senza sommare il segnale diretto <code>x</code>), la compressione e dilatazione temporale dell’onda produce una modulazione periodica dell’altezza per effetto Doppler (<strong>vibrato</strong>);</li>
+<li>sommando al segnale diretto <code>x</code> <strong>una copia <code>y</code> con ritardo breve</strong> (<span class="math inline">\(1\text{–}5\text{ ms}\)</span>) si ottiene il filtro a pettine tempo-variante del <strong>flanger</strong>;</li>
+<li>sommando al segnale diretto <code>x</code> <strong>più copie</strong> con ritardi medi di <span class="math inline">\(15\text{–}25\text{ ms}\)</span> e fasi <code>phase</code> diverse (o curve casuali <code>delay_curve</code>) si ottiene il <strong>chorus</strong>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/modulated-delay-uso.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Schema d'uso di al.modulated_delay(): formula del ritardo istantaneo D(n) con interpolazione lineare frazionaria e tre pattern applicativi per ottenere Vibrato (solo uscita wet), Flanger (diretto + 1 copia breve) e Chorus (diretto + più copie sfasate)."></p>
 </figure>
 </div>
 <div id="demo-cap3-13" class="callout callout-style-default callout-note callout-titled" title="Demo 13 — Implementare $d(n)$ per Flanger e Chorus su chitarra acustica">
