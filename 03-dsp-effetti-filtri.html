@@ -373,6 +373,7 @@ window.Quarto = {
   <li><a href="#sec-dsp-laboratorio" id="toc-sec-dsp-laboratorio" class="nav-link" data-scroll-target="#sec-dsp-laboratorio"><span class="header-section-number">3.18</span> Laboratorio: descrivere, progettare, verificare</a></li>
   <li><a href="#sec-dsp-domande" id="toc-sec-dsp-domande" class="nav-link" data-scroll-target="#sec-dsp-domande"><span class="header-section-number">3.19</span> Domande di autocomprensione</a></li>
   <li><a href="#sec-slide-lezione-3" id="toc-sec-slide-lezione-3" class="nav-link" data-scroll-target="#sec-slide-lezione-3"><span class="header-section-number">3.20</span> Slide della lezione</a></li>
+  <li><a href="#sec-cheatsheet-lezione-3" id="toc-sec-cheatsheet-lezione-3" class="nav-link" data-scroll-target="#sec-cheatsheet-lezione-3"><span class="header-section-number">3.21</span> Cheatsheet della lezione</a></li>
   </ul>
 </nav>
     </div>
@@ -497,6 +498,10 @@ window.Quarto = {
 <td><a href="#sec-slide-lezione-3">3.20 Slide della lezione</a></td>
 <td>Presentazione interattiva integrata e apertura a schermo intero</td>
 </tr>
+<tr class="odd">
+<td><a href="#sec-cheatsheet-lezione-3">3.21 Cheatsheet della lezione</a></td>
+<td>Formulario rapido, tabelle sinottiche e prontuario API <code>audiolab</code></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -523,7 +528,7 @@ window.Quarto = {
 </div>
 </div>
 <p>In questo capitolo usiamo <code>numpy</code> e <code>scipy.signal</code> per la convoluzione, le equazioni alle differenze e l’analisi in frequenza (<code>freqz</code>, <code>sosfreqz</code>), <code>plotly</code> per i diagrammi interattivi, <code>pedalboard</code> per le catene di effetti e il modulo <code>dsp</code> della libreria <a href="../lab-2026/audiolab"><code>audiolab</code></a> (documentato in <a href="./app-b-manuale-funzioni.html">Appendice B — Manuale delle funzioni <code>audiolab</code></a>).</p>
-<p>Il percorso alterna teoria, esempi svolti e demo Python collegate ai notebook della Lezione 3: <a href="../lab-2026/03-dsp-effetti-TODO.ipynb">esercizi (<code>03-dsp-effetti-TODO.ipynb</code>)</a>, <a href="../lab-2026/03-dsp-effetti-SOLUZ.ipynb">soluzioni (<code>03-dsp-effetti-SOLUZ.ipynb</code>)</a> e <a href="../lab-2026/03-dsp-effetti-demo.ipynb">notebook delle demo (<code>03-dsp-effetti-demo.ipynb</code>)</a>. In calce al capitolo trovi inoltre le <strong><a href="#sec-slide-lezione-3">Slide della lezione</a></strong> sfogliabili direttamente nella pagina o apribili a schermo intero.</p>
+<p>Il percorso alterna teoria, esempi svolti e demo Python collegate ai notebook della Lezione 3: <a href="../lab-2026/03-dsp-effetti-TODO.ipynb">esercizi (<code>03-dsp-effetti-TODO.ipynb</code>)</a>, <a href="../lab-2026/03-dsp-effetti-SOLUZ.ipynb">soluzioni (<code>03-dsp-effetti-SOLUZ.ipynb</code>)</a> e <a href="../lab-2026/03-dsp-effetti-demo.ipynb">notebook delle demo (<code>03-dsp-effetti-demo.ipynb</code>)</a>. In calce al capitolo trovi inoltre le <strong><a href="#sec-slide-lezione-3">Slide della lezione</a></strong> sfogliabili direttamente nella pagina e il <strong><a href="#sec-cheatsheet-lezione-3">Cheatsheet della lezione</a></strong> con tutte le formule e le funzioni <code>audiolab</code>.</p>
 <p>Nelle demo adottiamo le seguenti convenzioni:</p>
 <ul>
 <li>lavoriamo su array mono <code>(campioni,)</code> a frequenza di campionamento <span class="math inline">\(F_s = 44\,100\text{ Hz}\)</span> (salvo diversa indicazione negli esempi sintetici);</li>
@@ -2332,6 +2337,343 @@ Mostra la risposta
   <div class="slide-deck-viewport">
     <iframe class="slide-deck-iframe" src="slides/03-dsp-effetti-filtri-slides.html" title="Slide Lezione 3 — DSP: filtri ed effetti" loading="lazy" allowfullscreen=""></iframe>
   </div>
+</div>
+</section>
+<section id="sec-cheatsheet-lezione-3" class="level2" data-number="3.21">
+<h2 data-number="3.21" class="anchored" data-anchor-id="sec-cheatsheet-lezione-3"><span class="header-section-number">3.21</span> Cheatsheet della lezione</h2>
+<p>Riepilogo compatto di tutte le <strong>formule</strong>, le <strong>regole di progetto</strong> e le <strong>API <code>audiolab</code></strong> della Lezione 3, consultabile qui sotto oppure apribile e stampabile in una scheda separata.</p>
+<div style="margin: 0.6rem 0 1rem 0;">
+  <a class="slide-deck-btn" href="03-dsp-effetti-filtri-cheatsheet.html" target="_blank" rel="noopener">
+    🖨️ Apri / Stampa il Cheatsheet in una scheda separata ↗
+  </a>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mostra / Nascondi il Cheatsheet completo della Lezione 3 (Formule, Filtri, EQ, Effetti e API audiolab)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Mostra / Nascondi il Cheatsheet completo della Lezione 3 (Formule, Filtri, EQ, Effetti e API audiolab)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="quattro-viste-dello-stesso-sistema-lineare-tempo-invariante-lti" class="level3">
+<h3 class="anchored" data-anchor-id="quattro-viste-dello-stesso-sistema-lineare-tempo-invariante-lti">1. Quattro viste dello stesso sistema lineare tempo-invariante (LTI)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vista</th>
+<th>Dominio</th>
+<th>Equazione fondamentale</th>
+<th>Cosa descrive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Equazione alle differenze</strong></td>
+<td>Tempo <span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(y(n) = \sum_{k=0}^{M} b_k\,x(n-k) - \sum_{m=1}^{N} a_m\,y(n-m)\)</span></td>
+<td><strong>Algoritmo di calcolo</strong> campione per campione (<span class="math inline">\(a_0 = 1\)</span>)</td>
+</tr>
+<tr class="even">
+<td><strong>2. Risposta all’impulso e convoluzione</strong></td>
+<td>Tempo <span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(y(n) = (x * h)(n) = \sum_{k} h(k)\,x(n-k)\)</span></td>
+<td><strong>Memoria del sistema</strong>: <span class="math inline">\(h(n)\)</span> è l’uscita quando <span class="math inline">\(x(n)=\delta(n)\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>3. Risposta in frequenza</strong></td>
+<td>Frequenza <span class="math inline">\(\omega\)</span></td>
+<td><span class="math inline">\(H(\omega) = \sum_{n} h(n)\,e^{-j\omega n} = |H(\omega)|\,e^{j\varphi(\omega)}\)</span></td>
+<td><strong>Azione sulle sinusoidi</strong>: <span class="math inline">\(A\cos(\omega n) \to A|H(\omega)|\cos(\omega n + \varphi(\omega))\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>4. Funzione di trasferimento</strong></td>
+<td>Piano <span class="math inline">\(z\)</span></td>
+<td><span class="math inline">\(H(z) = \frac{B(z)}{A(z)} = \frac{\sum_{k=0}^{M} b_k z^{-k}}{1 + \sum_{m=1}^{N} a_m z^{-m}}\)</span></td>
+<td><strong>Geometria di poli (<span class="math inline">\(\times\)</span>) e zeri (<span class="math inline">\(\circ\)</span>)</strong> valutata su <span class="math inline">\(z = e^{j\omega}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Conversioni essenziali:</strong> <span class="math inline">\(\omega = 2\pi \frac{f}{F_s}\;\text{[rad/campione]}\)</span>; frequenza di Nyquist <span class="math inline">\(f_{\mathrm{Nyq}} = \frac{F_s}{2} \leftrightarrow \omega = \pi\)</span>; guadagno in dB <span class="math inline">\(= 20\log_{10}|H(\omega)|\)</span>.</li>
+<li><strong>Regola geometrica sul cerchio unitario (<span class="math inline">\(|z|=1\)</span>):</strong>
+<ul>
+<li>Uno <strong>zero (<span class="math inline">\(\circ\)</span>)</strong> vicino o sopra il cerchio unitario all’angolo <span class="math inline">\(\omega_0\)</span> <strong>scava una valle / cancella</strong> <span class="math inline">\(f_0\)</span>.</li>
+<li>Un <strong>polo (<span class="math inline">\(\times\)</span>)</strong> vicino al cerchio unitario all’angolo <span class="math inline">\(\omega_0\)</span> <strong>innalza un picco di risonanza</strong> attorno a <span class="math inline">\(f_0\)</span>.</li>
+<li><strong>Stabilità (filtri causali):</strong> tutti i poli devono stare <strong>strettamente dentro il cerchio unitario</strong> (<span class="math inline">\(|p_k| &lt; 1\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="confronto-fir-vs-iir" class="level3">
+<h3 class="anchored" data-anchor-id="confronto-fir-vs-iir">2. Confronto FIR vs IIR</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Caratteristica</th>
+<th>Filtri FIR (<em>Finite Impulse Response</em>)</th>
+<th>Filtri IIR (<em>Infinite Impulse Response</em>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Retroazione</strong></td>
+<td>Assente (<span class="math inline">\(a_m = 0\)</span> per <span class="math inline">\(m \ge 1\)</span>, <span class="math inline">\(A(z)=1\)</span>)</td>
+<td>Presente (<span class="math inline">\(a_m \neq 0\)</span>: l’uscita dipende dalle uscite passate)</td>
+</tr>
+<tr class="even">
+<td><strong>Durata di <span class="math inline">\(h(n)\)</span></strong></td>
+<td><strong>Finita</strong> (<span class="math inline">\(M+1\)</span> campioni: <span class="math inline">\(h(k) = b_k\)</span>)</td>
+<td><strong>Teoricamente infinita</strong> (coda smorzata se stabile)</td>
+</tr>
+<tr class="odd">
+<td><strong>Stabilità</strong></td>
+<td><strong>Sempre stabile</strong> (poli nell’origine <span class="math inline">\(z=0\)</span>)</td>
+<td>Stabile <strong>solo se <span class="math inline">\(|p_k| &lt; 1\)</span></strong> per tutti i poli</td>
+</tr>
+<tr class="even">
+<td><strong>Fase</strong></td>
+<td>Può essere <strong>esattamente lineare</strong></td>
+<td>Fase <strong>non lineare</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Costo computazionale</strong></td>
+<td>Richiede ordini alti (<span class="math inline">\(L = 32\dots 1024\)</span>) per tagli netti</td>
+<td><strong>Molto economico</strong>: con <span class="math inline">\(N = 1, 2, 4\)</span> ottiene picchi e tagli netti</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="catalogo-dei-filtri-fondamentali" class="level3">
+<h3 class="anchored" data-anchor-id="catalogo-dei-filtri-fondamentali">3. Catalogo dei filtri fondamentali</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Filtro</th>
+<th>Equazione / <span class="math inline">\(H(z)\)</span></th>
+<th>Parametri chiave e proprietà</th>
+<th>Codice <code>audiolab</code> / <code>numpy</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Media mobile (FIR)</strong></td>
+<td><span class="math inline">\(y(n) = \frac{1}{L}\sum_{k=0}^{L-1} x(n-k)\)</span></td>
+<td>Passa-basso semplice; <strong>primo zero</strong> a <span class="math inline">\(f_1 = \frac{F_s}{L}\)</span> (zeri in tutti i multipli <span class="math inline">\(m\frac{F_s}{L}\)</span>)</td>
+<td><code>b = np.ones(L) / L</code><br><code>a = [1.0]</code></td>
+</tr>
+<tr class="even">
+<td><strong>IIR 1° ordine</strong></td>
+<td><span class="math inline">\(y(n) = (1-|a|)\,x(n) + a\,y(n-1)\)</span></td>
+<td>Polo reale in <span class="math inline">\(z = a\)</span> (<span class="math inline">\(|a|&lt;1\)</span>): <span class="math inline">\(a &gt; 0\)</span> <strong>passa-basso</strong> (<span class="math inline">\(0\text{ Hz}\)</span>); <span class="math inline">\(a &lt; 0\)</span> <strong>passa-alto</strong> (<span class="math inline">\(F_s/2\)</span>)</td>
+<td><code>b = [1 - abs(a)]</code><br><code>a_den = [1.0, -a]</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Comb FIR</strong></td>
+<td><span class="math inline">\(y(n) = x(n) + g\,x(n-D)\)</span><br><span class="math inline">\(H(z) = 1 + g z^{-D}\)</span></td>
+<td><strong>1 sola copia</strong> a <span class="math inline">\(\tau = D/F_s\)</span>; denti ogni <span class="math inline">\(\Delta f = \frac{F_s}{D} = \frac{1}{\tau}\)</span>; <em>notches</em> a <span class="math inline">\((2k+1)\frac{\Delta f}{2}\)</span></td>
+<td><code>b = np.zeros(D + 1)</code><br><code>b[0], b[D] = 1.0, g</code><br><code>a = [1.0]</code></td>
+</tr>
+<tr class="even">
+<td><strong>Comb IIR</strong></td>
+<td><span class="math inline">\(y(n) = x(n) + g\,y(n-D)\)</span><br><span class="math inline">\(H(z) = \frac{1}{1 - g z^{-D}}\)</span></td>
+<td><strong>Coda infinita di echi</strong> (<span class="math inline">\(g^m\)</span> a <span class="math inline">\(m\tau\)</span>, <span class="math inline">\(|g|&lt;1\)</span>); picchi risonanti stretti ogni <span class="math inline">\(\Delta f = \frac{F_s}{D}\)</span></td>
+<td><code>b = [1.0]</code><br><code>a = np.zeros(D + 1)</code><br><code>a[0], a[D] = 1.0, -g</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Risuonatore a 2 poli</strong></td>
+<td><span class="math inline">\(H(z) = \frac{G}{1 - 2R\cos\omega_0\,z^{-1} + R^2 z^{-2}}\)</span></td>
+<td>Poli <span class="math inline">\(p_{1,2} = R e^{\pm j\omega_0}\)</span> (<span class="math inline">\(0 &lt; R &lt; 1\)</span>); <strong>banda a <span class="math inline">\(-3\text{ dB}\)</span>:</strong> <span class="math inline">\(B \approx \frac{F_s(1-R)}{\pi}\)</span>; <span class="math inline">\(Q = \frac{f_0}{B}\)</span></td>
+<td><code>w0 = 2 * np.pi * f0 / sr</code><br><code>b = [G]</code><br><code>a = [1.0, -2*R*np.cos(w0), R**2]</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="equalizzazione-eq" class="level3">
+<h3 class="anchored" data-anchor-id="equalizzazione-eq">4. Equalizzazione (EQ)</h3>
+<ul>
+<li><strong>Identità di complementarità:</strong> <span class="math inline">\(H_{\mathrm{notch}}(z) + H_{\mathrm{peak}}(z) = 1 \implies H_{\mathrm{eq}}(z) = G_0\,H_{\mathrm{notch}}(z) + G\,H_{\mathrm{peak}}(z)\)</span>.</li>
+<li><strong>Cascata di <span class="math inline">\(M\)</span> sezioni EQ:</strong> <span class="math inline">\(H_{\mathrm{tot}}(z) = G_0 \prod_{m=1}^{M} H_m(z) \;\Longleftrightarrow\; |H_{\mathrm{tot}}(\omega)|_{\mathrm{dB}} = \sum_{m=1}^{M} |H_m(\omega)|_{\mathrm{dB}}\)</span>.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo di filtro</th>
+<th>Ordine</th>
+<th>Cosa fa nello spettro</th>
+<th>Funzione <code>audiolab</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Campana (<em>Bell / Peaking</em>)</strong></td>
+<td>2° ordine</td>
+<td>Esalta o attenua solo una banda <span class="math inline">\(\Delta f\)</span> attorno a <span class="math inline">\(f_0\)</span>, tornando a <span class="math inline">\(0\text{ dB}\)</span> fuori banda</td>
+<td><code>b, a = al.eq_bell(f0, bw, gain_db, sr=sr)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Mensola bassa (<em>Low-Shelf</em>)</strong></td>
+<td>1° ordine (<span class="math inline">\(\omega_0 = 0\)</span>)</td>
+<td>Porta tutte le basse (<span class="math inline">\(0 \le f \le f_c\)</span>) a un <strong>plateau finito <span class="math inline">\(G\)</span></strong>, lasciando a <span class="math inline">\(0\text{ dB}\)</span> le alte</td>
+<td><code>b, a = al.eq_shelf(fc, gain_db, kind="low", sr=sr)</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Mensola alta (<em>High-Shelf</em>)</strong></td>
+<td>1° ordine (<span class="math inline">\(\omega_0 = \pi\)</span>)</td>
+<td>Porta tutte le alte (<span class="math inline">\(f_c \le f \le F_s/2\)</span>) a un <strong>plateau finito <span class="math inline">\(G\)</span></strong>, lasciando a <span class="math inline">\(0\text{ dB}\)</span> le basse</td>
+<td><code>b, a = al.eq_shelf(fc, gain_db, kind="high", sr=sr)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Passa-basso / alto Butterworth</strong></td>
+<td>Ordine <span class="math inline">\(N\)</span> (default 4)</td>
+<td>Taglia la banda attenuata facendola scendere <strong>indefinitamente verso <span class="math inline">\(-\infty\text{ dB}\)</span></strong></td>
+<td><code>sos = al.design_filter("lowpass", fc, sr=sr, order=4)</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Notch IIR</strong></td>
+<td>2° ordine</td>
+<td>Scava un intaglio stretto centrato in <span class="math inline">\(f_0\)</span> con fattore di merito <span class="math inline">\(Q\)</span></td>
+<td><code>sos = al.design_filter("notch", f0, sr=sr, q=30.0)</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="effetti-basati-sul-ritardo-e-modulazione-lfo" class="level3">
+<h3 class="anchored" data-anchor-id="effetti-basati-sul-ritardo-e-modulazione-lfo">5. Effetti basati sul ritardo e modulazione LFO</h3>
+<ul>
+<li><strong>Mix Dry/Wet:</strong> <span class="math inline">\(y(n) = (1 - m)\,x(n) + m\,w(n)\)</span> (<span class="math inline">\(m=0\)</span>: solo <em>dry</em>; <span class="math inline">\(m=1\)</span>: solo <em>wet</em>).</li>
+<li><strong>Sincronizzazione ai BPM:</strong> quarto <span class="math inline">\(T_{1/4} = \frac{60}{\mathrm{BPM}}\;\text{s}\)</span>, croma <span class="math inline">\(T_{1/8} = \frac{30}{\mathrm{BPM}}\;\text{s}\)</span>, croma puntata <span class="math inline">\(T_{3/16} = \frac{45}{\mathrm{BPM}}\;\text{s}\)</span> (<span class="math inline">\(375\text{ ms}\)</span> a <span class="math inline">\(120\text{ BPM}\)</span>).</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Effetto</th>
+<th>Legge matematica</th>
+<th>Parametri tipici</th>
+<th>Cosa cambia nel suono</th>
+<th>Codice <code>audiolab</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Delay singolo</strong></td>
+<td><span class="math inline">\(y(n) = x(n) + g\,x(n-D)\)</span></td>
+<td><span class="math inline">\(\tau = 50\text{–}500\text{ ms}\)</span></td>
+<td><strong>1 sola ripetizione</strong> dopo <span class="math inline">\(\tau\)</span> secondi</td>
+<td><code>al.delay_signal(x, delay_s=0.375, gain=0.45, sr=sr)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Eco con feedback</strong></td>
+<td><span class="math inline">\(y(n) = x(n) + g\,y(n-D)\)</span></td>
+<td><span class="math inline">\(\tau = 100\text{–}600\text{ ms}\)</span>, <span class="math inline">\(0 &lt; g &lt; 1\)</span></td>
+<td><strong>Coda di ripetizioni</strong> che decadono come <span class="math inline">\(g^k\)</span></td>
+<td><code>al.feedback_delay(x, delay_s=0.375, feedback=0.55, sr=sr)</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Riverbero</strong></td>
+<td>Convoluzione con <span class="math inline">\(h_{\text{room}}(n)\)</span> (diretto + <em>early</em> + <em>late</em>)</td>
+<td><span class="math inline">\(RT_{60}\)</span> (tempo per <span class="math inline">\(-60\text{ dB}\)</span>): <span class="math inline">\(0{,}4\text{–}3\text{ s}\)</span></td>
+<td>Senso di spazio e dimensione della stanza</td>
+<td><code>al.schroeder_reverb(x, sr=sr, decay=0.8)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Tremolo (AM)</strong></td>
+<td><span class="math inline">\(y(n) = \bigl[1 - \frac{d}{2} + \frac{d}{2}\sin(2\pi f_{\mathrm{LFO}}t)\bigr]x(n)\)</span></td>
+<td><span class="math inline">\(f_{\mathrm{LFO}} = 3\text{–}8\text{ Hz}\)</span>, <code>depth</code> <span class="math inline">\(\in [0,1]\)</span></td>
+<td>Oscilla il <strong>volume (ampiezza)</strong>; altezza fissa</td>
+<td><code>al.tremolo(x, sr=sr, rate_hz=5.0, depth=0.8)</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Vibrato (FM/Doppler)</strong></td>
+<td><span class="math inline">\(y(n) = x\bigl(n - D(n)\bigr)\)</span> <em>(solo wet!)</em></td>
+<td><span class="math inline">\(\tau_0 = 5\text{ ms}\)</span>, <span class="math inline">\(\Delta\tau = \pm 1\text{ ms}\)</span>, <span class="math inline">\(f_{\mathrm{LFO}} = 5\text{ Hz}\)</span></td>
+<td>Oscilla l’<strong>altezza (pitch)</strong> per effetto Doppler; volume fisso</td>
+<td><code>vib, D = al.modulated_delay(x, sr, 5.0, 1.0, 5.0)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Flanger</strong></td>
+<td><span class="math inline">\(y(n) = x(n) + g\,x\bigl(n - D(n)\bigr)\)</span></td>
+<td><span class="math inline">\(\tau \in [0, 10]\text{ ms}\)</span>, <span class="math inline">\(f_{\mathrm{LFO}} = 0{,}2\text{–}1\text{ Hz}\)</span></td>
+<td>Filtro comb con notch mobili (<em>jet plane</em>)</td>
+<td><code>wet, D = al.modulated_delay(x, sr, 3.0, 2.0, 0.5)</code><br><code>fl = x + 0.7 * wet</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Chorus</strong></td>
+<td><span class="math inline">\(y(n) = x(n) + \sum_{k=1}^K g_k\,x\bigl(n - D_k(n)\bigr)\)</span></td>
+<td><span class="math inline">\(\tau_k \in [10, 25]\text{ ms}\)</span>, <span class="math inline">\(K \ge 2\)</span> rami</td>
+<td>Imita un <strong>ensemble</strong> di più strumenti</td>
+<td>Più chiamate a <code>al.modulated_delay</code> con <code>phase</code> o <code>delay_curve</code> diverse</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prontuario-rapido-delle-funzioni-audiolab-lezione-3" class="level3">
+<h3 class="anchored" data-anchor-id="prontuario-rapido-delle-funzioni-audiolab-lezione-3">6. Prontuario rapido delle funzioni <code>audiolab</code> (Lezione 3)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> audiolab <span class="im">as</span> al</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Caricamento, grafici e ascolto</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x, sr <span class="op">=</span> al.load_audio(AUDIO <span class="op">/</span> <span class="st">"Guitar_C4.wav"</span>, sr<span class="op">=</span><span class="dv">44100</span>, seconds<span class="op">=</span><span class="fl">5.0</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>al.plot_waveform(x, sr, title<span class="op">=</span><span class="st">"Forma d'onda"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>al.plot_spectrum(x, sr, title<span class="op">=</span><span class="st">"Spettro"</span>, scale<span class="op">=</span><span class="st">"linear"</span>)  <span class="co"># scale="linear" | "db" | "both"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>al.compare_audio([(<span class="st">"originale"</span>, x), (<span class="st">"elaborato"</span>, y)], sr)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Risposta in frequenza e applicazione di un filtro (coefficienti b, a)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>f, gain_db <span class="op">=</span> al.frequency_response(b, a, sr<span class="op">=</span>sr)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> al.filter_signal(b, a, x)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>al.plot_curves([(<span class="st">"Risposta |H(f)|"</span>, f, gain_db)], x_title<span class="op">=</span><span class="st">"Frequenza [Hz]"</span>, y_title<span class="op">=</span><span class="st">"Guadagno [dB]"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filtri standard in sezioni del 2° ordine (SOS: lowpass, highpass, bandpass, notch)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>sos <span class="op">=</span> al.design_filter(<span class="st">"lowpass"</span>, cutoff<span class="op">=</span><span class="dv">4000</span>, sr<span class="op">=</span>sr, order<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>f_sos, gain_sos <span class="op">=</span> al.sos_response(sos, sr<span class="op">=</span>sr)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>y_sos <span class="op">=</span> al.filter_sos(sos, x)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Equalizzazione: campana (2° ordine), mensola (1° ordine) e catena vocale</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>b_bell, a_bell   <span class="op">=</span> al.eq_bell(f0<span class="op">=</span><span class="dv">4000</span>, bandwidth<span class="op">=</span><span class="dv">1800</span>, gain_db<span class="op">=-</span><span class="dv">9</span>, sr<span class="op">=</span>sr)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>b_shelf, a_shelf <span class="op">=</span> al.eq_shelf(cutoff<span class="op">=</span><span class="dv">4000</span>, gain_db<span class="op">=-</span><span class="dv">9</span>, kind<span class="op">=</span><span class="st">"high"</span>, sr<span class="op">=</span>sr)  <span class="co"># kind="low" | "high"</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>voce_eq          <span class="op">=</span> al.process(al.voice_eq_chain(), voce, sr)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Ritardi, eco, tremolo, vibrato, flanger e misura di frequenza istantanea</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>eco_singola  <span class="op">=</span> al.delay_signal(x, delay_s<span class="op">=</span><span class="fl">0.375</span>, gain<span class="op">=</span><span class="fl">0.45</span>, sr<span class="op">=</span>sr)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>eco_multi    <span class="op">=</span> al.feedback_delay(x, delay_s<span class="op">=</span><span class="fl">0.375</span>, feedback<span class="op">=</span><span class="fl">0.55</span>, sr<span class="op">=</span>sr)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>x_tremolo    <span class="op">=</span> al.tremolo(x, sr<span class="op">=</span>sr, rate_hz<span class="op">=</span><span class="fl">5.0</span>, depth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>x_vibrato, D <span class="op">=</span> al.modulated_delay(x, sr<span class="op">=</span>sr, delay_ms<span class="op">=</span><span class="fl">5.0</span>, depth_ms<span class="op">=</span><span class="fl">1.0</span>, rate_hz<span class="op">=</span><span class="fl">5.0</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>f_ist        <span class="op">=</span> al.instantaneous_frequency(x_vibrato, sr<span class="op">=</span>sr)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</div>
+</div>
 </div>
 <script src="demo-python.js"></script>
 

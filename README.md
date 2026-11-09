@@ -10,6 +10,7 @@ Pubblicazione **a capitoli**, in corso. In questa build:
 - Lezione 2 — Spettro del segnale
 - Lezione 3 — DSP: filtri ed effetti
 - Lezione 4 — Feature e classificazione
+- Lezione 5 — AI moderna per il suono
 - Appendice B — Manuale delle funzioni
 
 Generato automaticamente da `pubblicazione/pubblica-dispensa.py`;

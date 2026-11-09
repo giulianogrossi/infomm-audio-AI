@@ -323,6 +323,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sec-fc-domande" id="toc-sec-fc-domande" class="nav-link" data-scroll-target="#sec-fc-domande"><span class="header-section-number">4.16</span> Domande di autocomprensione</a></li>
   <li><a href="#sec-slide-lezione-4" id="toc-sec-slide-lezione-4" class="nav-link" data-scroll-target="#sec-slide-lezione-4"><span class="header-section-number">4.17</span> Slide della lezione</a></li>
+  <li><a href="#sec-cheatsheet-lezione-4" id="toc-sec-cheatsheet-lezione-4" class="nav-link" data-scroll-target="#sec-cheatsheet-lezione-4"><span class="header-section-number">4.18</span> Cheatsheet della lezione</a></li>
   </ul>
 </nav>
     </div>
@@ -435,6 +436,10 @@ window.Quarto = {
 <td><a href="#sec-slide-lezione-4">4.17 Slide della lezione</a></td>
 <td>Presentazione interattiva integrata e apertura a schermo intero</td>
 </tr>
+<tr class="even">
+<td><a href="#sec-cheatsheet-lezione-4">4.18 Cheatsheet della lezione</a></td>
+<td>Formulario rapido di descrittori, Mel/MFCC, protocollo ML/CNN e API <code>audiolab</code></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -463,7 +468,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Usiamo <code>librosa</code> per le rappresentazioni nel tempo e in frequenza, <code>scikit-learn</code> per classificatori e metriche, <code>torch</code> per la rete convoluzionale 2D. Le funzioni di servizio in <a href="../lab-2026/audiolab/classification.py"><code>audiolab/classification.py</code></a> (documentate in <a href="./app-b-manuale-funzioni.html">Appendice B — Manuale delle funzioni <code>audiolab</code></a>) gestiscono metadati, cache e addestramento; le scelte sperimentali sono esplicite nelle demo.</p>
-<p>Avvia dalla dispensa o da <code>lab-2026</code>, con le dipendenze del corso disponibili. Il dataset deve essere già presente in <code>datasets/UrbanSound8K</code>, oppure indicato dalla variabile <code>URBANSOUND8K</code>: il codice non lo scarica. Il <a href="../lab-2026/04-feature-e-classificazione-demo.ipynb">notebook delle demo (<code>04-feature-e-classificazione-demo.ipynb</code>)</a> contiene le stesse celle; il <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb">laboratorio (<code>04-feature-e-classificazione-TODO.ipynb</code>)</a> propone il percorso guidato (con le soluzioni in <a href="../lab-2026/04-feature-e-classificazione-SOLUZ.ipynb"><code>04-feature-e-classificazione-SOLUZ.ipynb</code></a>). In calce al capitolo trovi inoltre le <strong><a href="#sec-slide-lezione-4">Slide della lezione</a></strong> sfogliabili direttamente nella pagina o apribili a schermo intero.</p>
+<p>Avvia dalla dispensa o da <code>lab-2026</code>, con le dipendenze del corso disponibili. Il dataset deve essere già presente in <code>datasets/UrbanSound8K</code>, oppure indicato dalla variabile <code>URBANSOUND8K</code>: il codice non lo scarica. Il <a href="../lab-2026/04-feature-e-classificazione-demo.ipynb">notebook delle demo (<code>04-feature-e-classificazione-demo.ipynb</code>)</a> contiene le stesse celle; il <a href="../lab-2026/04-feature-e-classificazione-TODO.ipynb">laboratorio (<code>04-feature-e-classificazione-TODO.ipynb</code>)</a> propone il percorso guidato (con le soluzioni in <a href="../lab-2026/04-feature-e-classificazione-SOLUZ.ipynb"><code>04-feature-e-classificazione-SOLUZ.ipynb</code></a>). In calce al capitolo trovi inoltre le <strong><a href="#sec-slide-lezione-4">Slide della lezione</a></strong> sfogliabili direttamente nella pagina e il <strong><a href="#sec-cheatsheet-lezione-4">Cheatsheet della lezione</a></strong> con tutte le formule e le funzioni <code>audiolab</code>.</p>
 <div id="fc-preparazione" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Mostra il codice</summary>
@@ -1342,6 +1347,160 @@ Mostra la risposta
   <div class="slide-deck-viewport">
     <iframe class="slide-deck-iframe" src="slides/04-feature-e-classificazione-slides.html" title="Slide Lezione 4 — Feature audio e classificazione" loading="lazy" allowfullscreen=""></iframe>
   </div>
+</div>
+</section>
+<section id="sec-cheatsheet-lezione-4" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="sec-cheatsheet-lezione-4"><span class="header-section-number">4.18</span> Cheatsheet della lezione</h2>
+<p>Riepilogo compatto di tutti i <strong>descrittori acustici</strong>, della catena <strong>STFT <span class="math inline">\(\to\)</span> Mel <span class="math inline">\(\to\)</span> Log-Mel <span class="math inline">\(\to\)</span> MFCC</strong>, del <strong>protocollo di valutazione</strong> e delle <strong>API <code>audiolab</code></strong> della Lezione 4, consultabile qui sotto oppure apribile e stampabile in una scheda separata.</p>
+<div style="margin: 0.6rem 0 1rem 0;">
+  <a class="slide-deck-btn" href="04-feature-e-classificazione-cheatsheet.html" target="_blank" rel="noopener">
+    🖨️ Apri / Stampa il Cheatsheet in una scheda separata ↗
+  </a>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mostra / Nascondi il Cheatsheet completo della Lezione 4 (Descrittori, Mel/MFCC, Random Forest, CNN e API audiolab)">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Mostra / Nascondi il Cheatsheet completo della Lezione 4 (Descrittori, Mel/MFCC, Random Forest, CNN e API audiolab)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="descrittori-feature-nel-dominio-del-tempo-e-della-frequenza" class="level3">
+<h3 class="anchored" data-anchor-id="descrittori-feature-nel-dominio-del-tempo-e-della-frequenza">1. Descrittori (Feature) nel dominio del tempo e della frequenza</h3>
+<p>Sia <span class="math inline">\(x_m(n)\)</span> il frame <span class="math inline">\(m\)</span>-esimo di lunghezza <span class="math inline">\(N\)</span> e <span class="math inline">\(S(k, m) = |X(k, m)|\)</span> il modulo dello spettro alle frequenze <span class="math inline">\(f_k = k F_s / N\)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Descrittore</th>
+<th>Formula sul frame <span class="math inline">\(m\)</span></th>
+<th>Unità</th>
+<th>Cosa misura percettivamente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RMS (<em>Root Mean Square</em>)</strong></td>
+<td><span class="math inline">\(\mathrm{RMS}(m) = \sqrt{\frac{1}{N}\sum_{n=0}^{N-1} x_m^2(n)}\)</span></td>
+<td>Ampiezza (o dB)</td>
+<td><strong>Energia / intensità locale</strong> del frame</td>
+</tr>
+<tr class="even">
+<td><strong>ZCR (<em>Zero-Crossing Rate</em>)</strong></td>
+<td><span class="math inline">\(\mathrm{ZCR}(m) = \frac{1}{2(N-1)}\sum_{n=1}^{N-1}\bigl|\mathrm{sgn}(x_m(n)) - \mathrm{sgn}(x_m(n-1))\bigr|\)</span></td>
+<td>Frazione <span class="math inline">\(\in [0,1]\)</span></td>
+<td><strong>Rumorosità</strong>: basso su vocali e bassi, alto su consonanti fricative e rumori</td>
+</tr>
+<tr class="odd">
+<td><strong>Centroide spettrale</strong></td>
+<td><span class="math inline">\(C(m) = \frac{\sum_{k} f_k\,S(k,m)}{\sum_{k} S(k,m)}\)</span></td>
+<td><span class="math inline">\(\text{Hz}\)</span></td>
+<td><strong>Baricentro dello spettro / brillantezza (<em>brightness</em>)</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Larghezza di banda (<em>Bandwidth</em>)</strong></td>
+<td><span class="math inline">\(\mathrm{BW}(m) = \sqrt{\frac{\sum_{k} (f_k - C(m))^2\,S(k,m)}{\sum_{k} S(k,m)}}\)</span></td>
+<td><span class="math inline">\(\text{Hz}\)</span></td>
+<td><strong>Dispersione attorno al centroide</strong> (piccola per toni puri, grande per rumori)</td>
+</tr>
+<tr class="odd">
+<td><strong>Rolloff spettrale (<span class="math inline">\(\eta = 85\%\)</span>)</strong></td>
+<td>Minima <span class="math inline">\(f_R\)</span> tale che <span class="math inline">\(\sum_{f_k \le f_R} S(k,m) \ge \eta \sum_k S(k,m)\)</span></td>
+<td><span class="math inline">\(\text{Hz}\)</span></td>
+<td>Frequenza entro cui si concentra l’<span class="math inline">\(85\%\)</span> dell’energia spettrale</td>
+</tr>
+<tr class="even">
+<td><strong>Piattezza spettrale (<em>Flatness</em>)</strong></td>
+<td><span class="math inline">\(\mathrm{SF}(m) = \frac{\left(\prod_{k=0}^{K-1} S(k,m)\right)^{1/K}}{\frac{1}{K}\sum_{k=0}^{K-1} S(k,m)}\)</span></td>
+<td>Adim. <span class="math inline">\(\in [0, 1]\)</span></td>
+<td><strong>Tonalità vs Rumore</strong>: <span class="math inline">\(\approx 0\)</span> tono armonico puro; <span class="math inline">\(\approx 1\)</span> rumore bianco piatto</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="catena-di-estrazione-dalla-stft-al-log-mel-e-agli-mfcc" class="level3">
+<h3 class="anchored" data-anchor-id="catena-di-estrazione-dalla-stft-al-log-mel-e-agli-mfcc">2. Catena di estrazione: dalla STFT al Log-Mel e agli MFCC</h3>
+<p><span class="math display">\[\underbrace{x(n)}_{\text{Audio }\, (L,)} \xrightarrow{\text{STFT } |X|^2} \underbrace{P(k,m)}_{(1 + N_{\mathrm{FFT}}/2,\; T)} \xrightarrow{\text{Banco Mel } B} \underbrace{M(\ell, m)}_{(N_{\mathrm{mel}},\; T)} \xrightarrow{10\log_{10}(\cdot)} \underbrace{L(\ell, m)}_{\text{Log-Mel }\, (N_{\mathrm{mel}},\; T)} \xrightarrow{\text{DCT-II}} \underbrace{c(r, m)}_{\text{MFCC }\, (N_{\mathrm{mfcc}},\; T)}\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Passaggio</th>
+<th>Formula</th>
+<th>Perché serve e dimensioni tipiche (<span class="math inline">\(F_s=22050, N_{\mathrm{FFT}}=2048, H=512\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Scala percettiva Mel</strong></td>
+<td><span class="math inline">\(m(f) = 2595\log_{10}\!\left(1 + \frac{f}{700}\right)\)</span></td>
+<td>Lineare sotto <span class="math inline">\(1\text{ kHz}\)</span>, logaritmica sopra <span class="math inline">\(1\text{ kHz}\)</span> (risoluzione cocleare)</td>
+</tr>
+<tr class="even">
+<td><strong>2. Banco di filtri triangolari (<span class="math inline">\(B\)</span>)</strong></td>
+<td><span class="math inline">\(M = B \cdot |X|^2\)</span></td>
+<td>Raggruppa le <span class="math inline">\(1025\)</span> righe FFT in <strong><span class="math inline">\(N_{\mathrm{mel}} = 64\)</span> o <span class="math inline">\(128\)</span> bande Mel</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>3. Compressione logaritmica (Log-Mel)</strong></td>
+<td><span class="math inline">\(L(\ell, m) = 10\log_{10}\!\bigl(\max(M(\ell, m), \varepsilon)\bigr)\)</span></td>
+<td>Percezione logaritmica dell’intensità; <strong>ingresso 2D ideale per le CNN</strong></td>
+</tr>
+<tr class="even">
+<td><strong>4. DCT e coefficienti MFCC</strong></td>
+<td><span class="math inline">\(c_r(m) = \sum_{\ell=0}^{N_{\mathrm{mel}}-1} L(\ell, m)\cos\!\left[\frac{\pi r}{N_{\mathrm{mel}}}\left(\ell + \frac{1}{2}\right)\right]\)</span></td>
+<td>Decorrela le bande e compatta l’<strong>inviluppo spettrale</strong> nei primi <strong><span class="math inline">\(N_{\mathrm{mfcc}} = 13\text{–}20\)</span> coefficienti</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aggregazione-temporale-cnn-2d-protocollo-e-metriche" class="level3">
+<h3 class="anchored" data-anchor-id="aggregazione-temporale-cnn-2d-protocollo-e-metriche">3. Aggregazione temporale, CNN 2D, Protocollo e Metriche</h3>
+<ul>
+<li><strong>Classificatore tabellare (Random Forest):</strong> riassume la sequenza <span class="math inline">\((N_{\mathrm{mfcc}}, T)\)</span> in un vettore fisso <span class="math inline">\([\mu(c_1\dots c_{13}), \sigma(c_1\dots c_{13})] \in \mathbb{R}^{26}\)</span> (invariante a permutazione dei frame; l’ordine locale si recupera aggiungendo derivate <span class="math inline">\(\Delta, \Delta\Delta\)</span>).</li>
+<li><strong>CNN 2D su Log-Mel:</strong> opera direttamente sulla mappa <code>(1, N_mel, T)</code> con filtri <code>Conv2d(3×3)</code> + <em>Global Average Pooling</em>.</li>
+<li><strong>Prevenzione del <em>Data Leakage</em>:</strong> spezzoni della stessa registrazione sorgente devono stare nello <strong>stesso fold</strong> (usare sempre gli split ufficiali train / validation / test).</li>
+<li><strong>Metriche:</strong> <span class="math inline">\(\mathrm{Accuracy}\)</span>, <span class="math inline">\(\mathrm{Precision}_c = \frac{\mathrm{TP}_c}{\mathrm{TP}_c+\mathrm{FP}_c}\)</span>, <span class="math inline">\(\mathrm{Recall}_c = \frac{\mathrm{TP}_c}{\mathrm{TP}_c+\mathrm{FN}_c}\)</span>, <span class="math inline">\(F_{1,c} = \frac{2\,\mathrm{Prec}_c\,\mathrm{Rec}_c}{\mathrm{Prec}_c+\mathrm{Rec}_c}\)</span> e <strong>matrice di confusione</strong>.</li>
+</ul>
+</section>
+<section id="prontuario-rapido-delle-funzioni-audiolab-lezione-4" class="level3">
+<h3 class="anchored" data-anchor-id="prontuario-rapido-delle-funzioni-audiolab-lezione-4">4. Prontuario rapido delle funzioni <code>audiolab</code> (Lezione 4)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> audiolab <span class="im">as</span> al</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, f1_score</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Feature temporali e spettrali frame per frame</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>x, sr <span class="op">=</span> al.load_audio(AUDIO <span class="op">/</span> <span class="st">"speech1.wav"</span>, sr<span class="op">=</span><span class="dv">22050</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>feats <span class="op">=</span> al.frame_features(x, sr<span class="op">=</span>sr, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Spettrogramma Log-Mel, MFCC e aggregazione temporale (media + dev. standard)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>log_mel <span class="op">=</span> al.log_mel_spectrogram(x, sr<span class="op">=</span>sr, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>, n_mels<span class="op">=</span><span class="dv">64</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>mfcc    <span class="op">=</span> al.mfcc_features(x, sr<span class="op">=</span>sr, n_mfcc<span class="op">=</span><span class="dv">13</span>, n_fft<span class="op">=</span><span class="dv">2048</span>, hop_length<span class="op">=</span><span class="dv">512</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>vettore <span class="op">=</span> np.concatenate([mfcc.mean(axis<span class="op">=</span><span class="dv">1</span>), mfcc.std(axis<span class="op">=</span><span class="dv">1</span>)])  <span class="co"># shape (26,)</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Protocollo UrbanSound8K, Random Forest e confronto con la CNN 2D</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>manifest <span class="op">=</span> al.load_urbansound_manifest()</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>X_tr, y_tr, X_va, y_va, X_te, y_te <span class="op">=</span> al.urbansound_mfcc_splits(manifest)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">200</span>, random_state<span class="op">=</span><span class="dv">42</span>).fit(X_tr, y_tr)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>risultati_cnn <span class="op">=</span> al.load_cnn_experiment()</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>al.plot_confusion_matrix(y_te, risultati_cnn[<span class="st">"test_pred"</span>], class_names<span class="op">=</span>al.URBANSOUND_CLASSES)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</div>
+</div>
 </div>
 <script src="demo-python.js"></script>
 

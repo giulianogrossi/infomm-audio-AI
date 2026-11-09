@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Calibri, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4472C4"/>
+    </marker>
+    <marker id="arrP" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7B4FBF"/>
+    </marker>
+  </defs>
+
+  <!-- Titolo -->
+  <text x="450" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#35599C">
+    LAION-CLAP — Architettura
+  </text>
+  <text x="450" y="50" text-anchor="middle" font-size="12" font-style="italic" fill="#595959">
+    Contrastive Language–Audio Pretraining
+  </text>
+
+  <!-- Ramo Audio -->
+  <text x="180" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#4472C4">RAMO AUDIO</text>
+  <rect x="40" y="90"  width="280" height="40" rx="6" fill="#E8EFFB" stroke="#4472C4" stroke-width="1.5"/>
+  <text x="180" y="115" text-anchor="middle" font-size="11">Spettrogramma log-Mel (80 × T)</text>
+
+  <rect x="40" y="145" width="280" height="40" rx="6" fill="#4472C4" stroke="#35599C" stroke-width="1.5"/>
+  <text x="180" y="170" text-anchor="middle" font-size="11" fill="white">Patch Embedding (Conv2d)</text>
+
+  <rect x="40" y="200" width="280" height="90" rx="6" fill="#4472C4" stroke="#35599C" stroke-width="1.5"/>
+  <text x="180" y="225" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Swin Transformer (HTS-AT)</text>
+  <text x="180" y="245" text-anchor="middle" font-size="10" fill="white">Window Attention</text>
+  <text x="180" y="262" text-anchor="middle" font-size="10" fill="white">Shifted Windows + Patch Merging</text>
+  <text x="180" y="279" text-anchor="middle" font-size="10" fill="white">Gerarchia locale→globale</text>
+
+  <rect x="40" y="305" width="280" height="35" rx="6" fill="#E8EFFB" stroke="#4472C4" stroke-width="1.5"/>
+  <text x="180" y="327" text-anchor="middle" font-size="11">Token Mean-Pool</text>
+
+  <rect x="40" y="355" width="280" height="35" rx="6" fill="#005BFF" stroke="#35599C" stroke-width="1.5"/>
+  <text x="180" y="377" text-anchor="middle" font-size="11" fill="white">Proiezione 2-layer MLP</text>
+
+  <rect x="90" y="405" width="180" height="40" rx="6" fill="#EAF4EC" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="180" y="422" text-anchor="middle" font-size="11" fill="#1E5B29" font-weight="bold">Embedding audio</text>
+  <text x="180" y="437" text-anchor="middle" font-size="10" fill="#1E5B29">512-d</text>
+
+  <!-- Ramo Testo -->
+  <text x="720" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B4FBF">RAMO TESTO</text>
+  <rect x="580" y="90"  width="280" height="40" rx="6" fill="#F2ECFB" stroke="#7B4FBF" stroke-width="1.5"/>
+  <text x="720" y="115" text-anchor="middle" font-size="11">Frase: "a dog barking"</text>
+
+  <rect x="580" y="145" width="280" height="40" rx="6" fill="#7B4FBF" stroke="#5A3596" stroke-width="1.5"/>
+  <text x="720" y="170" text-anchor="middle" font-size="11" fill="white">Tokenizzazione BPE</text>
+
+  <rect x="580" y="200" width="280" height="90" rx="6" fill="#7B4FBF" stroke="#5A3596" stroke-width="1.5"/>
+  <text x="720" y="225" text-anchor="middle" font-size="11" fill="white" font-weight="bold">RoBERTa (12 layer)</text>
+  <text x="720" y="245" text-anchor="middle" font-size="10" fill="white">Self-attention bidirezionale</text>
+  <text x="720" y="262" text-anchor="middle" font-size="10" fill="white">Masked Language Modeling</text>
+  <text x="720" y="279" text-anchor="middle" font-size="10" fill="white">Hidden: 768-d</text>
+
+  <rect x="580" y="305" width="280" height="35" rx="6" fill="#F2ECFB" stroke="#7B4FBF" stroke-width="1.5"/>
+  <text x="720" y="327" text-anchor="middle" font-size="11">Pooling [CLS]</text>
+
+  <rect x="580" y="355" width="280" height="35" rx="6" fill="#005BFF" stroke="#35599C" stroke-width="1.5"/>
+  <text x="720" y="377" text-anchor="middle" font-size="11" fill="white">Proiezione 2-layer MLP</text>
+
+  <rect x="630" y="405" width="180" height="40" rx="6" fill="#EAF4EC" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="720" y="422" text-anchor="middle" font-size="11" fill="#1E5B29" font-weight="bold">Embedding testo</text>
+  <text x="720" y="437" text-anchor="middle" font-size="10" fill="#1E5B29">512-d</text>
+
+  <!-- Frecce ramo audio -->
+  <line x1="180" y1="130" x2="180" y2="145" stroke="#4472C4" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="180" y1="185" x2="180" y2="200" stroke="#4472C4" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="180" y1="290" x2="180" y2="305" stroke="#4472C4" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="180" y1="340" x2="180" y2="355" stroke="#4472C4" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="180" y1="390" x2="180" y2="405" stroke="#4472C4" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Frecce ramo testo -->
+  <line x1="720" y1="130" x2="720" y2="145" stroke="#7B4FBF" stroke-width="2" marker-end="url(#arrP)"/>
+  <line x1="720" y1="185" x2="720" y2="200" stroke="#7B4FBF" stroke-width="2" marker-end="url(#arrP)"/>
+  <line x1="720" y1="290" x2="720" y2="305" stroke="#7B4FBF" stroke-width="2" marker-end="url(#arrP)"/>
+  <line x1="720" y1="340" x2="720" y2="355" stroke="#7B4FBF" stroke-width="2" marker-end="url(#arrP)"/>
+  <line x1="720" y1="390" x2="720" y2="405" stroke="#7B4FBF" stroke-width="2" marker-end="url(#arrP)"/>
+
+  <!-- Spazio latente condiviso -->
+  <rect x="320" y="465" width="260" height="45" rx="6" fill="#FFF2CC" stroke="#E0B33A" stroke-width="2"/>
+  <text x="450" y="483" text-anchor="middle" font-size="11" font-weight="bold">Spazio latente condiviso (512-d)</text>
+  <text x="450" y="500" text-anchor="middle" font-size="10">Similarità coseno + InfoNCE Loss</text>
+
+  <line x1="270" y1="425" x2="320" y2="480" stroke="#4472C4" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="630" y1="425" x2="580" y2="480" stroke="#7B4FBF" stroke-width="2" marker-end="url(#arrP)"/>
+</svg>
